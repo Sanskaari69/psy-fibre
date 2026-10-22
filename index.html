@@ -137,6 +137,24 @@ p{ margin:0; max-width:var(--measure); text-wrap:pretty; }
 .chart-frame{ overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius-panel); background:var(--plum); }
 .chart-frame svg{ display:block; width:100%; min-width:560px; height:auto; }
 
+
+.lscape .ls-bg{ fill:var(--plum); }
+.lscape .ls-hatch{ stroke:rgba(155,77,255,.22); stroke-width:1; }
+.lscape .ls-psyband{ stroke:var(--violet); stroke-width:1; stroke-dasharray:4 4; }
+.lscape .ls-psy{ fill:var(--rim); font-family:var(--font-mono); font-size:12px; letter-spacing:.12em; text-transform:uppercase; }
+.lscape .ls-grid{ stroke:var(--line-strong); stroke-width:1; }
+.lscape .ls-axis{ stroke:var(--mute); stroke-width:1; }
+.lscape .ls-row{ fill:var(--paper); font-family:var(--font-mono); font-size:12.5px; letter-spacing:.12em; text-transform:uppercase; }
+.lscape .ls-sub,.lscape .ls-tick{ fill:var(--mute); font-family:var(--font-mono); font-size:11.5px; letter-spacing:.04em; }
+.lscape .ls-lab{ fill:var(--paper); font-family:var(--font-body); font-size:12.5px; }
+.lscape .ls-val{ fill:var(--mute); font-family:var(--font-mono); font-size:11.5px; }
+.lscape .ls-fill{ fill:var(--paper); stroke:var(--plum); stroke-width:2; }
+.lscape .ls-ring{ fill:var(--plum); stroke:var(--paper); stroke-width:1.5; }
+.lscape .ls-range{ stroke:var(--paper); stroke-width:2; }
+.lscape .ls-pt{ outline:none; cursor:default; }
+.lscape .ls-pt:hover .ls-lab,.lscape .ls-pt:focus-visible .ls-lab{ fill:var(--rim); }
+.lscape .ls-pt:hover circle,.lscape .ls-pt:focus-visible circle{ stroke:var(--rim); }
+
 /* ── Flavours ─────────────────────────────────────── */
 .flavours .wrap{ gap:var(--s-6); }
 .f-head{ display:flex; justify-content:space-between; align-items:end; gap:var(--s-5); flex-wrap:wrap; }
@@ -337,14 +355,89 @@ p{ margin:0; max-width:var(--measure); text-wrap:pretty; }
     <h2 class="h2 r" id="format-h" style="--d:1">A jelly, <em>not a drink.</em></h2>
     <div class="trio">
       <div class="r" style="--d:2"><span class="mono">Portion</span><p>One stick, one serving. Nothing to measure.</p></div>
-      <div class="r" style="--d:3"><span class="mono">Portability</span><p>Pocket, bag, desk drawer. No water source required to take it.</p></div>
+      <div class="r" style="--d:3"><span class="mono">Portability</span><p>Pocket, bag, desk drawer. Nothing to prepare before you take it.</p></div>
       <div class="r" style="--d:4"><span class="mono">Ritual</span><p>Five seconds, once a day. Short enough to actually keep.</p></div>
     </div>
     <p class="fineprint r" style="--d:5">Benefits of format only. No efficacy claims pending validation.</p>
   </div>
 </section>
 
-<!-- CHART: format-landscape (Phase 5) -->
+<!-- ══ 3b · FORMAT LANDSCAPE ══ -->
+<section class="band band--plum" aria-labelledby="land-h">
+  <div class="wrap">
+    <div class="split" style="align-items:end">
+      <div style="display:grid;gap:var(--s-4)">
+        <p class="eyebrow r">Where it sits</p>
+        <h2 class="h2 r" id="land-h" style="--d:1">The empty row <em>on the shelf.</em></h2>
+      </div>
+      <p class="mute r" style="--d:2">Every psyllium product we found asks you to prepare it. Every no-prep fibre format uses something else. PSY. is built for the gap.</p>
+    </div>
+    <figure class="r" style="--d:3;margin:0;display:grid;gap:var(--s-4)">
+      <div class="chart-frame">
+<svg class="lscape" viewBox="0 0 1000 430" role="img" aria-label="Price per serving against preparation steps. PSY. sits in the no-prep row with gummies, gels and Japanese jelly sticks, and is the only psyllium product there. PSY. price is pending.">
+<defs><pattern id="ls-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" class="ls-bg"/><line x1="0" y1="0" x2="0" y2="6" class="ls-hatch"/></pattern></defs>
+<line x1="250" y1="120" x2="920" y2="120" class="ls-grid"/>
+<text x="16" y="117" class="ls-row">No prep</text><text x="16" y="134" class="ls-sub">tear and take</text>
+<line x1="250" y1="235" x2="920" y2="235" class="ls-grid"/>
+<text x="16" y="232" class="ls-row">Pre-measured</text><text x="16" y="249" class="ls-sub">still prepared in water</text>
+<line x1="250" y1="320" x2="920" y2="320" class="ls-grid"/>
+<text x="16" y="317" class="ls-row">Measure + prepare</text><text x="16" y="334" class="ls-sub">scoop, water, glass</text>
+<rect x="250" y="86" width="670" height="68" fill="url(#ls-hatch)" class="ls-psyband" rx="2"/>
+<text x="920" y="78" text-anchor="end" class="ls-psy">PSY. · psyllium, no prep · price pending</text>
+<line x1="250" y1="372" x2="920" y2="372" class="ls-axis"/>
+<line x1="284.6" y1="372" x2="284.6" y2="377" class="ls-axis"/><text x="284.6" y="393" text-anchor="middle" class="ls-tick">₹5</text>
+<line x1="392.2" y1="372" x2="392.2" y2="377" class="ls-axis"/><text x="392.2" y="393" text-anchor="middle" class="ls-tick">₹10</text>
+<line x1="534.4" y1="372" x2="534.4" y2="377" class="ls-axis"/><text x="534.4" y="393" text-anchor="middle" class="ls-tick">₹25</text>
+<line x1="641.9" y1="372" x2="641.9" y2="377" class="ls-axis"/><text x="641.9" y="393" text-anchor="middle" class="ls-tick">₹50</text>
+<line x1="749.5" y1="372" x2="749.5" y2="377" class="ls-axis"/><text x="749.5" y="393" text-anchor="middle" class="ls-tick">₹100</text>
+<line x1="891.7" y1="372" x2="891.7" y2="377" class="ls-axis"/><text x="891.7" y="393" text-anchor="middle" class="ls-tick">₹250</text>
+<text x="920" y="416" text-anchor="end" class="ls-tick">Price per serving, INR · log scale</text>
+<text x="16" y="416" class="ls-tick">● psyllium &#160;&#160; ○ other fibre or non-fibre</text>
+<g class="ls-pt" tabindex="0"><title>Isabgol tub · Dabur: ₹5 per serving</title>
+<circle cx="284.6" cy="320" r="5.5" class="ls-fill"/>
+<text x="284.6" y="344" text-anchor="middle" class="ls-lab">Isabgol tub · Dabur <tspan class="ls-val">₹5</tspan></text></g>
+<g class="ls-pt" tabindex="0"><title>Sat-Isabgol: ₹8.75 per serving</title>
+<circle cx="371.5" cy="320" r="5.5" class="ls-fill"/>
+<text x="371.5" y="306" text-anchor="middle" class="ls-lab">Sat-Isabgol <tspan class="ls-val">₹8.75</tspan></text></g>
+<g class="ls-pt" tabindex="0"><title>Organic India: ₹13 per serving</title>
+<circle cx="432.9" cy="320" r="5.5" class="ls-fill"/>
+<text x="432.9" y="344" text-anchor="middle" class="ls-lab">Organic India <tspan class="ls-val">₹13</tspan></text></g>
+<g class="ls-pt" tabindex="0"><title>Metamucil tub (US): ₹21 per serving</title>
+<circle cx="507.3" cy="320" r="5.5" class="ls-fill"/>
+<text x="507.3" y="306" text-anchor="middle" class="ls-lab">Metamucil tub (US) <tspan class="ls-val">₹21</tspan></text></g>
+<g class="ls-pt" tabindex="0"><title>Supermucil single-dose: ₹8 per serving</title>
+<circle cx="357.6" cy="235" r="5.5" class="ls-fill"/>
+<text x="357.6" y="221" text-anchor="middle" class="ls-lab">Supermucil single-dose <tspan class="ls-val">₹8</tspan></text></g>
+<g class="ls-pt" tabindex="0"><title>Metamucil packets (US): ₹52 per serving</title>
+<circle cx="648.0" cy="235" r="5.5" class="ls-fill"/>
+<text x="648.0" y="221" text-anchor="middle" class="ls-lab">Metamucil packets (US) <tspan class="ls-val">₹52</tspan></text></g>
+<g class="ls-pt" tabindex="0"><title>Fibre gummies (IN): ₹12.83–17 per serving</title>
+<line x1="430.9" y1="120" x2="474.5" y2="120" class="ls-range"/>
+<circle cx="430.9" cy="120" r="5.5" class="ls-ring"/>
+<circle cx="474.5" cy="120" r="5.5" class="ls-ring"/>
+<text x="452.7" y="106" text-anchor="middle" class="ls-lab">Fibre gummies (IN) <tspan class="ls-val">₹12.83–17</tspan></text></g>
+<g class="ls-pt" tabindex="0"><title>Metamucil gummies (US): ₹62 per serving</title>
+<circle cx="675.3" cy="120" r="5.5" class="ls-ring"/>
+<text x="675.3" y="144" text-anchor="middle" class="ls-lab">Metamucil gummies (US) <tspan class="ls-val">₹62</tspan></text></g>
+<g class="ls-pt" tabindex="0"><title>Energy gels (IN): ₹86–107 per serving</title>
+<line x1="726.1" y1="120" x2="760.0" y2="120" class="ls-range"/>
+<circle cx="726.1" cy="120" r="5.5" class="ls-ring"/>
+<circle cx="760.0" cy="120" r="5.5" class="ls-ring"/>
+<text x="724.1" y="106" text-anchor="end" class="ls-lab">Energy gels (IN) <tspan class="ls-val">₹86–107</tspan></text></g>
+<g class="ls-pt" tabindex="0"><title>Fibre jelly stick (JP): ₹112 per serving</title>
+<circle cx="767.1" cy="120" r="5.5" class="ls-ring"/>
+<text x="775.1" y="144" text-anchor="start" class="ls-lab">Fibre jelly stick (JP) <tspan class="ls-val">₹112</tspan></text></g>
+<g class="ls-pt" tabindex="0"><title>Konjac pouch (US): ₹134–249 per serving</title>
+<line x1="794.9" y1="120" x2="891.1" y2="120" class="ls-range"/>
+<circle cx="794.9" cy="120" r="5.5" class="ls-ring"/>
+<circle cx="891.1" cy="120" r="5.5" class="ls-ring"/>
+<text x="794.9" y="106" text-anchor="start" class="ls-lab">Konjac pouch (US) <tspan class="ls-val">₹134–249</tspan></text></g>
+</svg>
+      </div>
+      <figcaption class="fineprint">Retail listings seen Sept–Oct 2026, per stated or standard serving. USD at ₹95.95, JPY at ₹0.61. Preparation steps counted: measuring, water, vessel, wait. Sources: brand and retailer listings (Dabur, Sat-Isabgol, Organic India, Supermucil, Plix, Fast&amp;Up, Unived, Metamucil, Yazuya, Tastelli, Jelly.B). Comparison of format only, not of effect.</figcaption>
+    </figure>
+  </div>
+</section>
 
 <!-- ══ 4 · FLAVOURS ══ -->
 <section class="band band--plum flavours" aria-labelledby="flavours-h">

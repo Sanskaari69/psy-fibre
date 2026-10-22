@@ -43,13 +43,21 @@ Footer line: *Daily Fibre, Reimagined.*
 - Eyebrow: `WHAT PSY. IS`
 - H2: **A jelly, *not a drink.***
 - `PORTION`: One stick, one serving. Nothing to measure.
-- `PORTABILITY`: Pocket, bag, desk drawer. No water source required to take it.
+- `PORTABILITY`: Pocket, bag, desk drawer. Nothing to prepare before you take it.
+
+> Changed from the brief: "No water source required to take it" contradicted the hydration advisory (step 03: follow with a full glass of water). Psyllium is a swelling fibre, so the copy must not suggest water is optional.
 - `RITUAL`: Five seconds, once a day. Short enough to actually keep.
 - Fine print: *Benefits of format only. No efficacy claims pending validation.*
 
 ## 3b · Format landscape (chart)
 
-See section in `index.html`. Built only from `psy-internal/research` sources; PSY. price shown as `[pending]`.
+- Eyebrow: `WHERE IT SITS`
+- H2: **The empty row *on the shelf.***
+- Side: Every psyllium product we found asks you to prepare it. Every no-prep fibre format uses something else. PSY. is built for the gap.
+- Chart: price per serving (INR, log) × preparation steps (no prep / pre-measured / measure + prepare). PSY. band: `PSY. · PSYLLIUM, NO PREP · PRICE PENDING`.
+- Caption: Retail listings seen Sept–Oct 2026 … Comparison of format only, not of effect.
+
+> Capsules omitted: no Indian capsule price was found in research. The Japan-vs-India category-size chart is **not** built: Japan has a citable figure (¥106.9 bn, FY Apr 2024–Mar 2025), but India has no citable size for an RTC fibre format to compare against (IMARC's ₹465 cr is isabgol overall).
 
 ## 4 · Flavours
 
