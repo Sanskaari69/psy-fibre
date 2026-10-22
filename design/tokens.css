@@ -15,10 +15,11 @@
   --line:rgba(201,163,255,.10);
   --line-strong:rgba(201,163,255,.22);
 
-  /* Flavour accents — derived from the violet family, used only inside flavour panels */
-  --flavour-1:#7A5CFF;   /* indigo-violet */
-  --flavour-2:#C77DFF;   /* orchid */
-  --flavour-3:#E25CFF;   /* magenta-violet */
+  /* Flavour accents — taken from the approved pack board, used only inside that flavour's scene.
+     Purple stays the ground; these are light and edge colours, never section fills. */
+  --mango:#F2B53A;  --lime:#B7D452;             /* Mango + Lime */
+  --raspberry:#E8436E; --blood-orange:#F2703C;  /* Raspberry + Blood Orange */
+  --watermelon:#F0566A; --mint:#86D9AE;         /* Watermelon + Mint */
 
   /* ── Type families ────────────────────────────────────── */
   --font-display:"Bodoni Moda", "Didot", "Bodoni 72", "Times New Roman", serif;
