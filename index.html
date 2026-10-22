@@ -94,7 +94,6 @@ em{ font-style:italic; }
 .stage canvas{ position:absolute; inset:0; width:100%; height:100%; display:block; }
 .stage::before{ content:""; position:absolute; left:29%; right:29%; top:19%; bottom:15%; border-radius:42% / 30%; background:linear-gradient(180deg, rgba(201,163,255,.42), rgba(155,77,255,.28) 45%, rgba(40,18,56,.85)); box-shadow:0 0 0 1.5px rgba(201,163,255,.7), 0 0 28px rgba(155,77,255,.55); }
 .js .stage::before{ display:none; }
-.stage-tag{ position:absolute; left:14px; bottom:12px; right:14px; display:flex; justify-content:space-between; gap:var(--s-3); color:var(--mute); font-size:11px; z-index:1; }
 
 /* ── Marquee ─────────────────────────────────── */
 .marquee{ overflow:hidden; border-block:1px solid var(--line-strong); padding-block:18px; background:var(--purple); }
@@ -125,7 +124,6 @@ em{ font-style:italic; }
 .anim .flow-a, .anim .flow-b{ position:absolute; left:var(--gutter-l); right:var(--gutter-r); top:50%; translate:0 -50%; will-change:opacity, transform; }
 .anim .flow-b{ transform-origin:0 50%; opacity:0; text-shadow:0 2px 30px rgba(16,11,29,.55); }
 .anim .flow-stack{ height:60vh; }
-.flow-tag{ position:absolute; left:var(--gutter-l); bottom:20px; z-index:2; color:var(--mute); font-size:11px; }
 
 /* Problem copy */
 .problem .split{ display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:var(--s-8); align-items:start; }
@@ -189,7 +187,7 @@ html:not(.anim) .arch-cap{ position:static; padding-top:var(--s-6); }
 .line-veil, .line-sweep{ display:none; }
 .line-copy{ display:grid; gap:var(--s-4); padding:var(--s-6) var(--gutter-r) var(--band-y) var(--gutter-l); max-width:calc(var(--max) + 32px); margin-inline:auto; }
 .line-copy .h2 span{ display:block; }
-.line-cap{ color:var(--mute); font-size:11px; }
+.line-cap{ color:var(--mute); font-size:12px; }
 @media (min-width: 900px){
   .line-copy{ position:absolute; left:max(var(--gutter-l), calc((100vw - var(--max)) / 2)); top:50%; translate:0 -50%; padding:0; max-width:min(40vw, 520px); margin:0; z-index:2; }
   .anim .line{ height:220vh; }
@@ -244,7 +242,6 @@ html:not(.anim) .arch-cap{ position:static; padding-top:var(--s-6); }
 .f-scene:hover .shot img{ rotate:-1deg; translate:0 -2%; }
 .shot:has(img) .stick{ display:none; }
 @keyframes sheen{ 0%,55%{ background-position:-150% 0; } 100%{ background-position:150% 0; } }
-.shot-tag{ position:absolute; left:0; bottom:0; color:var(--mute); font-size:11px; z-index:2; }
 @media (min-width: 900px){
   .anim .lab .pin{ height:300vh; }
   .anim .lab .pin-stage{ display:flex; align-items:stretch; }
@@ -261,7 +258,7 @@ html:not(.anim) .arch-cap{ position:static; padding-top:var(--s-6); }
 /* ══ SCENE 05 · From one stick to a collection ══ */
 .coll{ background:var(--purple); }
 .anim .coll{ height:240vh; }
-.coll .pin-stage{ display:grid; grid-template-rows:auto 1fr auto; padding-block:var(--band-y); }
+.coll .pin-stage{ display:grid; grid-template-rows:auto 1fr; padding-block:var(--band-y); }
 .anim .coll .pin-stage{ padding-block:clamp(72px, 10vh, 120px) 32px; }
 .coll-head{ max-width:calc(var(--max) + 32px); width:100%; margin-inline:auto; padding-inline:var(--gutter-l) var(--gutter-r); display:flex; justify-content:space-between; align-items:end; gap:var(--s-5); flex-wrap:wrap; }
 .coll-field{ position:relative; max-width:calc(var(--max) + 32px); width:100%; margin-inline:auto; padding-inline:var(--gutter-l) var(--gutter-r); display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.4fr); gap:var(--s-6); align-items:center; padding-block:var(--s-6); }
@@ -328,6 +325,46 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
 .foot .legal{ color:var(--mute); font-size:11.5px; display:grid; gap:var(--s-2); text-align:right; }
 .foot .legal span{ display:flex; gap:var(--s-3); justify-content:flex-end; align-items:center; flex-wrap:wrap; }
 
+
+/* ── Polish pass (22 Oct 2026) ── */
+.bar::before{ content:""; position:absolute; inset:0 0 -28px 0; z-index:-1; pointer-events:none; background:linear-gradient(180deg, rgba(16,11,29,.9) 0%, rgba(16,11,29,.72) 55%, rgba(16,11,29,0) 100%); }
+.bar a[href="#top"]{ display:inline-flex; align-items:center; min-height:44px; padding-right:12px; }
+.bar .pill-link{ display:inline-flex; align-items:center; min-height:40px; padding:0 16px; transition:border-color var(--dur-hover) var(--ease-out), background-color var(--dur-hover) var(--ease-out), color var(--dur-hover) var(--ease-out); }
+.bar .pill-link:hover, .bar .pill-link:focus-visible{ background:rgba(155,77,255,.14); }
+.eyebrow--wrap{ flex-wrap:wrap; row-gap:4px; }
+@media (pointer: coarse){ .bar .pill-link{ min-height:44px; } }
+.eyebrow--wrap span{ white-space:nowrap; }
+.step .num{ color:#B886FF; }
+.fineprint{ font-size:12px; line-height:1.6; }
+.foot .legal{ font-size:12px; }
+.chart-hint{ display:none; color:var(--mute); font-size:11.5px; }
+.chart-hint span{ display:inline-block; animation:nudge 2.4s var(--ease-io) infinite; }
+@keyframes nudge{ 0%,60%,100%{ transform:none; } 30%{ transform:translateX(5px); } }
+.coll-head{ position:relative; z-index:4; }
+.coll-head .h2{ text-shadow:0 2px 24px rgba(40,18,56,.9); }
+.btn:focus-visible{ border-color:var(--rim); box-shadow:0 0 0 1px rgba(155,77,255,.25), 0 0 22px -6px var(--violet); }
+.btn--solid:hover{ transform:translateY(-1px); }
+.btn{ transition:border-color var(--dur-hover) var(--ease-out), box-shadow var(--dur-hover) var(--ease-out), background-color var(--dur-hover) var(--ease-out), transform var(--dur-hover) var(--ease-out); }
+/* hero: one coordinated entrance, ~0.9s total, content never held back longer */
+@keyframes rise{ from{ opacity:0; transform:translateY(14px); } }
+.anim .hero .eyebrow{ animation:rise 700ms var(--ease-out) 120ms both; }
+.anim .hero h1 span{ display:block; animation:rise 800ms var(--ease-out) both; }
+.anim .hero h1 span:nth-child(1){ animation-delay:200ms; }
+.anim .hero h1 span:nth-child(2){ animation-delay:300ms; }
+.anim .hero .sub{ animation:rise 700ms var(--ease-out) 420ms both; }
+.anim .hero .ctas{ animation:rise 700ms var(--ease-out) 520ms both; }
+/* steps: the connecting rule draws across as each step arrives */
+.step{ position:relative; border-top-color:var(--line); }
+.anim .step::before{ content:""; position:absolute; left:0; right:0; top:-1px; height:1px; background:linear-gradient(90deg, var(--violet), var(--rim)); transform:scaleX(0); transform-origin:0 50%; transition:transform 900ms var(--ease-out); transition-delay:calc(var(--d, 0) * 140ms + 120ms); opacity:.8; }
+.anim .step.in::before{ transform:scaleX(1); }
+@media (max-width: 699px){
+  .chart-hint{ display:block; }
+  .chart-frame{ -webkit-mask-image:linear-gradient(90deg, #000 85%, transparent); mask-image:linear-gradient(90deg, #000 85%, transparent); }
+  .chart-frame svg{ min-width:880px; }
+  .chart-frame.at-end{ -webkit-mask-image:none; mask-image:none; }
+  .spec{ font-size:12.5px; letter-spacing:.06em; }
+}
+
 /* ── Responsive ─────────────────────────────── */
 @media (max-width: 899px){
   .hero .wrap{ grid-template-columns:1fr; gap:var(--s-6); }
@@ -349,7 +386,6 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
   .trio{ grid-template-columns:1fr; }
   .trio > div{ padding:var(--s-5) 0; }
   .trio > div + div{ border-left:0; border-top:1px solid var(--line); padding-left:0; }
-  .spec{ font-size:11.5px; letter-spacing:.06em; }
   .spec th,.spec td{ padding:13px 0; }
   .foot .wrap{ grid-template-columns:1fr; }
   .foot .legal{ text-align:left; }
@@ -373,12 +409,14 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
   </div>
 </header>
 
+<main>
+
 <!-- ══ SCENE 01 · First impression ══ -->
 <section class="band hero" id="top" aria-labelledby="hero-h">
   <div class="wrap">
     <div class="hero-copy">
       <img class="wordmark" src="assets/brand/psy-wordmark.png" alt="psy" width="985" height="417">
-      <p class="eyebrow">Daily fibre jelly · Pre-launch · India</p>
+      <p class="eyebrow eyebrow--wrap"><span>Daily fibre jelly</span><span aria-hidden="true">·</span><span>Pre-launch · India</span></p>
       <h1 id="hero-h"><span>Daily Fibre.</span><span>A New <em>Form.</em></span></h1>
       <p class="sub">A psyllium fibre jelly in a single stick. Tear it, squeeze it, done. No glass, no spoon, no prep.</p>
       <div class="ctas">
@@ -388,12 +426,9 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
     </div>
     <div class="stage" aria-hidden="true">
       <canvas id="jelly"></canvas>
-      <div class="stage-tag mono"><span>Fig. 01</span><span>Format reveal</span></div>
     </div>
   </div>
 </section>
-
-<main>
 
 <div class="marquee" aria-label="psy in short">
   <div class="mq-track">
@@ -414,7 +449,6 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
       <p class="flow-line flow-a">Most people quit fibre at the glass,</p>
       <p class="flow-line flow-b"><em>not the idea.</em></p>
     </div>
-    <span class="flow-tag mono" aria-hidden="true">Fig. 02 · The glass, replaced</span>
   </div>
 </section>
 
@@ -456,7 +490,7 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
       <div class="r" style="--d:2"><span class="mono">Portability</span><p>Pocket, bag, desk drawer. Nothing to prepare before you take it.</p></div>
       <div class="r" style="--d:3"><span class="mono">Ritual</span><p>Five seconds, once a day. Short enough to actually keep.</p></div>
     </div>
-    <p class="fineprint r" style="--d:4">Benefits of format only. No efficacy claims pending validation.</p>
+    <p class="fineprint r" style="--d:4">Benefits of format only. psy makes no efficacy claims.</p>
   </div>
 </section>
 
@@ -471,7 +505,8 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
       <p class="mute r" style="--d:2">Every psyllium product we found asks you to prepare it. Every no-prep fibre format uses something else. psy is built for the gap.</p>
     </div>
     <figure class="r" style="--d:3;margin:0;display:grid;gap:var(--s-4)">
-      <div class="chart-frame">
+      <p class="chart-hint mono" aria-hidden="true">Swipe the chart <span>→</span></p>
+      <div class="chart-frame" tabindex="0" role="region" aria-label="Format landscape chart, scrolls sideways">
 <svg class="lscape" viewBox="0 0 1000 430" role="img" aria-label="Price per serving against preparation steps. psy sits in the no-prep row with gummies, gels and Japanese jelly sticks, and is the only psyllium product there. psy price is pending.">
 <defs><pattern id="ls-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" class="ls-bg"/><line x1="0" y1="0" x2="0" y2="6" class="ls-hatch"/></pattern></defs>
 <line x1="250" y1="120" x2="920" y2="120" class="ls-grid"/>
@@ -551,7 +586,7 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
       <div class="line-sweep" aria-hidden="true"></div>
     </figure>
     <div class="line-copy">
-      <p class="eyebrow r">Fig. 03b · The line</p>
+      <p class="eyebrow r">The line</p>
       <h2 class="h2" id="line-h"><span class="ln r" style="--d:1">Now,</span><span class="ln r" style="--d:2"><em>the stick.</em></span></h2>
       <p class="line-cap mono r" style="--d:3">Pack renders. Final artwork follows formulation lock.</p>
     </div>
@@ -569,7 +604,6 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
   </div>
   <div class="pin" data-pin="lab">
     <div class="pin-stage">
-      <!-- FLAVOURS: one block. Renders live in assets/flavours/<slug>.webp (900×1200, transparent). Claim lines retouched out; replace when final artwork exists. -->
       <div class="lab-track">
         <article class="f-scene" data-flavour="mango-lime">
           <div class="f-copy">
@@ -581,7 +615,6 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
           <div class="shot" data-slot="flavour-mango-lime">
             <img src="assets/flavours/mango-lime.webp" alt="psy Mango + Lime daily fibre jelly stick, pack render" width="900" height="1200" loading="lazy" decoding="async">
             <span class="stick" aria-hidden="true"></span>
-            <span class="shot-tag mono">Fig. 04a</span>
           </div>
         </article>
         <article class="f-scene" data-flavour="raspberry-blood-orange">
@@ -594,7 +627,6 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
           <div class="shot" data-slot="flavour-raspberry-blood-orange">
             <img src="assets/flavours/raspberry-blood-orange.webp" alt="psy Raspberry + Blood Orange daily fibre jelly stick, pack render" width="900" height="1200" loading="lazy" decoding="async">
             <span class="stick" aria-hidden="true"></span>
-            <span class="shot-tag mono">Fig. 04b</span>
           </div>
         </article>
         <article class="f-scene" data-flavour="watermelon-mint">
@@ -607,7 +639,6 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
           <div class="shot" data-slot="flavour-watermelon-mint">
             <img src="assets/flavours/watermelon-mint.webp" alt="psy Watermelon + Mint daily fibre jelly stick, pack render" width="900" height="1200" loading="lazy" decoding="async">
             <span class="stick" aria-hidden="true"></span>
-            <span class="shot-tag mono">Fig. 04c</span>
           </div>
         </article>
       </div>
@@ -640,7 +671,6 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
         <div class="price mono"><span>Price</span><span>—</span></div>
       </article>
     </div>
-    <span></span>
   </div>
 </section>
 
@@ -665,7 +695,7 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
   <div class="wrap">
     <div class="split" style="align-items:end">
       <div style="display:grid;gap:var(--s-4)">
-        <p class="eyebrow r">Spec sheet · draft 00</p>
+        <p class="eyebrow r">Spec sheet</p>
         <h2 class="h2 r" id="spec-h" style="--d:1">Every number, <em>when it's real.</em></h2>
       </div>
       <p class="mute r" style="--d:2">We publish the label before the product exists. Each line fills in when the lab confirms it, not before.</p>
@@ -697,8 +727,6 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
     <div style="display:grid;gap:var(--s-6)">
       <img class="mark-big r" src="assets/brand/psy-wordmark.png" alt="psy" width="985" height="417" loading="lazy">
       <h2 class="r" id="wait-h" style="--d:1">Be <em>early.</em></h2>
-      <!-- STILL LIFE: the 30-day pack still life (with the tumbler, unlabelled) drops in here once a claim-free render exists.
-           <img src="assets/og/still-life.webp" alt="" loading="lazy"> -->
     </div>
     <form class="form r" style="--d:2" id="wl" novalidate>
       <p class="lead">Join the waitlist. Early sign-ups taste the pilot batch first.</p>
@@ -709,8 +737,8 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
       </div>
       <p class="err" id="wl-err" aria-live="polite"></p>
       <div class="done" role="status" aria-live="polite">
-        <span class="tick" aria-hidden="true">✓</span>
-        <p><strong style="font-weight:500;color:var(--paper)">Thanks, noted.</strong> The list goes live with the pilot batch, so nothing has been sent yet.</p>
+        <span class="tick" aria-hidden="true">i</span>
+        <p><strong style="font-weight:500;color:var(--paper)">Not saved yet.</strong> Sign-ups open with the pilot batch. This preview form stores nothing and sends nothing, so please check back.</p>
       </div>
     </form>
   </div>
@@ -722,7 +750,7 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
   <div class="wrap">
     <div style="display:grid;gap:var(--s-3)">
       <img src="assets/brand/psy-wordmark.png" alt="psy" width="985" height="417" loading="lazy">
-      <span class="mono mute" style="font-size:11.5px">Daily Fibre, Reimagined.</span>
+      <span class="mono mute" style="font-size:12px">Daily Fibre, Reimagined.</span>
     </div>
     <div class="legal mono">
       <span>FSSAI Lic. No. <span class="pend">pending</span></span>
@@ -953,11 +981,13 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
   (() => {
     if (!motion) return;
     const trackEl = document.querySelector('.lab-track'), dots = [...document.querySelectorAll('.lab-dots i')];
+    const shots = [...document.querySelectorAll('.lab .shot img')];
     const wide = matchMedia('(min-width: 900px)');
     handlers.lab = p => {
-      if (!wide.matches) { trackEl.style.transform = ''; return; }
+      if (!wide.matches) { trackEl.style.transform = ''; shots.forEach(im => im.style.translate = ''); return; }
       const k = clamp((p - .04) / .92);
       trackEl.style.transform = `translate3d(${-k * 200}vw,0,0)`;
+      shots.forEach((im, i) => { const e = clamp(k * 2 - i, -1, 1); im.style.translate = `${(-e * 5).toFixed(2)}vw ${(Math.abs(e) * 2).toFixed(2)}vh`; });
       const idx = Math.min(2, Math.round(k * 2)); dots.forEach((d, i) => d.classList.toggle('on', i === idx));
     };
   })();
@@ -996,6 +1026,10 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
     };
     handlers.coll(0);
   })();
+
+  /* ── Chart: drop the right-edge fade once the reader reaches the end ── */
+  const cf = document.querySelector('.chart-frame');
+  if (cf) { const end = () => cf.classList.toggle('at-end', cf.scrollLeft + cf.clientWidth >= cf.scrollWidth - 4); cf.addEventListener('scroll', end, { passive: true }); end(); }
 
   /* ── Waitlist: local only, no network call ── */
   const form = document.getElementById('wl');

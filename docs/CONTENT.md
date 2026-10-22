@@ -63,7 +63,7 @@ Footer line: *Daily Fibre, Reimagined.*
 
 ## 3b · Lights up on the line
 
-- Eyebrow: `FIG. 03B · THE LINE` · H2: **Now, *the stick.***
+- Eyebrow: `THE LINE` · H2: **Now, *the stick.***
 - Caption: `PACK RENDERS. FINAL ARTWORK FOLLOWS FORMULATION LOCK.`
 - Image: `assets/scenes/lineup.webp` (founder render, "6 G FIBRE" and "15 g" retouched out).
 
@@ -121,3 +121,11 @@ Footer line: *Daily Fibre, Reimagined.*
 - Wordmark: **PSY.** · *Daily Fibre, Reimagined.*
 - FSSAI Lic. No. `[pending]` · Registered address `[pending]`
 - © 2026 PSY. All rights reserved.
+
+
+## Polish pass (22 Oct 2026)
+
+- Removed every figure label from the page: `Fig. 01 · Format reveal` (hero), `Fig. 02 · The glass, replaced` (jelly flood), `Fig. 03b` (lineup eyebrow), `Fig. 04a/b/c` (flavour stills). Spec eyebrow `Spec sheet · draft 00` is now `Spec sheet`.
+- Format disclosure reworded, same substance: "Benefits of format only. psy makes no efficacy claims."
+- Waitlist success state is now honest: "**Not saved yet.** Sign-ups open with the pilot batch. This preview form stores nothing and sends nothing, so please check back." (was "Thanks, noted.")
+- Chart on phones: `Swipe the chart →` hint.

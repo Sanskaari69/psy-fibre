@@ -90,6 +90,7 @@ psy-fibre/
 ├── docs/
 │   ├── ARCHITECTURE.md   mermaid: page, animation pipeline, asset flow
 │   ├── CONTENT.md        every string on the site, for copy review
+│   ├── ASSETS.md         verified asset map
 │   └── COMPLIANCE.md     what may and may not be said
 ├── assets/
 │   ├── flavours/         per-flavour stick renders (transparent)
