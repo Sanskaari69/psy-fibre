@@ -1,0 +1,747 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PSY. Daily Fibre</title>
+<meta name="description" content="PSY. is a ready-to-eat psyllium fibre jelly in a single stick. Pre-launch, India.">
+<meta name="theme-color" content="#100B1D">
+<meta property="og:title" content="PSY. Daily Fibre. A New Form.">
+<meta property="og:description" content="A psyllium fibre jelly in a single stick. Pre-launch, India.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/og/psy-og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Hanken+Grotesk:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="design/tokens.css">
+<script>
+  /* Boot: opt in to motion only when JS runs and the reader allows it. 4s failsafe reveals everything. */
+  (function(d){
+    var h=d.documentElement;
+    if(!matchMedia('(prefers-reduced-motion: reduce)').matches){ h.classList.add('anim'); }
+    h.classList.add('js');
+    setTimeout(function(){ var r=d.querySelectorAll('.r'); for(var i=0;i<r.length;i++) r[i].classList.add('in'); },4000);
+  })(document);
+</script>
+<style>
+/* Layout concept: asymmetric editorial bands on matte plum. Content left-weighted, a lot of empty ground.
+   Separation by 1px hairlines and ground shifts only. All values come from design/tokens.css. */
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ background:var(--plum); -webkit-text-size-adjust:100%; }
+body{
+  margin:0; background:var(--plum); color:var(--paper);
+  font-family:var(--font-body); font-weight:400; font-size:var(--t-17); line-height:var(--lead-body);
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; }
+::selection{ background:var(--violet); color:var(--paper); }
+:focus-visible{ outline:1.5px solid var(--rim); outline-offset:3px; border-radius:var(--radius-panel); }
+
+h1,h2,h3{ margin:0; font-family:var(--font-display); font-weight:400; line-height:var(--lead-display); letter-spacing:-.01em; text-wrap:balance; }
+p{ margin:0; max-width:var(--measure); text-wrap:pretty; }
+
+.eyebrow,.mono{ font-family:var(--font-mono); font-weight:400; font-size:var(--t-13); letter-spacing:var(--track-mono); text-transform:uppercase; }
+.eyebrow{ color:var(--rim); display:flex; align-items:center; gap:var(--s-3); }
+.eyebrow::before{ content:""; width:18px; height:1px; background:var(--violet); box-shadow:0 0 8px var(--violet); }
+.mute{ color:var(--mute); }
+
+/* Bands: full-bleed ground, constrained inner wrapper with the gutter rule */
+.band{ position:relative; }
+.band--plum{ background:var(--plum); }
+.band--rise{ background:var(--plum-rise); }
+.band--purple{ background:var(--purple); }
+.band + .band{ border-top:1px solid var(--line); }
+.wrap{
+  max-width:calc(var(--max) + 32px); margin-inline:auto;
+  padding-left:var(--gutter-l); padding-right:var(--gutter-r);
+  padding-block:var(--band-y);
+  display:grid; gap:var(--s-7);
+}
+.wrap > *{ min-width:0; }
+
+/* ── Progress hairline ─────────────────────────────── */
+.progress{
+  position:fixed; inset:0 0 auto 0; z-index:20; height:1px;
+  margin-top:env(safe-area-inset-top, 0px);
+  background:var(--violet); box-shadow:0 0 10px var(--violet);
+  transform-origin:0 50%; transform:scaleX(0); pointer-events:none;
+}
+
+/* ── Reveal system: visible by default, pre-state only under html.anim ── */
+.anim .r{ opacity:.001; transform:translateY(18px); transition:opacity var(--dur-reveal) var(--ease-out), transform var(--dur-reveal) var(--ease-out); transition-delay:calc(var(--d, 0) * var(--stagger)); }
+.anim .r.in{ opacity:1; transform:none; }
+
+/* ── Hero ─────────────────────────────────────────── */
+.hero .wrap{ grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); align-items:center; gap:var(--s-7); padding-block:clamp(56px, 7vw, 112px) clamp(48px, 5vw, 88px); }
+.hero-copy{ display:grid; gap:var(--s-5); align-content:start; }
+.hero h1{ font-size:var(--t-104); font-weight:400; line-height:.95; letter-spacing:-.02em; }
+.hero h1 span{ display:block; white-space:nowrap; }
+.hero h1 em{ font-style:italic; color:var(--rim); }
+.hero .sub{ color:var(--mute); font-size:var(--t-17); max-width:42ch; }
+.ctas{ display:flex; flex-wrap:wrap; gap:var(--s-3); padding-top:var(--s-2); }
+
+.btn{
+  --bg:transparent;
+  display:inline-flex; align-items:center; gap:var(--s-3);
+  min-height:48px; padding-inline:22px; border-radius:var(--radius-pill);
+  font-family:var(--font-mono); font-size:var(--t-13); letter-spacing:var(--track-mono); text-transform:uppercase; text-decoration:none;
+  color:var(--paper); background:var(--bg); border:1px solid var(--line-strong); cursor:pointer;
+  transition:border-color var(--dur-hover) var(--ease-out), box-shadow var(--dur-hover) var(--ease-out), transform var(--dur-press) var(--ease-out), background-color var(--dur-hover) var(--ease-out);
+}
+.btn:hover{ border-color:var(--rim); box-shadow:0 0 0 1px rgba(155,77,255,.25), 0 0 22px -6px var(--violet); }
+.btn:active{ transform:translateY(1px) scale(.99); }
+.btn--solid{ --bg:var(--paper); color:var(--plum); border-color:var(--paper); }
+.btn--solid:hover{ --bg:#fff; border-color:#fff; }
+.btn .arrow{ transition:transform var(--dur-hover) var(--ease-out); }
+.btn:hover .arrow{ transform:translateX(3px); }
+
+.stage{ position:relative; aspect-ratio:4/5; width:100%; max-width:520px; justify-self:end; border:1px solid var(--line); border-radius:var(--radius-panel); overflow:hidden;
+  background:radial-gradient(120% 70% at 50% 110%, rgba(155,77,255,.10), transparent 60%), var(--plum); }
+.stage canvas{ position:absolute; inset:0; width:100%; height:100%; display:block; }
+/* No-JS stand-in: a still jelly lozenge so the first frame is never empty */
+.stage::before{ content:""; position:absolute; left:29%; right:29%; top:19%; bottom:15%; border-radius:42% / 30%;
+  background:linear-gradient(180deg, rgba(201,163,255,.42), rgba(155,77,255,.28) 45%, rgba(40,18,56,.85));
+  box-shadow:0 0 0 1.5px rgba(201,163,255,.7), 0 0 28px rgba(155,77,255,.55); }
+.js .stage::before{ display:none; }
+.stage-tag{ position:absolute; left:14px; bottom:12px; right:14px; display:flex; justify-content:space-between; gap:var(--s-3); color:var(--mute); font-size:11px; z-index:1; }
+
+/* ── Marquee ──────────────────────────────────────── */
+.marquee{ overflow:hidden; border-block:1px solid var(--line-strong); padding-block:18px; }
+.mq-track{ display:flex; width:max-content; will-change:transform; }
+.mq-set{ display:flex; align-items:center; gap:28px; padding-right:28px; flex-shrink:0; }
+.mq-set span{ font-family:var(--font-mono); font-size:var(--t-15); letter-spacing:var(--track-mono); text-transform:uppercase; white-space:nowrap; color:var(--paper); }
+.mq-set i{ width:6px; height:6px; background:var(--violet); transform:rotate(45deg); box-shadow:0 0 8px var(--violet); flex-shrink:0; }
+.band--purple.marquee-band .wrap{ padding-block:0; max-width:none; padding-left:0; padding-right:0; }
+
+/* ── Problem ──────────────────────────────────────── */
+.split{ display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:var(--s-8); align-items:start; }
+.split > *{ min-width:0; }
+.statement{ font-size:var(--t-68); line-height:1.02; max-width:13ch; }
+.stack{ display:grid; gap:var(--s-5); color:var(--mute); padding-top:var(--s-3); }
+.stack p:first-child{ color:var(--paper); }
+
+/* ── Format ───────────────────────────────────────── */
+.h2{ font-size:var(--t-68); line-height:1; }
+.h2 em{ font-style:italic; color:var(--rim); }
+.trio{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); border-block:1px solid var(--line); }
+.trio > div{ display:grid; gap:var(--s-3); padding:var(--s-6) var(--s-5) var(--s-6) 0; min-width:0; }
+.trio > div + div{ border-left:1px solid var(--line); padding-left:var(--s-5); }
+.trio .mono{ color:var(--rim); }
+.fineprint{ font-family:var(--font-mono); font-size:11.5px; letter-spacing:.08em; color:var(--mute); text-transform:none; }
+
+/* ── Chart ────────────────────────────────────────── */
+.chart-frame{ overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius-panel); background:var(--plum); }
+.chart-frame svg{ display:block; width:100%; min-width:560px; height:auto; }
+
+/* ── Flavours ─────────────────────────────────────── */
+.flavours .wrap{ gap:var(--s-6); }
+.f-head{ display:flex; justify-content:space-between; align-items:end; gap:var(--s-5); flex-wrap:wrap; }
+.f-grid{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); }
+.f-panel{ --hue:var(--violet); position:relative; display:grid; grid-template-rows:auto 1fr auto; gap:var(--s-5); padding:var(--s-5); min-height:min(86vh, 720px); background:var(--plum); min-width:0; overflow:hidden;
+  transition:background-color 400ms var(--ease-out); }
+.f-panel::after{ content:""; position:absolute; inset:auto 0 0 0; height:1px; background:var(--hue); box-shadow:0 0 14px var(--hue); transform:scaleX(.18); transform-origin:0 50%; transition:transform 700ms var(--ease-out); }
+.f-panel:hover::after{ transform:scaleX(1); }
+.f-panel:nth-child(1){ --hue:var(--flavour-1); }
+.f-panel:nth-child(2){ --hue:var(--flavour-2); }
+.f-panel:nth-child(3){ --hue:var(--flavour-3); }
+.f-top{ display:flex; justify-content:space-between; gap:var(--s-3); color:var(--mute); }
+.f-top .idx{ color:var(--hue); }
+.f-name{ font-size:var(--t-44); }
+.f-note{ color:var(--mute); display:flex; gap:var(--s-3); align-items:center; flex-wrap:wrap; }
+
+/* Asset drop-zone: fixed 3/4 box, so an <img> swaps in with zero layout shift */
+.shot{ position:relative; aspect-ratio:3/4; width:100%; max-width:100%; align-self:center; overflow:hidden; }
+.shot{ background:radial-gradient(60% 45% at 50% 62%, rgba(155,77,255,.12), transparent 70%); }
+.shot img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+/* CSS stand-in stick (shown only while no render is dropped in) */
+.stick{ position:absolute; left:50%; top:50%; width:30%; height:78%; transform:translate(-50%,-50%) rotate(-4deg); border-radius:3px;
+  background:
+    repeating-linear-gradient(0deg, rgba(246,243,250,.16) 0 1px, transparent 1px 3px) top/100% 7% no-repeat,
+    repeating-linear-gradient(0deg, rgba(246,243,250,.16) 0 1px, transparent 1px 3px) bottom/100% 7% no-repeat,
+    linear-gradient(90deg, rgba(16,11,29,.55), transparent 30%, transparent 70%, rgba(16,11,29,.6)),
+    linear-gradient(180deg, var(--hue), var(--purple) 78%);
+  box-shadow:inset 0 0 0 1px rgba(201,163,255,.55), 0 0 32px -8px var(--hue);
+  transition:transform 900ms var(--ease-out); }
+.f-panel:hover .stick{ transform:translate(-50%,-52%) rotate(-1deg); }
+.stick::after{ content:""; position:absolute; inset:0; border-radius:inherit;
+  background:linear-gradient(105deg, transparent 35%, rgba(246,243,250,.28) 48%, transparent 60%) -150% 0/250% 100% no-repeat;
+  animation:sheen 5.5s var(--ease-io) infinite; }
+.f-panel:nth-child(2) .stick::after{ animation-delay:1.2s; }
+.f-panel:nth-child(3) .stick::after{ animation-delay:2.4s; }
+.shot:has(img) .stick{ display:none; }
+@keyframes sheen{ 0%,55%{ background-position:-150% 0; } 100%{ background-position:150% 0; } }
+
+/* ── How to ───────────────────────────────────────── */
+.steps{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:var(--s-6); }
+.step{ display:grid; gap:var(--s-3); padding-top:var(--s-5); border-top:1px solid var(--line-strong); min-width:0; }
+.step .num{ font-family:var(--font-mono); font-size:var(--t-44); font-weight:400; color:var(--violet); line-height:1; letter-spacing:0; text-shadow:0 0 18px rgba(155,77,255,.45); }
+.step h3{ font-size:var(--t-44); }
+.step p{ color:var(--mute); }
+.advisory{ display:grid; grid-template-columns:auto minmax(0,1fr); gap:var(--s-4); align-items:start; padding:var(--s-5); border:1px solid var(--line-strong); border-radius:var(--radius-panel); }
+.advisory .mono{ color:var(--rim); padding-top:2px; }
+.advisory p{ color:var(--mute); font-size:var(--t-15); }
+
+/* ── Transparency (the twist: a spec sheet that types itself) ── */
+.spec{ width:100%; border-collapse:collapse; font-family:var(--font-mono); font-variant-numeric:tabular-nums; font-size:var(--t-13); letter-spacing:.1em; text-transform:uppercase; }
+.spec tr{ border-bottom:1px solid var(--line); }
+.spec tr:first-child{ border-top:1px solid var(--line-strong); }
+.spec th,.spec td{ padding:15px 0; text-align:left; font-weight:400; vertical-align:middle; }
+.spec th{ color:var(--paper); padding-right:var(--s-4); }
+.spec td{ text-align:right; color:var(--mute); white-space:nowrap; }
+.spec td .dash{ margin-right:var(--s-3); }
+.pend{ display:inline-flex; align-items:center; height:22px; padding-inline:10px; border:1px solid var(--violet); border-radius:var(--radius-pill); color:var(--rim); font-family:var(--font-mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; line-height:1; box-shadow:0 0 12px -4px var(--violet) inset; }
+.anim .spec tr.r{ transform:none; }
+.anim .spec tr.r th{ clip-path:inset(0 100% 0 0); transition:clip-path 700ms var(--ease-out); transition-delay:calc(var(--d,0) * 70ms); }
+.anim .spec tr.r.in th{ clip-path:inset(0 0 0 0); }
+.anim .spec tr.r .pend{ opacity:0; transform:scale(.8); transition:opacity 300ms var(--ease-out), transform 420ms var(--ease-out); transition-delay:calc(var(--d,0) * 70ms + 380ms); }
+.anim .spec tr.r.in .pend{ opacity:1; transform:none; }
+.scanline{ position:relative; }
+.anim .scanline::after{ content:""; position:absolute; left:0; right:0; top:0; height:1px; background:var(--violet); box-shadow:0 0 14px 1px var(--violet); opacity:0; pointer-events:none; }
+.anim .scanline.in::after{ animation:scan 1.6s var(--ease-io) .1s 1 forwards; }
+@keyframes scan{ 0%{ top:0; opacity:0; } 10%{ opacity:1; } 90%{ opacity:1; } 100%{ top:100%; opacity:0; } }
+.declare{ font-family:var(--font-display); font-size:var(--t-30); }
+
+/* ── Packs ────────────────────────────────────────── */
+.packs-grid{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:var(--s-5); }
+.pack{ display:grid; gap:var(--s-4); padding:var(--s-6); border:1px solid var(--line-strong); border-radius:var(--radius-panel); min-width:0; transition:border-color var(--dur-hover) var(--ease-out); }
+.pack:hover{ border-color:var(--rim); }
+.pack h3{ font-size:var(--t-68); }
+.pack h3 small{ font-family:var(--font-mono); font-size:var(--t-13); letter-spacing:var(--track-mono); color:var(--rim); vertical-align:top; margin-left:6px; }
+.pack .price{ display:flex; justify-content:space-between; align-items:center; gap:var(--s-3); padding-top:var(--s-4); border-top:1px solid var(--line); color:var(--mute); }
+
+/* ── Waitlist ─────────────────────────────────────── */
+.wait .wrap{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:end; }
+.wait h2{ font-size:var(--t-104); line-height:.95; }
+.wait h2 em{ font-style:italic; color:var(--rim); }
+.form{ display:grid; gap:var(--s-4); min-height:168px; align-content:end; }
+.form p{ color:var(--mute); }
+.field{ display:flex; gap:var(--s-2); flex-wrap:wrap; }
+.field input{ flex:1 1 220px; min-width:0; min-height:48px; padding-inline:18px; border-radius:var(--radius-pill); border:1px solid var(--line-strong); background:transparent; color:var(--paper); font:inherit; font-size:var(--t-15); transition:border-color var(--dur-hover) var(--ease-out); }
+.field input::placeholder{ color:var(--mute); }
+.field input:hover{ border-color:rgba(201,163,255,.4); }
+.field input:focus-visible{ outline:none; border-color:var(--rim); box-shadow:0 0 0 1px var(--rim), 0 0 20px -6px var(--violet); }
+.form .err{ color:var(--rim); font-family:var(--font-mono); font-size:12px; letter-spacing:.06em; min-height:1.2em; }
+.done{ display:none; gap:var(--s-3); }
+.form[data-state="done"] .field,.form[data-state="done"] .err,.form[data-state="done"] .lead{ display:none; }
+.form[data-state="done"] .done{ display:grid; }
+.done .tick{ width:36px; height:36px; border:1px solid var(--violet); border-radius:50%; display:grid; place-items:center; color:var(--rim); box-shadow:0 0 18px -4px var(--violet); }
+.sr{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+
+/* ── Footer ───────────────────────────────────────── */
+.foot .wrap{ grid-template-columns:minmax(0,1fr) auto; align-items:end; padding-block:var(--s-8) var(--s-6); gap:var(--s-6); }
+.wordmark{ font-family:var(--font-display); font-size:var(--t-68); line-height:1; }
+.foot .mono{ color:var(--mute); font-size:11.5px; display:grid; gap:var(--s-2); text-align:right; }
+.foot .mono span{ display:flex; gap:var(--s-3); justify-content:flex-end; align-items:center; flex-wrap:wrap; }
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 900px){
+  .hero .wrap{ grid-template-columns:1fr; gap:var(--s-6); }
+  .stage{ justify-self:start; max-width:440px; }
+  .split,.wait .wrap{ grid-template-columns:1fr; gap:var(--s-6); }
+  .steps{ grid-template-columns:1fr; gap:var(--s-5); }
+  .f-grid{ display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:1px; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+  .f-grid::-webkit-scrollbar{ display:none; }
+  .f-panel{ flex:0 0 84%; scroll-snap-align:start; min-height:auto; }
+}
+@media (max-width: 640px){
+  .trio{ grid-template-columns:1fr; }
+  .trio > div{ padding:var(--s-5) 0; }
+  .trio > div + div{ border-left:0; border-top:1px solid var(--line); padding-left:0; }
+  .packs-grid{ grid-template-columns:1fr; }
+  .spec th,.spec td{ padding:13px 0; }
+  .spec{ font-size:11.5px; letter-spacing:.06em; }
+  .foot .wrap{ grid-template-columns:1fr; }
+  .foot .mono{ text-align:left; }
+  .foot .mono span{ justify-content:flex-start; }
+  .advisory{ grid-template-columns:1fr; }
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"></div>
+
+<!-- ══ HERO ══ -->
+<header class="band band--plum hero" id="top">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">Pre-launch · India</p>
+      <h1><span>Daily Fibre.</span><span>A New <em>Form.</em></span></h1>
+      <p class="sub">PSY. is a psyllium fibre jelly in a single stick. Tear it, squeeze it, done. No glass, no spoon, no prep.</p>
+      <div class="ctas">
+        <a class="btn btn--solid" href="#waitlist">Join the waitlist <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn" href="#format">See the format</a>
+      </div>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <canvas id="jelly"></canvas>
+      <div class="stage-tag mono"><span>Fig. 01</span><span>Format reveal</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ══ 1 · MARQUEE ══ -->
+<section class="band band--purple marquee-band" aria-label="PSY. in short">
+  <div class="wrap">
+    <div class="marquee">
+      <div class="mq-track">
+        <div class="mq-set">
+          <span>The glass was the problem</span><i></i>
+          <span>No bottle to rinse</span><i></i>
+          <span>No sludge</span><i></i>
+          <span>Five seconds flat</span><i></i>
+          <span>Fibre, finally in good taste</span><i></i>
+          <span>Spoonless</span><i></i>
+        </div>
+        <div class="mq-set" aria-hidden="true">
+          <span>The glass was the problem</span><i></i>
+          <span>No bottle to rinse</span><i></i>
+          <span>No sludge</span><i></i>
+          <span>Five seconds flat</span><i></i>
+          <span>Fibre, finally in good taste</span><i></i>
+          <span>Spoonless</span><i></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 2 · PROBLEM ══ -->
+<section class="band band--plum" aria-labelledby="problem-h">
+  <div class="wrap">
+    <p class="eyebrow r">Why nobody stays consistent</p>
+    <div class="split">
+      <h2 class="statement r" id="problem-h" style="--d:1">Most people quit fibre at the glass, not the idea.</h2>
+      <div class="stack">
+        <p class="r" style="--d:2">Fibre usually comes as a tub and a scoop. Measure it, pour it into water, drink it before it thickens. Every one of those steps is a reason to skip a day.</p>
+        <p class="r" style="--d:3">Then there is the texture. A glass that turns to gel halfway down is hard to look forward to, and harder to repeat tomorrow.</p>
+        <p class="r" style="--d:4">And it needs a kitchen: a glass, a spoon, a tap. The routine breaks the first time you travel, work late or simply leave home.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 3 · FORMAT ══ -->
+<section class="band band--rise" id="format" aria-labelledby="format-h">
+  <div class="wrap">
+    <p class="eyebrow r">What PSY. is</p>
+    <h2 class="h2 r" id="format-h" style="--d:1">A jelly, <em>not a drink.</em></h2>
+    <div class="trio">
+      <div class="r" style="--d:2"><span class="mono">Portion</span><p>One stick, one serving. Nothing to measure.</p></div>
+      <div class="r" style="--d:3"><span class="mono">Portability</span><p>Pocket, bag, desk drawer. No water source required to take it.</p></div>
+      <div class="r" style="--d:4"><span class="mono">Ritual</span><p>Five seconds, once a day. Short enough to actually keep.</p></div>
+    </div>
+    <p class="fineprint r" style="--d:5">Benefits of format only. No efficacy claims pending validation.</p>
+  </div>
+</section>
+
+<!-- CHART: format-landscape (Phase 5) -->
+
+<!-- ══ 4 · FLAVOURS ══ -->
+<section class="band band--plum flavours" aria-labelledby="flavours-h">
+  <div class="wrap">
+    <div class="f-head">
+      <div style="display:grid;gap:var(--s-4)">
+        <p class="eyebrow r">The line</p>
+        <h2 class="h2 r" id="flavours-h" style="--d:1">Three flavours, <em>in the lab.</em></h2>
+      </div>
+      <p class="mute r" style="--d:2;max-width:34ch">Names and tasting notes are being finalised with the first formulation. The line ships at three.</p>
+    </div>
+    <!-- FLAVOURS: one block. Replace name + note per panel when final; drop renders into assets/flavours/. -->
+    <div class="f-grid">
+      <article class="f-panel r" style="--d:1" data-flavour="flavour-01">
+        <div class="f-top mono"><span class="idx">01 / 03</span><span>Flavour</span></div>
+        <div class="shot" data-slot="flavour-01">
+          <!-- DROP ZONE: <img src="assets/flavours/flavour-01.webp" alt="PSY. fibre jelly stick, flavour 01" width="900" height="1200" loading="lazy"> -->
+          <span class="stick" aria-hidden="true"></span>
+        </div>
+        <div style="display:grid;gap:var(--s-3)">
+          <h3 class="f-name">Flavour one</h3>
+          <p class="f-note"><span>Name and notes</span><span class="pend">pending</span></p>
+        </div>
+      </article>
+      <article class="f-panel r" style="--d:2" data-flavour="flavour-02">
+        <div class="f-top mono"><span class="idx">02 / 03</span><span>Flavour</span></div>
+        <div class="shot" data-slot="flavour-02">
+          <!-- DROP ZONE: <img src="assets/flavours/flavour-02.webp" alt="PSY. fibre jelly stick, flavour 02" width="900" height="1200" loading="lazy"> -->
+          <span class="stick" aria-hidden="true"></span>
+        </div>
+        <div style="display:grid;gap:var(--s-3)">
+          <h3 class="f-name">Flavour two</h3>
+          <p class="f-note"><span>Name and notes</span><span class="pend">pending</span></p>
+        </div>
+      </article>
+      <article class="f-panel r" style="--d:3" data-flavour="flavour-03">
+        <div class="f-top mono"><span class="idx">03 / 03</span><span>Flavour</span></div>
+        <div class="shot" data-slot="flavour-03">
+          <!-- DROP ZONE: <img src="assets/flavours/flavour-03.webp" alt="PSY. fibre jelly stick, flavour 03" width="900" height="1200" loading="lazy"> -->
+          <span class="stick" aria-hidden="true"></span>
+        </div>
+        <div style="display:grid;gap:var(--s-3)">
+          <h3 class="f-name">Flavour three</h3>
+          <p class="f-note"><span>Name and notes</span><span class="pend">pending</span></p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 5 · HOW TO USE ══ -->
+<section class="band band--rise" aria-labelledby="use-h">
+  <div class="wrap">
+    <p class="eyebrow r">How to take it</p>
+    <h2 class="sr" id="use-h">How to take PSY.</h2>
+    <ol class="steps" style="list-style:none;margin:0;padding:0">
+      <li class="step r" style="--d:1"><span class="num">01</span><h3>Tear.</h3><p>Tear at the notch.</p></li>
+      <li class="step r" style="--d:2"><span class="num">02</span><h3>Squeeze.</h3><p>Straight from the stick. No spoon, no prep.</p></li>
+      <li class="step r" style="--d:3"><span class="num">03</span><h3>Hydrate.</h3><p>Follow with a full glass of water.</p></li>
+    </ol>
+    <div class="advisory r" style="--d:4">
+      <span class="mono">Advisory</span>
+      <p>Psyllium is a swelling fibre. Always take with adequate water. Final serving directions, warnings and contraindications will follow formulation lock and professional review.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 6 · TRANSPARENCY ══ -->
+<section class="band band--plum" aria-labelledby="spec-h">
+  <div class="wrap">
+    <div class="split" style="align-items:end">
+      <div style="display:grid;gap:var(--s-4)">
+        <p class="eyebrow r">Spec sheet · draft 00</p>
+        <h2 class="h2 r" id="spec-h" style="--d:1">Every number, <em>when it's real.</em></h2>
+      </div>
+      <p class="mute r" style="--d:2">We publish the label before the product exists. Each line fills in when the lab confirms it, not before.</p>
+    </div>
+    <div class="scanline r" style="overflow-x:auto">
+      <table class="spec">
+        <caption class="sr">PSY. specification, all values pending</caption>
+        <tbody>
+          <tr class="r" style="--d:0"><th scope="row">Psyllium husk per serving</th><td><span class="dash">—</span><span class="pend">pending</span></td></tr>
+          <tr class="r" style="--d:1"><th scope="row">Total dietary fibre</th><td><span class="dash">—</span><span class="pend">pending</span></td></tr>
+          <tr class="r" style="--d:2"><th scope="row">Added sugar</th><td><span class="dash">—</span><span class="pend">pending</span></td></tr>
+          <tr class="r" style="--d:3"><th scope="row">Energy</th><td><span class="dash">—</span><span class="pend">pending</span></td></tr>
+          <tr class="r" style="--d:4"><th scope="row">Net quantity per stick</th><td><span class="dash">—</span><span class="pend">pending</span></td></tr>
+          <tr class="r" style="--d:5"><th scope="row">Gelling system</th><td><span class="dash">—</span><span class="pend">pending</span></td></tr>
+          <tr class="r" style="--d:6"><th scope="row">Storage</th><td><span class="dash">—</span><span class="pend">pending</span></td></tr>
+          <tr class="r" style="--d:7"><th scope="row">Shelf life</th><td><span class="dash">—</span><span class="pend">pending</span></td></tr>
+          <tr class="r" style="--d:8"><th scope="row">FSSAI category</th><td><span class="dash">—</span><span class="pend">pending</span></td></tr>
+          <tr class="r" style="--d:9"><th scope="row">Manufactured by</th><td><span class="dash">—</span><span class="pend">pending</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="declare r">Food product. Not a medicine. No treatment claims.</p>
+  </div>
+</section>
+
+<!-- ══ 7 · PACKS ══ -->
+<section class="band band--purple" aria-labelledby="packs-h">
+  <div class="wrap">
+    <p class="eyebrow r">Packs</p>
+    <h2 class="sr" id="packs-h">Pack sizes</h2>
+    <div class="packs-grid">
+      <article class="pack r" style="--d:1">
+        <h3>PSY. <small>10</small></h3>
+        <p>Ten sticks. Start the habit.</p>
+        <div class="price mono"><span>Price</span><span>—</span></div>
+      </article>
+      <article class="pack r" style="--d:2">
+        <h3>PSY. <small>30</small></h3>
+        <p>Thirty sticks. Keep it.</p>
+        <div class="price mono"><span>Price</span><span>—</span></div>
+      </article>
+    </div>
+    <p class="fineprint r" style="--d:3">Pricing opens after costing and pilot batch.</p>
+  </div>
+</section>
+
+<!-- ══ 8 · WAITLIST ══ -->
+<section class="band band--plum wait" id="waitlist" aria-labelledby="wait-h">
+  <div class="wrap">
+    <h2 class="r" id="wait-h">Be <em>early.</em></h2>
+    <form class="form r" style="--d:1" id="wl" novalidate>
+      <p class="lead">Join the waitlist. Early sign-ups taste the pilot batch first.</p>
+      <div class="field">
+        <label class="sr" for="wl-email">Email address</label>
+        <input id="wl-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required>
+        <button class="btn btn--solid" type="submit">Join the waitlist <span class="arrow" aria-hidden="true">→</span></button>
+      </div>
+      <p class="err" id="wl-err" aria-live="polite"></p>
+      <div class="done" role="status" aria-live="polite">
+        <span class="tick" aria-hidden="true">✓</span>
+        <p><strong style="font-weight:500;color:var(--paper)">Thanks, noted.</strong> The list goes live with the pilot batch, so nothing has been sent yet.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer class="band band--rise foot">
+  <div class="wrap">
+    <div style="display:grid;gap:var(--s-3)">
+      <span class="wordmark">PSY.</span>
+      <span class="mono mute" style="font-size:11.5px">Daily Fibre, Reimagined.</span>
+    </div>
+    <div class="mono">
+      <span>FSSAI Lic. No. <span class="pend">pending</span></span>
+      <span>Registered address <span class="pend">pending</span></span>
+      <span>© 2026 PSY. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(() => {
+  'use strict';
+  const root = document.documentElement;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+  const lerp = (a, b, t) => a + (b - a) * t;
+
+  /* cubic-bezier(.16,1,.3,1) — the PSY. curve, solved on x by Newton iteration */
+  const bezier = (x1, y1, x2, y2) => t => {
+    let u = t;
+    for (let i = 0; i < 6; i++) {
+      const x = 3 * (1 - u) * (1 - u) * u * x1 + 3 * (1 - u) * u * u * x2 + u * u * u - t;
+      const dx = 3 * (1 - u) * (1 - u) * x1 + 6 * (1 - u) * u * (x2 - x1) + 3 * u * u * (1 - x2);
+      if (Math.abs(dx) < 1e-6) break;
+      u = clamp(u - x / dx);
+    }
+    return 3 * (1 - u) * (1 - u) * u * y1 + 3 * (1 - u) * u * u * y2 + u * u * u;
+  };
+  const ease = bezier(.16, 1, .3, 1);
+
+  /* ── Reveal system: one observer for every .r ── */
+  const reveals = document.querySelectorAll('.r');
+  if ('IntersectionObserver' in window && root.classList.contains('anim')) {
+    const io = new IntersectionObserver(entries => {
+      for (const e of entries) if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.15 });
+    reveals.forEach(el => io.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add('in'));
+  }
+
+  /* ── Scroll state shared by progress bar, marquee and hero ── */
+  let scrollY = window.scrollY, lastY = scrollY, lastT = performance.now(), velocity = 0;
+  const bar = document.querySelector('.progress');
+  const setProgress = () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = `scaleX(${max > 0 ? clamp(scrollY / max) : 0})`;
+  };
+  addEventListener('scroll', () => {
+    scrollY = window.scrollY;
+    const now = performance.now(), dt = Math.max(1, now - lastT);
+    velocity = Math.max(velocity, Math.abs(scrollY - lastY) / dt * 1000); /* px/s, peak-held, decays in the loop */
+    lastY = scrollY; lastT = now;
+    requestAnimationFrame(setProgress);
+  }, { passive: true });
+  setProgress();
+
+  /* ── Marquee: base drift + scroll-velocity boost ── */
+  const track = document.querySelector('.mq-track');
+  if (track && !reduced) {
+    let x = 0, boost = 0, visible = false, raf = 0, prev = 0;
+    const tick = now => {
+      const dt = Math.min(0.05, (now - prev) / 1000 || 0); prev = now;
+      velocity *= Math.pow(0.02, dt);                       /* settle when scrolling stops */
+      boost = lerp(boost, Math.min(velocity * 0.55, 1100), 0.12);
+      const half = track.scrollWidth / 2;
+      x -= (42 + boost) * dt;
+      if (half > 0 && x <= -half) x += half;
+      track.style.transform = `translate3d(${x.toFixed(2)}px,0,0)`;
+      raf = visible ? requestAnimationFrame(tick) : 0;
+    };
+    new IntersectionObserver(([e]) => {
+      visible = e.isIntersecting;
+      if (visible && !raf) { prev = performance.now(); raf = requestAnimationFrame(tick); }
+    }).observe(track);
+  }
+
+  /* ── Hero: Format Reveal ── */
+  const cv = document.getElementById('jelly');
+  const ctx = cv && cv.getContext && cv.getContext('2d');
+  if (ctx) {
+    const css = getComputedStyle(root);
+    const rgb = name => {
+      const h = css.getPropertyValue(name).trim().replace('#', '');
+      return [0, 2, 4].map(i => parseInt(h.slice(i, i + 2), 16));
+    };
+    const PAPER = rgb('--paper'), RIM = rgb('--rim'), VIOLET = rgb('--violet'), PURPLE = rgb('--purple');
+    const rgba = (c, a) => `rgba(${c[0]},${c[1]},${c[2]},${a})`;
+    const lerpC = (a, b, t) => a.map((v, i) => Math.round(lerp(v, b[i], t)));
+
+    const N = 1400, VERTS = 120, AMBIENT = 40, EXP = 4, DURATION = 3000;
+    const inside = (u, v) => Math.abs(u) ** EXP + Math.abs(v) ** EXP <= 1;
+
+    /* Everything is stored in normalised units, so a resize only rescales — the animation keeps its place. */
+    const P = new Array(N);
+    for (let i = 0; i < N; i++) {
+      let u, v; do { u = Math.random() * 2 - 1; v = Math.random() * 2 - 1; } while (!inside(u, v));
+      P[i] = {
+        tu: u, tv: v,                                           /* target inside the lozenge */
+        sx: Math.random() * 1.6 - 0.8, sy: -0.55 - Math.random() * 0.9,   /* start above frame */
+        r: 0.12 + Math.random() * 0.34, a: Math.random() * Math.PI * 2,  /* swirl orbit */
+        w: (Math.random() < .5 ? -1 : 1) * (1.6 + Math.random() * 2.4),
+        d: Math.random() * 0.16, ph: Math.random() * 6.283
+      };
+    }
+    const G = Array.from({ length: AMBIENT }, () => ({ x: Math.random(), y: Math.random(), s: 0.004 + Math.random() * 0.01, ph: Math.random() * 6.283 }));
+    const shape = Array.from({ length: VERTS }, (_, i) => {
+      const t = i / VERTS * Math.PI * 2, c = Math.cos(t), s = Math.sin(t);
+      const ux = Math.sign(c) * Math.abs(c) ** (2 / EXP), uy = Math.sign(s) * Math.abs(s) ** (2 / EXP);
+      const len = Math.hypot(ux, uy) || 1;
+      return { t, ux, uy, nx: ux / len, ny: uy / len };
+    });
+
+    let W = 0, H = 0, clock = reduced ? DURATION : 0, running = false, onScreen = true, prev = 0;
+
+    const resize = () => {
+      const r = cv.getBoundingClientRect();
+      const dpr = Math.min(2, window.devicePixelRatio || 1);
+      W = r.width; H = r.height;
+      cv.width = Math.max(1, Math.round(W * dpr)); cv.height = Math.max(1, Math.round(H * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (!running) draw(prev || performance.now());
+    };
+
+    /* Swirl clock: slows to a hesitation around 45–55% of the timeline */
+    const swirlT = p => p < .45 ? p : p < .55 ? .45 + (p - .45) * .2 : .47 + (p - .55);
+
+    function draw(now) {
+      if (!W || !H) return;
+      const p = clamp(clock / DURATION);
+      const t = reduced ? 0 : now / 1000;
+      const sc = reduced ? 0 : clamp(scrollY / 600);
+      const cx = W * .5, cy = H * .52;
+      const A = W * .21, B = H * .33;
+      ctx.clearRect(0, 0, W, H);
+      ctx.globalCompositeOperation = 'lighter';
+
+      /* Particle cloud */
+      const cloudA = 1 - clamp((p - .8) / .2);
+      if (cloudA > 0) {
+        const k2 = ease(clamp((p - .55) / .25));          /* the hard collapse */
+        const spread = lerp(1.18, 1, k2);                   /* spacing closes as they land */
+        const size = 1 + k2;
+        ctx.fillStyle = rgba(lerpC(PAPER, RIM, k2), .85 * cloudA * clamp(p * 5));
+        const sw = swirlT(p);
+        for (let i = 0; i < N; i++) {
+          const q = P[i];
+          const k1 = ease(clamp((p - q.d) / .42));
+          const ang = q.a + q.w * sw;
+          const wx = Math.cos(ang) * q.r * W, wy = Math.sin(ang) * q.r * W * .9;
+          const jx = Math.sin(t * 2.3 + q.ph) * 3 * (1 - k2), jy = Math.cos(t * 1.7 + q.ph) * 3 * (1 - k2);
+          const x = lerp(lerp(q.sx * W, wx, k1) + jx, q.tu * A * spread, k2);
+          const y = lerp(lerp(q.sy * H, wy, k1) + jy, q.tv * B * spread, k2);
+          ctx.fillRect(cx + x - size / 2, cy + y - size / 2, size, size);
+        }
+      }
+
+      /* Ambient grains — always present, about 40 */
+      ctx.fillStyle = rgba(RIM, .38);
+      for (const g of G) {
+        const gy = ((g.y - (reduced ? 0 : t * g.s)) % 1 + 1) % 1;
+        const gx = g.x + Math.sin(t * .6 + g.ph) * .015;
+        ctx.fillRect(gx * W, gy * H, 1.4, 1.4);
+      }
+
+      /* Jelly body */
+      const jA = ease(clamp((p - .8) / .2));
+      if (jA > 0) {
+        ctx.globalCompositeOperation = 'source-over';
+        const amp = reduced ? 0 : W * .015;
+        const sx = 1 + .06 * sc, sy = 1 - .14 * sc;
+        const lift = -Math.min(scrollY * .3, H * .12) * (reduced ? 0 : 1);
+        const rim = 1 + .6 * sc;
+        const pts = shape.map(v => {
+          const wob = amp * (.6 * Math.sin(v.t * 3 + t * 1.15) + .4 * Math.sin(v.t * 5 - t * 1.9));
+          return [cx + v.ux * A * sx + v.nx * wob, cy + lift + v.uy * B * sy + v.ny * wob];
+        });
+        ctx.beginPath();
+        const m0 = [(pts[VERTS - 1][0] + pts[0][0]) / 2, (pts[VERTS - 1][1] + pts[0][1]) / 2];
+        ctx.moveTo(m0[0], m0[1]);
+        for (let i = 0; i < VERTS; i++) {
+          const a = pts[i], b = pts[(i + 1) % VERTS];
+          ctx.quadraticCurveTo(a[0], a[1], (a[0] + b[0]) / 2, (a[1] + b[1]) / 2);
+        }
+        ctx.closePath();
+
+        const top = cy + lift - B * sy, bot = cy + lift + B * sy;
+        const fill = ctx.createLinearGradient(0, top, 0, bot);
+        fill.addColorStop(0, rgba(RIM, .40 * jA));
+        fill.addColorStop(.45, rgba(VIOLET, .30 * jA));
+        fill.addColorStop(1, rgba(PURPLE, .88 * jA));
+        ctx.fillStyle = fill; ctx.fill();
+
+        /* One soft caustic drifting across the body */
+        ctx.save(); ctx.clip();
+        const hx = cx + Math.sin(t * .35) * A * .5, hy = cy + lift - B * .35 + Math.cos(t * .27) * B * .22;
+        const caustic = ctx.createRadialGradient(hx, hy, 0, hx, hy, A * .95);
+        caustic.addColorStop(0, rgba(PAPER, .26 * jA));
+        caustic.addColorStop(.5, rgba(RIM, .08 * jA));
+        caustic.addColorStop(1, rgba(RIM, 0));
+        ctx.globalCompositeOperation = 'lighter';
+        ctx.fillStyle = caustic; ctx.fillRect(cx - A * 2, top - 20, A * 4, bot - top + 40);
+        ctx.restore();
+
+        /* Rim light */
+        ctx.globalCompositeOperation = 'lighter';
+        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = rgba(RIM, Math.min(1, .7 * rim) * jA);
+        ctx.shadowColor = rgba(VIOLET, .9 * jA);
+        ctx.shadowBlur = 18 * rim;
+        ctx.stroke();
+        ctx.shadowBlur = 0;
+      }
+      ctx.globalCompositeOperation = 'source-over';
+    }
+
+    function loop(now) {
+      const dt = Math.min(50, now - prev || 16); prev = now;
+      if (clock < DURATION) clock += dt;
+      draw(now);
+      running = onScreen && !document.hidden;
+      if (running) requestAnimationFrame(loop);
+    }
+    const start = () => { if (reduced || running) return; running = true; prev = performance.now(); requestAnimationFrame(loop); };
+
+    resize();
+    if ('ResizeObserver' in window) new ResizeObserver(resize).observe(cv); else addEventListener('resize', resize);
+    if (!reduced) {
+      new IntersectionObserver(([e]) => { onScreen = e.isIntersecting; if (onScreen) start(); }).observe(cv);
+      document.addEventListener('visibilitychange', () => { if (!document.hidden) start(); });
+      start();
+    }
+  }
+
+  /* ── Waitlist: local only, no network call ── */
+  const form = document.getElementById('wl');
+  if (form) {
+    const input = form.querySelector('input'), err = document.getElementById('wl-err');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!input.value.trim() || !input.checkValidity()) {
+        err.textContent = 'Enter an email address like name@domain.com.';
+        input.setAttribute('aria-invalid', 'true'); input.focus(); return;
+      }
+      err.textContent = ''; input.removeAttribute('aria-invalid');
+      form.dataset.state = 'done';
+    });
+    input.addEventListener('input', () => { if (err.textContent) err.textContent = ''; });
+  }
+})();
+</script>
+</body>
+</html>
