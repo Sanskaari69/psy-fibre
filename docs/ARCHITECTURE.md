@@ -2,7 +2,7 @@
 
 PSY. is one static HTML file plus one stylesheet of tokens. No build step and no framework. Every moving part is described below as a mechanism, so the next person can change it without reading all of `index.html`.
 
-## 1 · Page structure
+## 1 · Page structure (v1: superseded by the seven-scene v2 in the README)
 
 Each band is a full-bleed ground colour with a 1120px inner wrapper. Reveals fire from one shared `IntersectionObserver` (`rootMargin: 0 0 -12% 0`, threshold `0.15`). Nothing in the first viewport is a `.r`, so the first frame is complete before any script runs.
 

@@ -1,14 +1,14 @@
 <div align="center">
 
-# PSY.
+<img src="assets/brand/psy-wordmark.png" alt="psy" width="220">
 
 **Daily Fibre. A New Form.**
 
-A ready-to-eat psyllium fibre jelly in a single stick. This is the pre-launch site for India: one HTML file, one token sheet, and a canvas hero that pours loose grains into a living jelly.
+A ready-to-eat psyllium fibre jelly in a single stick: Mango + Lime, Raspberry + Blood Orange, Watermelon + Mint. This is the pre-launch site for India, told in seven scenes. Grains pour into a living jelly, the page floods with gel, the word FIBRE splits open around the stick, and thirty sticks fly into their packs.
 
 [**Live site →**](https://sanskaari69.github.io/psy-fibre/) &nbsp;·&nbsp; [Design system](design/DESIGN_SYSTEM.md) &nbsp;·&nbsp; [Motion](design/motion.md) &nbsp;·&nbsp; [Architecture](docs/ARCHITECTURE.md) &nbsp;·&nbsp; [Claims rulebook](docs/COMPLIANCE.md)
 
-<!-- SCROLL-DEMO -->
+<img src="assets/og/scroll-demo.gif" alt="Scroll-through of the psy site: format reveal, jelly flood, FIBRE split, flavour laboratory, packs assembling" width="720">
 
 </div>
 
@@ -16,14 +16,14 @@ A ready-to-eat psyllium fibre jelly in a single stick. This is the pre-launch si
 
 ## Architecture
 
-### Page structure: grounds and reveal triggers
+### Page structure: seven scenes
 
 ```mermaid
 flowchart LR
   classDef plum fill:#100B1D,stroke:#C9A3FF,color:#F6F3FA
   classDef rise fill:#19102B,stroke:#C9A3FF,color:#F6F3FA
   classDef purple fill:#281238,stroke:#9B4DFF,color:#F6F3FA
-  H["Hero<br/>static HTML + canvas"]:::plum --> M["Marquee<br/>scroll-velocity"]:::purple --> P["Problem<br/>.r reveal"]:::plum --> F["Format<br/>.r reveal"]:::rise --> C["Landscape chart<br/>.r reveal"]:::plum --> FL["Flavours<br/>drop zones"]:::plum --> U["How to<br/>.r reveal"]:::rise --> S["Spec sheet<br/>type-in rows"]:::plum --> K["Packs"]:::purple --> W["Waitlist<br/>local only"]:::plum
+  H["01 Hero<br/>wordmark + canvas reveal"]:::plum --> M["Marquee<br/>scroll velocity"]:::purple --> F["02 Jelly flood<br/>WebGL · pinned 260vh"]:::plum --> P["Problem<br/>.r reveal"]:::plum --> A["03 FIBRE splits<br/>pinned 230vh"]:::rise --> C["Landscape chart"]:::plum --> L["04 Flavour lab<br/>horizontal pin ≥900px"]:::plum --> K["05 Packs assemble<br/>pinned 240vh · the twist"]:::purple --> S["06 How to + spec sheet"]:::rise --> W["07 Final composition<br/>waitlist"]:::plum
 ```
 
 ### Animation pipeline: Format Reveal
@@ -101,11 +101,35 @@ psy-fibre/
 ## Engineering notes
 
 - **Readable before script.** Headline, copy and CTAs are plain HTML at full opacity. Reveal pre-states apply only under `html.anim`, which JS adds at boot, and a 4s failsafe reveals everything.
-- **Canvas 2D, vanilla JS.** DPR capped at 2. The RAF loop stops when the hero leaves the viewport. State is stored in normalised units, so a resize never restarts the animation.
+- **Canvas 2D + one WebGL shader, vanilla JS.** No framework, no GSAP, no Three.js. Holds 60fps at 4× CPU throttle at phone size (hero and jelly flood measured). DPR capped at 2, 1.5 on phones; the flood renders at 0.5× on phones.
+- **Pinned scenes** are tall and sticky only when motion is on. With JS off or reduced motion, every scene is a normal static section.
+- **Canvas 2D hero.** The RAF loop stops when the hero leaves the viewport. State is stored in normalised units, so a resize never restarts the animation.
 - **Zero layout shift** on asset swap: every drop zone is a fixed `aspect-ratio: 3/4` box.
 - **`prefers-reduced-motion`**: final frame only, no wobble, no parallax, static marquee.
 
-<!-- PLACEHOLDERS -->
+## Placeholders
+
+Every value below renders as `—` with a `pending` pill until it is confirmed in writing.
+
+| Field | Where it shows | Unlocked by |
+|---|---|---|
+| Psyllium husk per serving | Spec sheet | Formulation lock (Gate 1) |
+| Total dietary fibre | Spec sheet | Lab analysis (Gate 4) |
+| Added sugar | Spec sheet | Lab analysis (Gate 4) |
+| Energy | Spec sheet | Lab analysis (Gate 4) |
+| Net quantity per stick | Spec sheet | Pilot batch (Gate 2) |
+| Gelling system | Spec sheet | Formulation lock (Gate 1) |
+| Storage | Spec sheet | Shelf-life study (Gate 4) |
+| Shelf life | Spec sheet | Shelf-life study (Gate 4) |
+| FSSAI category | Spec sheet | Regulatory review (Gate 5) |
+| Manufactured by | Spec sheet | Manufacturer selection (Gate 2) |
+| Flavour tasting notes (×3) | Flavour laboratory | Sensory panel (Gate 3) |
+| Flavour pack renders (×3) | `assets/flavours/*.webp` | Claim-free renders from the founder |
+| 30-day still life | Final scene | Claim-free render |
+| psy 10 and psy 30 price | Packs | Costing and pilot batch |
+| FSSAI licence number | Footer | Licence issued (Gate 5) |
+| Registered address | Footer | Company registration |
+| Waitlist backend | Final scene | The form stores nothing yet; choose a provider before launch |
 
 ---
 
