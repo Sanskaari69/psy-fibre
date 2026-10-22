@@ -39,7 +39,6 @@
 
 *,*::before,*::after{ box-sizing:border-box; }
 html{ background:var(--plum); -webkit-text-size-adjust:100%; scroll-padding-top:88px; }
-.anim{ scroll-behavior:smooth; }
 body{ margin:0; background:var(--plum); color:var(--paper); font-family:var(--font-body); font-size:var(--t-17); line-height:var(--lead-body); -webkit-font-smoothing:antialiased; overflow-x:clip; }
 img{ max-width:100%; display:block; }
 a{ color:inherit; }
@@ -339,7 +338,7 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
 
 
 /* ── Polish pass (22 Oct 2026) ── */
-.bar::before{ content:""; position:absolute; inset:0 0 -44px 0; z-index:-1; pointer-events:none; background:linear-gradient(180deg, rgba(16,11,29,.96) 0%, rgba(16,11,29,.86) 48%, rgba(16,11,29,0) 100%); -webkit-backdrop-filter:blur(14px) saturate(120%); backdrop-filter:blur(14px) saturate(120%); -webkit-mask-image:linear-gradient(#000 55%, transparent); mask-image:linear-gradient(#000 55%, transparent); }
+.bar::before{ content:""; position:absolute; inset:0 0 -44px 0; z-index:-1; pointer-events:none; background:linear-gradient(180deg, rgba(16,11,29,.96) 0%, rgba(16,11,29,.86) 48%, rgba(16,11,29,0) 100%); }
 .bar a[href="#top"]{ display:inline-flex; align-items:center; min-height:44px; padding-right:12px; }
 .bar .pill-link{ display:inline-flex; align-items:center; min-height:40px; padding:0 16px; transition:border-color var(--dur-hover) var(--ease-out), background-color var(--dur-hover) var(--ease-out), color var(--dur-hover) var(--ease-out); }
 .bar .pill-link:hover, .bar .pill-link:focus-visible{ background:rgba(155,77,255,.14); }
@@ -1000,13 +999,11 @@ html{ scrollbar-color:#2C1B45 var(--plum); }
   (() => {
     if (!motion) return;
     const trackEl = document.querySelector('.lab-track'), dots = [...document.querySelectorAll('.lab-dots i')];
-    const shots = [...document.querySelectorAll('.lab .shot img')];
     const wide = matchMedia('(min-width: 900px)');
     handlers.lab = p => {
-      if (!wide.matches) { trackEl.style.transform = ''; shots.forEach(im => im.style.translate = ''); return; }
+      if (!wide.matches) { trackEl.style.transform = ''; return; }
       const k = clamp((p - .04) / .92);
       trackEl.style.transform = `translate3d(${-k * 200}vw,0,0)`;
-      shots.forEach((im, i) => { const e = clamp(k * 2 - i, -1, 1); im.style.translate = `${(-e * 5).toFixed(2)}vw ${(Math.abs(e) * 2).toFixed(2)}vh`; });
       const idx = Math.min(2, Math.round(k * 2)); dots.forEach((d, i) => d.classList.toggle('on', i === idx));
     };
   })();
