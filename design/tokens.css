@@ -36,7 +36,7 @@
   --t-68:clamp(2.375rem, 1.5rem + 3.9vw, 4.25rem);
   --t-104:clamp(2.875rem, 1.3rem + 7vw, 6.5rem);
 
-  --lead-display:1;
+  --lead-display:1.06;
   --lead-body:1.6;
   --track-mono:.14em;
   --measure:65ch;

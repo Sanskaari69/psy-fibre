@@ -66,7 +66,7 @@ flowchart LR
   slot --> css{".shot:has(img)"}
   css -- true --> hide["CSS stick stand-in hidden<br/>img fills box · object-fit: cover"]
   css -- false --> stand["CSS stick stand-in shown<br/>hue = --flavour-N"]
-  export --> og["assets/og/psy-og.png<br/>1200×630, lineup crop"]
+  export --> og["assets/og/psy-og.jpg<br/>1200×630, lineup crop"]
   og --> meta["og:image / twitter:card<br/>in &lt;head&gt;"]
 ```
 

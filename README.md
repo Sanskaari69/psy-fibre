@@ -42,7 +42,7 @@ flowchart LR
 ```mermaid
 flowchart LR
   RN["Founder render"] --> RT["retouch claim lines<br/>cut out"] --> WP["&lt;slug&gt;.webp<br/>900×1200"] --> D["assets/flavours/"] --> SL[".shot[data-slot]<br/>fixed 3/4 box"] --> NS["zero layout shift<br/>CSS stand-in hides"]
-  WP --> OG["assets/og/psy-og.png"] --> MT["og:image"]
+  WP --> OG["assets/og/psy-og.jpg"] --> MT["og:image"]
 ```
 
 Deeper diagrams and the failure-mode table: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
@@ -131,7 +131,7 @@ Every value below renders as `—` with a `pending` pill until it is confirmed i
 | psy 10 and psy 30 price | Packs | Costing and pilot batch |
 | FSSAI licence number | Footer | Licence issued (Gate 5) |
 | Registered address | Footer | Company registration |
-| Waitlist backend | Final scene | The form stores nothing yet; choose a provider before launch |
+| Waitlist backend | Final scene | The form stores nothing yet. Set `data-endpoint` on `#wl` to a form endpoint (e.g. Formspree) and it POSTs, shows sending/saved/error states |
 
 ---
 

@@ -129,3 +129,4 @@ Footer line: *Daily Fibre, Reimagined.*
 - Format disclosure reworded, same substance: "Benefits of format only. psy makes no efficacy claims."
 - Waitlist success state is now honest: "**Not saved yet.** Sign-ups open with the pilot batch. This preview form stores nothing and sends nothing, so please check back." (was "Thanks, noted.")
 - Chart on phones: `Swipe the chart →` hint.
+- Review round 2: hero sub now "No scoop, no spoon, no prep." and marquee "The scoop was the problem" (step 03 still asks for a full glass of water, so the page no longer says "no glass"). Waitlist lead is "The waitlist opens with the pilot batch." (the pilot-batch tasting promise is gone until a list exists). Chart footnote now says rows sort formats by what they need (a measure, water, a vessel, waiting time), so it no longer reads as four steps against "Three steps too many".

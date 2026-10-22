@@ -9,7 +9,13 @@
 <meta property="og:title" content="psy · Daily Fibre. A New Form.">
 <meta property="og:description" content="A psyllium fibre jelly in a single stick. Pre-launch, India.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="assets/og/psy-og.png">
+<meta property="og:url" content="https://sanskaari69.github.io/psy-fibre/">
+<meta property="og:image" content="https://sanskaari69.github.io/psy-fibre/assets/og/psy-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Three psy daily fibre jelly sticks with the psy wordmark">
+<link rel="canonical" href="https://sanskaari69.github.io/psy-fibre/">
+<meta name="twitter:image" content="https://sanskaari69.github.io/psy-fibre/assets/og/psy-og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/brand/psy-wordmark.png" as="image">
@@ -32,7 +38,8 @@
    Every colour and size comes from design/tokens.css. */
 
 *,*::before,*::after{ box-sizing:border-box; }
-html{ background:var(--plum); -webkit-text-size-adjust:100%; }
+html{ background:var(--plum); -webkit-text-size-adjust:100%; scroll-padding-top:88px; }
+.anim{ scroll-behavior:smooth; }
 body{ margin:0; background:var(--plum); color:var(--paper); font-family:var(--font-body); font-size:var(--t-17); line-height:var(--lead-body); -webkit-font-smoothing:antialiased; overflow-x:clip; }
 img{ max-width:100%; display:block; }
 a{ color:inherit; }
@@ -60,7 +67,7 @@ em{ font-style:italic; }
 .anim .r.in{ opacity:1; transform:none; }
 
 /* ── Chrome: progress hairline + quiet header ─────── */
-.progress{ position:fixed; inset:0 0 auto 0; z-index:30; height:1px; margin-top:env(safe-area-inset-top, 0px); background:var(--violet); box-shadow:0 0 10px var(--violet); transform-origin:0 50%; transform:scaleX(0); pointer-events:none; }
+.progress{ position:fixed; inset:0 0 auto 0; z-index:30; height:2px; margin-top:env(safe-area-inset-top, 0px); background:linear-gradient(90deg, var(--violet), var(--rim)); box-shadow:0 0 10px rgba(155,77,255,.6); transform-origin:0 50%; transform:scaleX(0); pointer-events:none; }
 .bar{ position:fixed; inset:0 0 auto 0; z-index:25; padding-top:env(safe-area-inset-top, 0px); pointer-events:none; }
 .bar .in-bar{ max-width:calc(var(--max) + 32px); margin-inline:auto; padding:14px var(--gutter-r) 14px var(--gutter-l); display:flex; justify-content:space-between; align-items:center; }
 .bar img{ height:22px; width:auto; }
@@ -90,7 +97,7 @@ em{ font-style:italic; }
 .hero h1 em{ color:var(--rim); }
 .hero .sub{ color:var(--mute); max-width:42ch; }
 .ctas{ display:flex; flex-wrap:wrap; gap:var(--s-3); padding-top:var(--s-2); }
-.stage{ position:relative; aspect-ratio:4/5; width:100%; max-width:520px; justify-self:end; border:1px solid var(--line); border-radius:var(--radius-panel); overflow:hidden; background:radial-gradient(120% 70% at 50% 110%, rgba(155,77,255,.10), transparent 60%), var(--plum); }
+.stage{ -webkit-mask-image:radial-gradient(88% 88% at 50% 46%, #000 58%, transparent 100%); mask-image:radial-gradient(88% 88% at 50% 46%, #000 58%, transparent 100%); position:relative; aspect-ratio:4/5; width:100%; max-width:520px; justify-self:end; overflow:hidden; background:radial-gradient(60% 50% at 50% 55%, rgba(155,77,255,.12), transparent 70%); }
 .stage canvas{ position:absolute; inset:0; width:100%; height:100%; display:block; }
 .stage::before{ content:""; position:absolute; left:29%; right:29%; top:19%; bottom:15%; border-radius:42% / 30%; background:linear-gradient(180deg, rgba(201,163,255,.42), rgba(155,77,255,.28) 45%, rgba(40,18,56,.85)); box-shadow:0 0 0 1.5px rgba(201,163,255,.7), 0 0 28px rgba(155,77,255,.55); }
 .js .stage::before{ display:none; }
@@ -114,7 +121,7 @@ em{ font-style:italic; }
 .anim .flow .pin-stage{ padding-block:0; }
 .flow canvas{ position:absolute; inset:0; width:100%; height:100%; display:none; }
 .anim .flow canvas{ display:block; }
-.flow-line{ position:relative; z-index:1; font-family:var(--font-display); font-size:var(--t-104); line-height:.98; letter-spacing:-.02em; text-align:left; width:min(100% - 32px, 1120px); text-wrap:balance; }
+.flow-line{ position:relative; z-index:1; font-family:var(--font-display); font-size:var(--t-104); line-height:1.12; letter-spacing:-.02em; text-align:left; width:min(100% - 32px, 1120px); padding-bottom:.08em; text-wrap:balance; }
 .flow-a{ color:var(--paper); }
 .flow-b{ color:var(--paper); }
 .flow-b em{ color:var(--rim); }
@@ -262,7 +269,7 @@ html:not(.anim) .arch-cap{ position:static; padding-top:var(--s-6); }
 .anim .coll .pin-stage{ padding-block:clamp(72px, 10vh, 120px) 32px; }
 .coll-head{ max-width:calc(var(--max) + 32px); width:100%; margin-inline:auto; padding-inline:var(--gutter-l) var(--gutter-r); display:flex; justify-content:space-between; align-items:end; gap:var(--s-5); flex-wrap:wrap; }
 .coll-field{ position:relative; max-width:calc(var(--max) + 32px); width:100%; margin-inline:auto; padding-inline:var(--gutter-l) var(--gutter-r); display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.4fr); gap:var(--s-6); align-items:center; padding-block:var(--s-6); }
-.box{ position:relative; display:grid; gap:var(--s-4); padding:var(--s-5); border:1px solid var(--line-strong); border-radius:var(--radius-panel); background:rgba(16,11,29,.35); min-width:0; }
+.box{ position:relative; display:grid; grid-template-rows:auto auto 1fr auto; align-self:stretch; gap:var(--s-4); padding:var(--s-5); border:1px solid var(--line-strong); border-radius:var(--radius-panel); background:rgba(16,11,29,.35); min-width:0; }
 .box h3{ display:flex; align-items:flex-start; gap:8px; font-size:var(--t-44); }
 .box h3 img{ height:clamp(30px, 4vw, 48px); width:auto; }
 .box h3 small{ font-family:var(--font-mono); font-size:var(--t-13); letter-spacing:var(--track-mono); color:var(--rim); vertical-align:top; margin-left:6px; }
@@ -270,6 +277,7 @@ html:not(.anim) .arch-cap{ position:static; padding-top:var(--s-6); }
 .box--10 .slots{ grid-template-columns:repeat(5, var(--sw)); }
 .box--30 .slots{ grid-template-columns:repeat(10, var(--sw)); }
 .slots i{ aspect-ratio:9/20; border-radius:2px; border:1px dashed rgba(201,163,255,.18); }
+.box .slots{ align-self:start; }
 .box .price{ display:flex; justify-content:space-between; align-items:center; gap:var(--s-3); padding-top:var(--s-3); border-top:1px solid var(--line); color:var(--mute); }
 .mini{ position:absolute; left:0; top:0; border-radius:2px; pointer-events:none; will-change:transform; display:none;
   background:linear-gradient(90deg, transparent 60%, var(--b) 61%, var(--a)), linear-gradient(180deg, #2E1844, #1A0F28); box-shadow:inset 0 0 0 1px rgba(201,163,255,.35); }
@@ -318,6 +326,10 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
 .done{ display:none; gap:var(--s-3); }
 .form[data-state="done"] .field,.form[data-state="done"] .err,.form[data-state="done"] .lead{ display:none; }
 .form[data-state="done"] .done{ display:grid; }
+.saved{ display:none; }
+.form[data-state="saved"] .field,.form[data-state="saved"] .err,.form[data-state="saved"] .lead{ display:none; }
+.form[data-state="saved"] .saved{ display:block; }
+.form[data-state="sending"] button{ opacity:.6; cursor:progress; }
 .done .tick{ width:36px; height:36px; border:1px solid var(--violet); border-radius:50%; display:grid; place-items:center; color:var(--rim); box-shadow:0 0 18px -4px var(--violet); }
 
 .foot .wrap{ grid-template-columns:minmax(0,1fr) auto; align-items:end; padding-block:var(--s-8) var(--s-6); gap:var(--s-6); }
@@ -327,7 +339,7 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
 
 
 /* ── Polish pass (22 Oct 2026) ── */
-.bar::before{ content:""; position:absolute; inset:0 0 -28px 0; z-index:-1; pointer-events:none; background:linear-gradient(180deg, rgba(16,11,29,.9) 0%, rgba(16,11,29,.72) 55%, rgba(16,11,29,0) 100%); }
+.bar::before{ content:""; position:absolute; inset:0 0 -44px 0; z-index:-1; pointer-events:none; background:linear-gradient(180deg, rgba(16,11,29,.96) 0%, rgba(16,11,29,.86) 48%, rgba(16,11,29,0) 100%); -webkit-backdrop-filter:blur(14px) saturate(120%); backdrop-filter:blur(14px) saturate(120%); -webkit-mask-image:linear-gradient(#000 55%, transparent); mask-image:linear-gradient(#000 55%, transparent); }
 .bar a[href="#top"]{ display:inline-flex; align-items:center; min-height:44px; padding-right:12px; }
 .bar .pill-link{ display:inline-flex; align-items:center; min-height:40px; padding:0 16px; transition:border-color var(--dur-hover) var(--ease-out), background-color var(--dur-hover) var(--ease-out), color var(--dur-hover) var(--ease-out); }
 .bar .pill-link:hover, .bar .pill-link:focus-visible{ background:rgba(155,77,255,.14); }
@@ -337,6 +349,13 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
 .step .num{ color:#B886FF; }
 .fineprint{ font-size:12px; line-height:1.6; }
 .foot .legal{ font-size:12px; }
+.mono, .spec, .box h3 small, .f-top .idx, .lscape text, .foot .legal, .step .num{ font-variant-numeric:tabular-nums; }
+.chart-frame{ overscroll-behavior-x:contain; }
+html{ scrollbar-color:#2C1B45 var(--plum); }
+::-webkit-scrollbar{ width:10px; height:10px; }
+::-webkit-scrollbar-track{ background:var(--plum); }
+::-webkit-scrollbar-thumb{ background:#2C1B45; border:3px solid var(--plum); border-radius:999px; }
+::-webkit-scrollbar-thumb:hover{ background:#4A2C70; }
 .chart-hint{ display:none; color:var(--mute); font-size:11.5px; }
 .chart-hint span{ display:inline-block; animation:nudge 2.4s var(--ease-io) infinite; }
 @keyframes nudge{ 0%,60%,100%{ transform:none; } 30%{ transform:translateX(5px); } }
@@ -357,7 +376,7 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
 .step{ position:relative; border-top-color:var(--line); }
 .anim .step::before{ content:""; position:absolute; left:0; right:0; top:-1px; height:1px; background:linear-gradient(90deg, var(--violet), var(--rim)); transform:scaleX(0); transform-origin:0 50%; transition:transform 900ms var(--ease-out); transition-delay:calc(var(--d, 0) * 140ms + 120ms); opacity:.8; }
 .anim .step.in::before{ transform:scaleX(1); }
-@media (max-width: 699px){
+@media (max-width: 899px){
   .chart-hint{ display:block; }
   .chart-frame{ -webkit-mask-image:linear-gradient(90deg, #000 85%, transparent); mask-image:linear-gradient(90deg, #000 85%, transparent); }
   .chart-frame svg{ min-width:880px; }
@@ -368,14 +387,13 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
 /* ── Responsive ─────────────────────────────── */
 @media (max-width: 899px){
   .hero .wrap{ grid-template-columns:1fr; gap:var(--s-6); }
-  .stage{ justify-self:start; max-width:440px; }
+  .stage{ justify-self:center; max-width:440px; margin-inline:auto; }
   .problem .split,.split,.final .wrap{ grid-template-columns:1fr; gap:var(--s-6); }
   .steps{ grid-template-columns:1fr; gap:var(--s-5); }
   .f-scene{ grid-template-columns:1fr; gap:var(--s-5); padding-block:var(--s-8); min-height:auto; }
   .shot{ max-width:300px; justify-self:start; }
   .coll-field{ grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:var(--s-3); padding-block:var(--s-4); align-items:start; align-content:start; }
   .box--30 .slots{ grid-template-columns:repeat(6, var(--sw)); }
-  .box{ align-content:start; }
   .box p{ font-size:var(--t-15); }
   .slots{ --sw:clamp(12px, 3.4vw, 22px); gap:4px; }
   .anim .coll{ height:200vh; }
@@ -418,7 +436,7 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
       <img class="wordmark" src="assets/brand/psy-wordmark.png" alt="psy" width="985" height="417">
       <p class="eyebrow eyebrow--wrap"><span>Daily fibre jelly</span><span aria-hidden="true">·</span><span>Pre-launch · India</span></p>
       <h1 id="hero-h"><span>Daily Fibre.</span><span>A New <em>Form.</em></span></h1>
-      <p class="sub">A psyllium fibre jelly in a single stick. Tear it, squeeze it, done. No glass, no spoon, no prep.</p>
+      <p class="sub">A psyllium fibre jelly in a single stick. Tear it, squeeze it, done. No scoop, no spoon, no prep.</p>
       <div class="ctas">
         <a class="btn btn--solid" href="#waitlist">Join the waitlist <span class="arrow" aria-hidden="true">→</span></a>
         <a class="btn" href="#flavours">Meet the flavours</a>
@@ -433,10 +451,10 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
 <div class="marquee" aria-label="psy in short">
   <div class="mq-track">
     <div class="mq-set">
-      <span>The glass was the problem</span><i></i><span>No bottle to rinse</span><i></i><span>No sludge</span><i></i><span>Five seconds flat</span><i></i><span>Fibre, finally in good taste</span><i></i><span>Spoonless</span><i></i>
+      <span>The scoop was the problem</span><i></i><span>No bottle to rinse</span><i></i><span>No sludge</span><i></i><span>Five seconds flat</span><i></i><span>Fibre, finally in good taste</span><i></i><span>Spoonless</span><i></i>
     </div>
     <div class="mq-set" aria-hidden="true">
-      <span>The glass was the problem</span><i></i><span>No bottle to rinse</span><i></i><span>No sludge</span><i></i><span>Five seconds flat</span><i></i><span>Fibre, finally in good taste</span><i></i><span>Spoonless</span><i></i>
+      <span>The scoop was the problem</span><i></i><span>No bottle to rinse</span><i></i><span>No sludge</span><i></i><span>Five seconds flat</span><i></i><span>Fibre, finally in good taste</span><i></i><span>Spoonless</span><i></i>
     </div>
   </div>
 </div>
@@ -567,7 +585,7 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
 <text x="794.9" y="106" text-anchor="start" class="ls-lab">Konjac pouch (US) <tspan class="ls-val">₹134–249</tspan></text></g>
 </svg>
       </div>
-      <figcaption class="fineprint">Retail listings seen Sept–Oct 2026, per stated or standard serving. USD at ₹95.95, JPY at ₹0.61. Preparation steps counted: measuring, water, vessel, wait. Sources: brand and retailer listings (Dabur, Sat-Isabgol, Organic India, Supermucil, Plix, Fast&amp;Up, Unived, Metamucil, Yazuya, Tastelli, Jelly.B). Comparison of format only, not of effect.</figcaption>
+      <figcaption class="fineprint">Retail listings seen Sept–Oct 2026, per stated or standard serving. USD at ₹95.95, JPY at ₹0.61. Rows sort each format by what it needs before you can take it: a measure, water, a vessel, waiting time. Sources: brand and retailer listings (Dabur, Sat-Isabgol, Organic India, Supermucil, Plix, Fast&amp;Up, Unived, Metamucil, Yazuya, Tastelli, Jelly.B). Comparison of format only, not of effect.</figcaption>
     </figure>
   </div>
 </section>
@@ -728,14 +746,15 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
       <img class="mark-big r" src="assets/brand/psy-wordmark.png" alt="psy" width="985" height="417" loading="lazy">
       <h2 class="r" id="wait-h" style="--d:1">Be <em>early.</em></h2>
     </div>
-    <form class="form r" style="--d:2" id="wl" novalidate>
-      <p class="lead">Join the waitlist. Early sign-ups taste the pilot batch first.</p>
+    <form class="form r" style="--d:2" id="wl" novalidate data-endpoint="">
+      <p class="lead">The waitlist opens with the pilot batch.</p>
       <div class="field">
         <label class="sr" for="wl-email">Email address</label>
-        <input id="wl-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required>
+        <input id="wl-email" name="email" type="email" inputmode="email" autocomplete="email" enterkeyhint="go" spellcheck="false" autocapitalize="off" autocorrect="off" placeholder="you@email.com" required>
         <button class="btn btn--solid" type="submit">Join the waitlist <span class="arrow" aria-hidden="true">→</span></button>
       </div>
       <p class="err" id="wl-err" aria-live="polite"></p>
+      <p class="saved" role="status" aria-live="polite"><strong style="font-weight:500;color:var(--paper)">You are on the list.</strong> We will write when the pilot batch is ready.</p>
       <div class="done" role="status" aria-live="polite">
         <span class="tick" aria-hidden="true">i</span>
         <p><strong style="font-weight:500;color:var(--paper)">Not saved yet.</strong> Sign-ups open with the pilot batch. This preview form stores nothing and sends nothing, so please check back.</p>
@@ -1021,7 +1040,7 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
         const k = ease(clamp((p - .08 - delay) / .5));
         const s = starts[i], t = targets[i];
         m.style.transform = `translate(${lerp(s.x, t.x, k)}px, ${lerp(s.y, t.y, k)}px) rotate(${lerp(s.r, 0, k)}deg) scale(${lerp(s.s, 1, k)})`;
-        m.style.opacity = clamp(.25 + p * 3);
+        m.style.opacity = (.16 + .84 * k * k).toFixed(3);
       });
     };
     handlers.coll(0);
@@ -1038,7 +1057,14 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
     form.addEventListener('submit', e => {
       e.preventDefault();
       if (!input.value.trim() || !input.checkValidity()) { err.textContent = 'Enter an email address like name@domain.com.'; input.setAttribute('aria-invalid', 'true'); input.focus(); return; }
-      err.textContent = ''; input.removeAttribute('aria-invalid'); form.dataset.state = 'done';
+      err.textContent = ''; input.removeAttribute('aria-invalid');
+      const url = form.dataset.endpoint;
+      if (!url) { form.dataset.state = 'done'; return; }          // no backend yet: honest "not saved" state
+      const btn = form.querySelector('button'); btn.disabled = true; form.dataset.state = 'sending';
+      fetch(url, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) })
+        .then(r => { if (!r.ok) throw 0; form.dataset.state = 'saved'; })
+        .catch(() => { form.dataset.state = ''; err.textContent = 'That did not go through. Try again in a moment.'; })
+        .finally(() => { btn.disabled = false; });
     });
     input.addEventListener('input', () => { if (err.textContent) err.textContent = ''; });
   }

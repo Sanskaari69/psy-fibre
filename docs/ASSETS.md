@@ -9,7 +9,7 @@ Verified 22 Oct 2026 in headless Chrome at 1440, 768, 390 and 360: every referen
 | `assets/flavours/mango-lime.webp` (900×1200, transparent) | Mango + Lime still | `.f-scene[data-flavour=mango-lime] .shot` | `contain`, no distortion | ✅ correct flavour |
 | `assets/flavours/raspberry-blood-orange.webp` | Raspberry + Blood Orange still | `[data-flavour=raspberry-blood-orange]` | `contain` | ✅ correct flavour |
 | `assets/flavours/watermelon-mint.webp` | Watermelon + Mint still | `[data-flavour=watermelon-mint]` | `contain` | ✅ correct flavour |
-| `assets/og/psy-og.png` (1200×630) | Share card | `og:image` meta | — | ✅ |
+| `assets/og/psy-og.jpg` (1200×630, 116 KB) | Share card | `og:image`, `twitter:image` (absolute URLs) | — | ✅ |
 | `assets/favicon/favicon.svg` | Tab icon | `<link rel=icon>` | — | ✅ |
 | `assets/og/scroll-demo.gif` | README demo | README only | — | ✅ not used on the page, by design |
 | `design/tokens.css` | Tokens | `<link rel=stylesheet>` | — | ✅ |
