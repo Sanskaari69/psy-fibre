@@ -1,0 +1,5 @@
+.DS_Store
+.qa.html
+node_modules/
+*.log
+# Private material never lives here — not even ignored. See docs/COMPLIANCE.md.
