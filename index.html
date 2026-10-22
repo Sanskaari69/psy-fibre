@@ -3,21 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>PSY. Daily Fibre</title>
-<meta name="description" content="PSY. is a ready-to-eat psyllium fibre jelly in a single stick. Pre-launch, India.">
+<title>psy · Daily Fibre Jelly</title>
+<meta name="description" content="psy is a ready-to-eat psyllium fibre jelly in a single stick. Mango + Lime, Raspberry + Blood Orange, Watermelon + Mint. Pre-launch, India.">
 <meta name="theme-color" content="#100B1D">
-<meta property="og:title" content="PSY. Daily Fibre. A New Form.">
+<meta property="og:title" content="psy · Daily Fibre. A New Form.">
 <meta property="og:description" content="A psyllium fibre jelly in a single stick. Pre-launch, India.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/og/psy-og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/brand/psy-wordmark.png" as="image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Hanken+Grotesk:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Hanken+Grotesk:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="design/tokens.css">
 <script>
-  /* Boot: opt in to motion only when JS runs and the reader allows it. 4s failsafe reveals everything. */
+  /* Boot: motion is opt-in. No JS or reduced motion = a complete static editorial page. 4s failsafe reveals everything. */
   (function(d){
     var h=d.documentElement;
     if(!matchMedia('(prefers-reduced-motion: reduce)').matches){ h.classList.add('anim'); }
@@ -26,72 +27,51 @@
   })(document);
 </script>
 <style>
-/* Layout concept: asymmetric editorial bands on matte plum. Content left-weighted, a lot of empty ground.
-   Separation by 1px hairlines and ground shifts only. All values come from design/tokens.css. */
+/* Layout concept: seven scenes, not sections. Editorial asymmetry on matte plum; three pinned
+   transformations (jelly flood, FIBRE splitting open, sticks assembling into packs) carry the story.
+   Every colour and size comes from design/tokens.css. */
 
 *,*::before,*::after{ box-sizing:border-box; }
 html{ background:var(--plum); -webkit-text-size-adjust:100%; }
-body{
-  margin:0; background:var(--plum); color:var(--paper);
-  font-family:var(--font-body); font-weight:400; font-size:var(--t-17); line-height:var(--lead-body);
-  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-}
+body{ margin:0; background:var(--plum); color:var(--paper); font-family:var(--font-body); font-size:var(--t-17); line-height:var(--lead-body); -webkit-font-smoothing:antialiased; overflow-x:clip; }
 img{ max-width:100%; display:block; }
 a{ color:inherit; }
 ::selection{ background:var(--violet); color:var(--paper); }
 :focus-visible{ outline:1.5px solid var(--rim); outline-offset:3px; border-radius:var(--radius-panel); }
-
 h1,h2,h3{ margin:0; font-family:var(--font-display); font-weight:400; line-height:var(--lead-display); letter-spacing:-.01em; text-wrap:balance; }
 p{ margin:0; max-width:var(--measure); text-wrap:pretty; }
-
-.eyebrow,.mono{ font-family:var(--font-mono); font-weight:400; font-size:var(--t-13); letter-spacing:var(--track-mono); text-transform:uppercase; }
-.eyebrow{ color:var(--rim); display:flex; align-items:center; gap:var(--s-3); }
-.eyebrow::before{ content:""; width:18px; height:1px; background:var(--violet); box-shadow:0 0 8px var(--violet); }
+em{ font-style:italic; }
+.mono{ font-family:var(--font-mono); font-size:var(--t-13); letter-spacing:var(--track-mono); text-transform:uppercase; }
+.eyebrow{ font-family:var(--font-mono); font-size:var(--t-13); letter-spacing:var(--track-mono); text-transform:uppercase; color:var(--rim); display:flex; align-items:center; gap:var(--s-3); }
+.eyebrow::before{ content:""; width:18px; height:1px; background:var(--violet); box-shadow:0 0 8px var(--violet); flex-shrink:0; }
 .mute{ color:var(--mute); }
+.sr{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
 
-/* Bands: full-bleed ground, constrained inner wrapper with the gutter rule */
 .band{ position:relative; }
-.band--plum{ background:var(--plum); }
 .band--rise{ background:var(--plum-rise); }
 .band--purple{ background:var(--purple); }
-.band + .band{ border-top:1px solid var(--line); }
-.wrap{
-  max-width:calc(var(--max) + 32px); margin-inline:auto;
-  padding-left:var(--gutter-l); padding-right:var(--gutter-r);
-  padding-block:var(--band-y);
-  display:grid; gap:var(--s-7);
-}
+.wrap{ max-width:calc(var(--max) + 32px); margin-inline:auto; padding-left:var(--gutter-l); padding-right:var(--gutter-r); padding-block:var(--band-y); display:grid; gap:var(--s-7); }
 .wrap > *{ min-width:0; }
+.fineprint{ font-family:var(--font-mono); font-size:11.5px; letter-spacing:.08em; color:var(--mute); }
+.pend{ display:inline-flex; align-items:center; height:22px; padding-inline:10px; border:1px solid var(--violet); border-radius:var(--radius-pill); color:var(--rim); font-family:var(--font-mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; line-height:1; white-space:nowrap; box-shadow:0 0 12px -4px var(--violet) inset; }
 
-/* ── Progress hairline ─────────────────────────────── */
-.progress{
-  position:fixed; inset:0 0 auto 0; z-index:20; height:1px;
-  margin-top:env(safe-area-inset-top, 0px);
-  background:var(--violet); box-shadow:0 0 10px var(--violet);
-  transform-origin:0 50%; transform:scaleX(0); pointer-events:none;
-}
-
-/* ── Reveal system: visible by default, pre-state only under html.anim ── */
+/* Reveal system (unchanged contract): visible by default, pre-state only under html.anim */
 .anim .r{ opacity:.001; transform:translateY(18px); transition:opacity var(--dur-reveal) var(--ease-out), transform var(--dur-reveal) var(--ease-out); transition-delay:calc(var(--d, 0) * var(--stagger)); }
 .anim .r.in{ opacity:1; transform:none; }
 
-/* ── Hero ─────────────────────────────────────────── */
-.hero .wrap{ grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); align-items:center; gap:var(--s-7); padding-block:clamp(56px, 7vw, 112px) clamp(48px, 5vw, 88px); }
-.hero-copy{ display:grid; gap:var(--s-5); align-content:start; }
-.hero h1{ font-size:var(--t-104); font-weight:400; line-height:.95; letter-spacing:-.02em; }
-.hero h1 span{ display:block; white-space:nowrap; }
-.hero h1 em{ font-style:italic; color:var(--rim); }
-.hero .sub{ color:var(--mute); font-size:var(--t-17); max-width:42ch; }
-.ctas{ display:flex; flex-wrap:wrap; gap:var(--s-3); padding-top:var(--s-2); }
+/* ── Chrome: progress hairline + quiet header ─────── */
+.progress{ position:fixed; inset:0 0 auto 0; z-index:30; height:1px; margin-top:env(safe-area-inset-top, 0px); background:var(--violet); box-shadow:0 0 10px var(--violet); transform-origin:0 50%; transform:scaleX(0); pointer-events:none; }
+.bar{ position:fixed; inset:0 0 auto 0; z-index:25; padding-top:env(safe-area-inset-top, 0px); pointer-events:none; }
+.bar .in-bar{ max-width:calc(var(--max) + 32px); margin-inline:auto; padding:14px var(--gutter-r) 14px var(--gutter-l); display:flex; justify-content:space-between; align-items:center; }
+.bar img{ height:22px; width:auto; }
+.bar a{ pointer-events:auto; }
+.js .bar{ opacity:0; transform:translateY(-8px); transition:opacity 400ms var(--ease-out), transform 400ms var(--ease-out); }
+.js .bar.on{ opacity:1; transform:none; }
+.bar .pill-link{ font-family:var(--font-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; text-decoration:none; padding:8px 14px; border:1px solid var(--line-strong); border-radius:var(--radius-pill); background:rgba(16,11,29,.72); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); transition:border-color var(--dur-hover) var(--ease-out); }
+.bar .pill-link:hover{ border-color:var(--rim); }
 
-.btn{
-  --bg:transparent;
-  display:inline-flex; align-items:center; gap:var(--s-3);
-  min-height:48px; padding-inline:22px; border-radius:var(--radius-pill);
-  font-family:var(--font-mono); font-size:var(--t-13); letter-spacing:var(--track-mono); text-transform:uppercase; text-decoration:none;
-  color:var(--paper); background:var(--bg); border:1px solid var(--line-strong); cursor:pointer;
-  transition:border-color var(--dur-hover) var(--ease-out), box-shadow var(--dur-hover) var(--ease-out), transform var(--dur-press) var(--ease-out), background-color var(--dur-hover) var(--ease-out);
-}
+.btn{ --bg:transparent; display:inline-flex; align-items:center; gap:var(--s-3); min-height:48px; padding-inline:22px; border-radius:var(--radius-pill); font-family:var(--font-mono); font-size:var(--t-13); letter-spacing:var(--track-mono); text-transform:uppercase; text-decoration:none; color:var(--paper); background:var(--bg); border:1px solid var(--line-strong); cursor:pointer;
+  transition:border-color var(--dur-hover) var(--ease-out), box-shadow var(--dur-hover) var(--ease-out), transform var(--dur-press) var(--ease-out), background-color var(--dur-hover) var(--ease-out); }
 .btn:hover{ border-color:var(--rim); box-shadow:0 0 0 1px rgba(155,77,255,.25), 0 0 22px -6px var(--violet); }
 .btn:active{ transform:translateY(1px) scale(.99); }
 .btn--solid{ --bg:var(--paper); color:var(--plum); border-color:var(--paper); }
@@ -99,45 +79,90 @@ p{ margin:0; max-width:var(--measure); text-wrap:pretty; }
 .btn .arrow{ transition:transform var(--dur-hover) var(--ease-out); }
 .btn:hover .arrow{ transform:translateX(3px); }
 
-.stage{ position:relative; aspect-ratio:4/5; width:100%; max-width:520px; justify-self:end; border:1px solid var(--line); border-radius:var(--radius-panel); overflow:hidden;
-  background:radial-gradient(120% 70% at 50% 110%, rgba(155,77,255,.10), transparent 60%), var(--plum); }
+/* ══ SCENE 01 · First impression ═════════════════ */
+.hero .wrap{ grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); align-items:center; padding-block:clamp(48px, 6vw, 96px) clamp(40px, 5vw, 80px); }
+.hero-copy{ display:grid; gap:var(--s-5); align-content:start; }
+.wordmark{ width:clamp(132px, 16vw, 210px); height:auto; filter:drop-shadow(0 0 22px rgba(155,77,255,.35)); }
+.anim .wordmark{ animation:mark-in 1100ms var(--ease-out) both; }
+@keyframes mark-in{ from{ opacity:0; filter:blur(10px) drop-shadow(0 0 0 rgba(155,77,255,0)); transform:translateY(8px); } }
+.hero h1{ font-size:var(--t-104); line-height:.95; letter-spacing:-.02em; }
+.hero h1 span{ display:block; white-space:nowrap; }
+.hero h1 em{ color:var(--rim); }
+.hero .sub{ color:var(--mute); max-width:42ch; }
+.ctas{ display:flex; flex-wrap:wrap; gap:var(--s-3); padding-top:var(--s-2); }
+.stage{ position:relative; aspect-ratio:4/5; width:100%; max-width:520px; justify-self:end; border:1px solid var(--line); border-radius:var(--radius-panel); overflow:hidden; background:radial-gradient(120% 70% at 50% 110%, rgba(155,77,255,.10), transparent 60%), var(--plum); }
 .stage canvas{ position:absolute; inset:0; width:100%; height:100%; display:block; }
-/* No-JS stand-in: a still jelly lozenge so the first frame is never empty */
-.stage::before{ content:""; position:absolute; left:29%; right:29%; top:19%; bottom:15%; border-radius:42% / 30%;
-  background:linear-gradient(180deg, rgba(201,163,255,.42), rgba(155,77,255,.28) 45%, rgba(40,18,56,.85));
-  box-shadow:0 0 0 1.5px rgba(201,163,255,.7), 0 0 28px rgba(155,77,255,.55); }
+.stage::before{ content:""; position:absolute; left:29%; right:29%; top:19%; bottom:15%; border-radius:42% / 30%; background:linear-gradient(180deg, rgba(201,163,255,.42), rgba(155,77,255,.28) 45%, rgba(40,18,56,.85)); box-shadow:0 0 0 1.5px rgba(201,163,255,.7), 0 0 28px rgba(155,77,255,.55); }
 .js .stage::before{ display:none; }
 .stage-tag{ position:absolute; left:14px; bottom:12px; right:14px; display:flex; justify-content:space-between; gap:var(--s-3); color:var(--mute); font-size:11px; z-index:1; }
 
-/* ── Marquee ──────────────────────────────────────── */
-.marquee{ overflow:hidden; border-block:1px solid var(--line-strong); padding-block:18px; }
+/* ── Marquee ─────────────────────────────────── */
+.marquee{ overflow:hidden; border-block:1px solid var(--line-strong); padding-block:18px; background:var(--purple); }
 .mq-track{ display:flex; width:max-content; will-change:transform; }
 .mq-set{ display:flex; align-items:center; gap:28px; padding-right:28px; flex-shrink:0; }
-.mq-set span{ font-family:var(--font-mono); font-size:var(--t-15); letter-spacing:var(--track-mono); text-transform:uppercase; white-space:nowrap; color:var(--paper); }
+.mq-set span{ font-family:var(--font-mono); font-size:var(--t-15); letter-spacing:var(--track-mono); text-transform:uppercase; white-space:nowrap; }
 .mq-set i{ width:6px; height:6px; background:var(--violet); transform:rotate(45deg); box-shadow:0 0 8px var(--violet); flex-shrink:0; }
-.band--purple.marquee-band .wrap{ padding-block:0; max-width:none; padding-left:0; padding-right:0; }
 
-/* ── Problem ──────────────────────────────────────── */
-.split{ display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:var(--s-8); align-items:start; }
-.split > *{ min-width:0; }
-.statement{ font-size:var(--t-68); line-height:1.02; max-width:13ch; }
-.stack{ display:grid; gap:var(--s-5); color:var(--mute); padding-top:var(--s-3); }
-.stack p:first-child{ color:var(--paper); }
+/* ── Pin system: tall + sticky only when motion is on ── */
+.pin{ position:relative; }
+.pin-stage{ position:relative; }
+.anim .pin-stage{ position:sticky; top:0; height:100vh; height:100svh; overflow:hidden; }
 
-/* ── Format ───────────────────────────────────────── */
-.h2{ font-size:var(--t-68); line-height:1; }
-.h2 em{ font-style:italic; color:var(--rim); }
+/* ══ SCENE 02 · The world turns to jelly ═════════ */
+.flow{ background:var(--plum); }
+.anim .flow{ height:260vh; }
+.flow .pin-stage{ display:grid; place-items:center; padding-block:var(--band-y); }
+.anim .flow .pin-stage{ padding-block:0; }
+.flow canvas{ position:absolute; inset:0; width:100%; height:100%; display:none; }
+.anim .flow canvas{ display:block; }
+.flow-line{ position:relative; z-index:1; font-family:var(--font-display); font-size:var(--t-104); line-height:.98; letter-spacing:-.02em; text-align:left; width:min(100% - 32px, 1120px); text-wrap:balance; }
+.flow-a{ color:var(--paper); }
+.flow-b{ color:var(--paper); }
+.flow-b em{ color:var(--rim); }
+.flow-stack{ display:grid; gap:var(--s-6); width:min(100% - 32px, 1120px); }
+.flow-stack .flow-line{ width:auto; }
+.anim .flow-stack{ display:block; position:relative; padding-inline:var(--gutter-l) var(--gutter-r); width:min(100%, 1152px); }
+.anim .flow-a, .anim .flow-b{ position:absolute; left:var(--gutter-l); right:var(--gutter-r); top:50%; translate:0 -50%; will-change:opacity, transform; }
+.anim .flow-b{ transform-origin:0 50%; opacity:0; text-shadow:0 2px 30px rgba(16,11,29,.55); }
+.anim .flow-stack{ height:60vh; }
+.flow-tag{ position:absolute; left:var(--gutter-l); bottom:20px; z-index:2; color:var(--mute); font-size:11px; }
+
+/* Problem copy */
+.problem .split{ display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:var(--s-8); align-items:start; }
+.problem .stack{ display:grid; gap:var(--s-5); color:var(--mute); }
+.problem .stack p:first-child{ color:var(--paper); font-size:var(--t-22); line-height:1.45; }
+.problem aside{ display:grid; gap:var(--s-4); align-content:start; }
+.problem aside .big{ font-family:var(--font-display); font-size:var(--t-68); line-height:1; }
+.problem aside .big em{ color:var(--rim); }
+
+/* ══ SCENE 03 · FIBRE splits open ════════════════ */
+.arch{ background:var(--plum-rise); }
+.anim .arch{ height:230vh; }
+.arch .pin-stage{ display:grid; place-items:center; padding-block:var(--band-y); }
+.anim .arch .pin-stage{ padding-block:0; }
+.word{ position:relative; display:flex; justify-content:center; align-items:center; width:100%; font-family:var(--font-display); font-size:clamp(5.5rem, 24vw, 22rem); line-height:.8; letter-spacing:-.03em; color:var(--paper); user-select:none; }
+.word span{ display:inline-block; will-change:transform; }
+.word span:nth-child(2){ font-style:italic; color:var(--rim); }
+.reveal-stick{ position:absolute; left:50%; top:50%; width:clamp(64px, 9vw, 120px); aspect-ratio:9/20; translate:-50% -50%; border-radius:6px; z-index:-1;
+  background:repeating-linear-gradient(0deg, rgba(246,243,250,.18) 0 1px, transparent 1px 3px) top/100% 9% no-repeat, linear-gradient(90deg, rgba(16,11,29,.6), transparent 30%, transparent 70%, rgba(16,11,29,.65)), linear-gradient(180deg, var(--violet), var(--purple) 80%);
+  box-shadow:inset 0 0 0 1px rgba(201,163,255,.6), 0 0 60px -10px var(--violet); }
+.js:not(.anim) .reveal-stick, html:not(.js) .reveal-stick{ display:none; }
+.arch-cap{ position:absolute; left:0; right:0; bottom:clamp(28px, 8vh, 72px); display:grid; justify-items:center; gap:var(--s-3); text-align:center; z-index:1; padding-inline:16px; }
+.arch-cap h2{ font-size:var(--t-44); }
+.arch-cap h2 em{ color:var(--rim); }
+html:not(.anim) .arch-cap{ position:static; padding-top:var(--s-6); }
 .trio{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); border-block:1px solid var(--line); }
 .trio > div{ display:grid; gap:var(--s-3); padding:var(--s-6) var(--s-5) var(--s-6) 0; min-width:0; }
 .trio > div + div{ border-left:1px solid var(--line); padding-left:var(--s-5); }
 .trio .mono{ color:var(--rim); }
-.fineprint{ font-family:var(--font-mono); font-size:11.5px; letter-spacing:.08em; color:var(--mute); text-transform:none; }
+.trio p{ font-size:var(--t-22); line-height:1.35; font-family:var(--font-display); }
 
-/* ── Chart ────────────────────────────────────────── */
+/* Chart (format landscape) */
+.h2{ font-size:var(--t-68); line-height:1; }
+.h2 em{ color:var(--rim); }
+.split{ display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:var(--s-8); align-items:start; }
 .chart-frame{ overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius-panel); background:var(--plum); }
 .chart-frame svg{ display:block; width:100%; min-width:560px; height:auto; }
-
-
 .lscape .ls-bg{ fill:var(--plum); }
 .lscape .ls-hatch{ stroke:rgba(155,77,255,.22); stroke-width:1; }
 .lscape .ls-psyband{ stroke:var(--violet); stroke-width:1; stroke-dasharray:4 4; }
@@ -155,55 +180,90 @@ p{ margin:0; max-width:var(--measure); text-wrap:pretty; }
 .lscape .ls-pt:hover .ls-lab,.lscape .ls-pt:focus-visible .ls-lab{ fill:var(--rim); }
 .lscape .ls-pt:hover circle,.lscape .ls-pt:focus-visible circle{ stroke:var(--rim); }
 
-/* ── Flavours ─────────────────────────────────────── */
-.flavours .wrap{ gap:var(--s-6); }
-.f-head{ display:flex; justify-content:space-between; align-items:end; gap:var(--s-5); flex-wrap:wrap; }
-.f-grid{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); }
-.f-panel{ --hue:var(--violet); position:relative; display:grid; grid-template-rows:auto 1fr auto; gap:var(--s-5); padding:var(--s-5); min-height:min(86vh, 720px); background:var(--plum); min-width:0; overflow:hidden;
-  transition:background-color 400ms var(--ease-out); }
-.f-panel::after{ content:""; position:absolute; inset:auto 0 0 0; height:1px; background:var(--hue); box-shadow:0 0 14px var(--hue); transform:scaleX(.18); transform-origin:0 50%; transition:transform 700ms var(--ease-out); }
-.f-panel:hover::after{ transform:scaleX(1); }
-.f-panel:nth-child(1){ --hue:var(--flavour-1); }
-.f-panel:nth-child(2){ --hue:var(--flavour-2); }
-.f-panel:nth-child(3){ --hue:var(--flavour-3); }
-.f-top{ display:flex; justify-content:space-between; gap:var(--s-3); color:var(--mute); }
-.f-top .idx{ color:var(--hue); }
-.f-name{ font-size:var(--t-44); }
-.f-note{ color:var(--mute); display:flex; gap:var(--s-3); align-items:center; flex-wrap:wrap; }
 
-/* Asset drop-zone: fixed 3/4 box, so an <img> swaps in with zero layout shift */
-.shot{ position:relative; aspect-ratio:3/4; width:100%; max-width:100%; align-self:center; overflow:hidden; }
-.shot{ background:radial-gradient(60% 45% at 50% 62%, rgba(155,77,255,.12), transparent 70%); }
+
+/* ══ SCENE 04 · Flavour laboratory ═══════════════ */
+.lab{ background:var(--plum); }
+.lab-head{ max-width:calc(var(--max) + 32px); margin-inline:auto; padding:var(--band-y) var(--gutter-r) var(--s-6) var(--gutter-l); display:flex; justify-content:space-between; align-items:end; gap:var(--s-5); flex-wrap:wrap; }
+.lab-track{ display:grid; gap:1px; background:var(--line); }
+.f-scene{ --a:var(--violet); --b:var(--rim); position:relative; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.8fr); align-items:center; gap:var(--s-7); padding-block:var(--s-8); padding-left:max(var(--gutter-l), calc((100vw - var(--max)) / 2)); padding-right:max(var(--gutter-r), calc((100vw - var(--max)) / 2)); min-height:min(92vh, 860px); overflow:hidden; }
+.f-scene{ background:radial-gradient(55% 65% at 76% 55%, rgba(155,77,255,.16), transparent 70%), var(--plum); }
+.f-scene::before{ content:""; position:absolute; right:12%; top:50%; width:min(46vw, 560px); aspect-ratio:1; translate:0 -50%; border-radius:50%; background:radial-gradient(circle at 40% 40%, var(--a), transparent 62%); opacity:.18; filter:blur(30px); pointer-events:none; }
+.f-scene::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:1px; background:linear-gradient(90deg, var(--a), var(--b)); opacity:.6; }
+.f-scene[data-flavour="mango-lime"]{ --a:var(--mango); --b:var(--lime); }
+.f-scene[data-flavour="raspberry-blood-orange"]{ --a:var(--raspberry); --b:var(--blood-orange); }
+.f-scene[data-flavour="watermelon-mint"]{ --a:var(--watermelon); --b:var(--mint); }
+.f-copy{ position:relative; z-index:1; display:grid; gap:var(--s-5); max-width:560px; }
+.f-top{ display:flex; gap:var(--s-5); align-items:center; color:var(--mute); }
+.f-top .idx{ color:var(--a); }
+.f-name{ font-size:var(--t-104); line-height:.92; letter-spacing:-.02em; }
+.f-name span{ display:block; }
+.f-name em{ color:var(--b); }
+.f-who{ color:var(--a); }
+.f-note{ font-size:var(--t-22); line-height:1.45; color:var(--paper); max-width:30ch; }
+.f-meta{ display:flex; gap:var(--s-3); align-items:center; flex-wrap:wrap; color:var(--mute); font-size:var(--t-15); }
+.shot{ position:relative; z-index:1; aspect-ratio:3/4; width:100%; max-width:420px; max-height:72vh; justify-self:center; overflow:hidden; }
 .shot img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-/* CSS stand-in stick (shown only while no render is dropped in) */
-.stick{ position:absolute; left:50%; top:50%; width:30%; height:78%; transform:translate(-50%,-50%) rotate(-4deg); border-radius:3px;
+.stick{ position:absolute; left:50%; top:50%; width:34%; height:82%; translate:-50% -50%; rotate:-5deg; border-radius:4px;
   background:
-    repeating-linear-gradient(0deg, rgba(246,243,250,.16) 0 1px, transparent 1px 3px) top/100% 7% no-repeat,
-    repeating-linear-gradient(0deg, rgba(246,243,250,.16) 0 1px, transparent 1px 3px) bottom/100% 7% no-repeat,
-    linear-gradient(90deg, rgba(16,11,29,.55), transparent 30%, transparent 70%, rgba(16,11,29,.6)),
-    linear-gradient(180deg, var(--hue), var(--purple) 78%);
-  box-shadow:inset 0 0 0 1px rgba(201,163,255,.55), 0 0 32px -8px var(--hue);
-  transition:transform 900ms var(--ease-out); }
-.f-panel:hover .stick{ transform:translate(-50%,-52%) rotate(-1deg); }
-.stick::after{ content:""; position:absolute; inset:0; border-radius:inherit;
-  background:linear-gradient(105deg, transparent 35%, rgba(246,243,250,.28) 48%, transparent 60%) -150% 0/250% 100% no-repeat;
-  animation:sheen 5.5s var(--ease-io) infinite; }
-.f-panel:nth-child(2) .stick::after{ animation-delay:1.2s; }
-.f-panel:nth-child(3) .stick::after{ animation-delay:2.4s; }
+    repeating-linear-gradient(0deg, rgba(246,243,250,.2) 0 1px, transparent 1px 3px) top/100% 8% no-repeat,
+    repeating-linear-gradient(0deg, rgba(246,243,250,.12) 0 1px, transparent 1px 3px) bottom/100% 6% no-repeat,
+    linear-gradient(90deg, transparent 62%, var(--b) 62.5%, var(--a) 100%),
+    linear-gradient(90deg, rgba(16,11,29,.55), transparent 35%, transparent 60%),
+    linear-gradient(180deg, #2B1640, var(--purple) 70%, #1A0F28);
+  box-shadow:inset 0 0 0 1px rgba(201,163,255,.45), 0 30px 80px -30px var(--a); transition:rotate 900ms var(--ease-out), translate 900ms var(--ease-out); }
+.stick::before{ content:""; position:absolute; left:14%; right:42%; top:30%; height:12%; background:url("assets/brand/psy-wordmark.png") center/contain no-repeat; opacity:.95; }
+.stick::after{ content:""; position:absolute; inset:0; border-radius:inherit; background:linear-gradient(105deg, transparent 35%, rgba(246,243,250,.26) 48%, transparent 60%) -150% 0/250% 100% no-repeat; animation:sheen 6s var(--ease-io) infinite; }
+.f-scene:hover .stick{ rotate:-1deg; translate:-50% -52%; }
 .shot:has(img) .stick{ display:none; }
 @keyframes sheen{ 0%,55%{ background-position:-150% 0; } 100%{ background-position:150% 0; } }
+.shot-tag{ position:absolute; left:0; bottom:0; color:var(--mute); font-size:11px; z-index:2; }
+@media (min-width: 900px){
+  .anim .lab .pin{ height:300vh; }
+  .anim .lab .pin-stage{ display:flex; align-items:stretch; }
+  .anim .lab-track{ display:flex; width:300vw; gap:0; background:none; will-change:transform; }
+  .anim .f-scene{ width:100vw; min-height:100vh; min-height:100svh; flex-shrink:0; border-right:1px solid var(--line); }
+  .lab-dots{ position:absolute; right:var(--gutter-r); bottom:24px; display:flex; gap:8px; z-index:3; }
+  .lab-dots i{ width:22px; height:2px; background:var(--line-strong); transition:background-color 300ms var(--ease-out); }
+  .lab-dots i.on{ background:var(--rim); box-shadow:0 0 8px var(--violet); }
+}
+.lab-dots{ display:none; }
+.anim .lab-dots{ display:flex; }
+@media (max-width: 899px){ .anim .lab-dots{ display:none; } }
 
-/* ── How to ───────────────────────────────────────── */
-.steps{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:var(--s-6); }
+/* ══ SCENE 05 · From one stick to a collection ══ */
+.coll{ background:var(--purple); }
+.anim .coll{ height:240vh; }
+.coll .pin-stage{ display:grid; grid-template-rows:auto 1fr auto; padding-block:var(--band-y); }
+.anim .coll .pin-stage{ padding-block:clamp(72px, 10vh, 120px) 32px; }
+.coll-head{ max-width:calc(var(--max) + 32px); width:100%; margin-inline:auto; padding-inline:var(--gutter-l) var(--gutter-r); display:flex; justify-content:space-between; align-items:end; gap:var(--s-5); flex-wrap:wrap; }
+.coll-field{ position:relative; max-width:calc(var(--max) + 32px); width:100%; margin-inline:auto; padding-inline:var(--gutter-l) var(--gutter-r); display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.4fr); gap:var(--s-6); align-items:center; padding-block:var(--s-6); }
+.box{ position:relative; display:grid; gap:var(--s-4); padding:var(--s-5); border:1px solid var(--line-strong); border-radius:var(--radius-panel); background:rgba(16,11,29,.35); min-width:0; }
+.box h3{ display:flex; align-items:flex-start; gap:8px; font-size:var(--t-44); }
+.box h3 img{ height:clamp(30px, 4vw, 48px); width:auto; }
+.box h3 small{ font-family:var(--font-mono); font-size:var(--t-13); letter-spacing:var(--track-mono); color:var(--rim); vertical-align:top; margin-left:6px; }
+.slots{ --sw:clamp(14px, 2vw, 26px); display:grid; gap:6px; justify-content:start; }
+.box--10 .slots{ grid-template-columns:repeat(5, var(--sw)); }
+.box--30 .slots{ grid-template-columns:repeat(10, var(--sw)); }
+.slots i{ aspect-ratio:9/20; border-radius:2px; border:1px dashed rgba(201,163,255,.18); }
+.box .price{ display:flex; justify-content:space-between; align-items:center; gap:var(--s-3); padding-top:var(--s-3); border-top:1px solid var(--line); color:var(--mute); }
+.mini{ position:absolute; left:0; top:0; border-radius:2px; pointer-events:none; will-change:transform; display:none;
+  background:linear-gradient(90deg, transparent 60%, var(--b) 61%, var(--a)), linear-gradient(180deg, #2E1844, #1A0F28); box-shadow:inset 0 0 0 1px rgba(201,163,255,.35); }
+.anim .mini{ display:block; }
+.mini.f1{ --a:var(--mango); --b:var(--lime); }
+.mini.f2{ --a:var(--raspberry); --b:var(--blood-orange); }
+.mini.f3{ --a:var(--watermelon); --b:var(--mint); }
+html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, transparent 60%, var(--rim) 61%), #2E1844; }
+
+/* ══ SCENE 06 · The science, without the noise ══ */
+.steps{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:var(--s-6); margin:0; padding:0; list-style:none; }
 .step{ display:grid; gap:var(--s-3); padding-top:var(--s-5); border-top:1px solid var(--line-strong); min-width:0; }
-.step .num{ font-family:var(--font-mono); font-size:var(--t-44); font-weight:400; color:var(--violet); line-height:1; letter-spacing:0; text-shadow:0 0 18px rgba(155,77,255,.45); }
+.step .num{ font-family:var(--font-mono); font-size:var(--t-44); color:var(--violet); line-height:1; text-shadow:0 0 18px rgba(155,77,255,.45); }
 .step h3{ font-size:var(--t-44); }
 .step p{ color:var(--mute); }
 .advisory{ display:grid; grid-template-columns:auto minmax(0,1fr); gap:var(--s-4); align-items:start; padding:var(--s-5); border:1px solid var(--line-strong); border-radius:var(--radius-panel); }
 .advisory .mono{ color:var(--rim); padding-top:2px; }
 .advisory p{ color:var(--mute); font-size:var(--t-15); }
-
-/* ── Transparency (the twist: a spec sheet that types itself) ── */
 .spec{ width:100%; border-collapse:collapse; font-family:var(--font-mono); font-variant-numeric:tabular-nums; font-size:var(--t-13); letter-spacing:.1em; text-transform:uppercase; }
 .spec tr{ border-bottom:1px solid var(--line); }
 .spec tr:first-child{ border-top:1px solid var(--line-strong); }
@@ -211,30 +271,18 @@ p{ margin:0; max-width:var(--measure); text-wrap:pretty; }
 .spec th{ color:var(--paper); padding-right:var(--s-4); }
 .spec td{ text-align:right; color:var(--mute); white-space:nowrap; }
 .spec td .dash{ margin-right:var(--s-3); }
-.pend{ display:inline-flex; align-items:center; height:22px; padding-inline:10px; border:1px solid var(--violet); border-radius:var(--radius-pill); color:var(--rim); font-family:var(--font-mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; line-height:1; box-shadow:0 0 12px -4px var(--violet) inset; }
 .anim .spec tr.r{ transform:none; }
 .anim .spec tr.r th{ clip-path:inset(0 100% 0 0); transition:clip-path 700ms var(--ease-out); transition-delay:calc(var(--d,0) * 70ms); }
 .anim .spec tr.r.in th{ clip-path:inset(0 0 0 0); }
 .anim .spec tr.r .pend{ opacity:0; transform:scale(.8); transition:opacity 300ms var(--ease-out), transform 420ms var(--ease-out); transition-delay:calc(var(--d,0) * 70ms + 380ms); }
 .anim .spec tr.r.in .pend{ opacity:1; transform:none; }
-.scanline{ position:relative; }
-.anim .scanline::after{ content:""; position:absolute; left:0; right:0; top:0; height:1px; background:var(--violet); box-shadow:0 0 14px 1px var(--violet); opacity:0; pointer-events:none; }
-.anim .scanline.in::after{ animation:scan 1.6s var(--ease-io) .1s 1 forwards; }
-@keyframes scan{ 0%{ top:0; opacity:0; } 10%{ opacity:1; } 90%{ opacity:1; } 100%{ top:100%; opacity:0; } }
 .declare{ font-family:var(--font-display); font-size:var(--t-30); }
 
-/* ── Packs ────────────────────────────────────────── */
-.packs-grid{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:var(--s-5); }
-.pack{ display:grid; gap:var(--s-4); padding:var(--s-6); border:1px solid var(--line-strong); border-radius:var(--radius-panel); min-width:0; transition:border-color var(--dur-hover) var(--ease-out); }
-.pack:hover{ border-color:var(--rim); }
-.pack h3{ font-size:var(--t-68); }
-.pack h3 small{ font-family:var(--font-mono); font-size:var(--t-13); letter-spacing:var(--track-mono); color:var(--rim); vertical-align:top; margin-left:6px; }
-.pack .price{ display:flex; justify-content:space-between; align-items:center; gap:var(--s-3); padding-top:var(--s-4); border-top:1px solid var(--line); color:var(--mute); }
-
-/* ── Waitlist ─────────────────────────────────────── */
-.wait .wrap{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:end; }
-.wait h2{ font-size:var(--t-104); line-height:.95; }
-.wait h2 em{ font-style:italic; color:var(--rim); }
+/* ══ SCENE 07 · The final composition ════════════ */
+.final .wrap{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:end; gap:var(--s-8); }
+.final .mark-big{ width:clamp(180px, 30vw, 380px); height:auto; filter:drop-shadow(0 0 40px rgba(155,77,255,.4)); }
+.final h2{ font-size:var(--t-104); line-height:.95; }
+.final h2 em{ color:var(--rim); }
 .form{ display:grid; gap:var(--s-4); min-height:168px; align-content:end; }
 .form p{ color:var(--mute); }
 .field{ display:flex; gap:var(--s-2); flex-wrap:wrap; }
@@ -247,35 +295,39 @@ p{ margin:0; max-width:var(--measure); text-wrap:pretty; }
 .form[data-state="done"] .field,.form[data-state="done"] .err,.form[data-state="done"] .lead{ display:none; }
 .form[data-state="done"] .done{ display:grid; }
 .done .tick{ width:36px; height:36px; border:1px solid var(--violet); border-radius:50%; display:grid; place-items:center; color:var(--rim); box-shadow:0 0 18px -4px var(--violet); }
-.sr{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
 
-/* ── Footer ───────────────────────────────────────── */
 .foot .wrap{ grid-template-columns:minmax(0,1fr) auto; align-items:end; padding-block:var(--s-8) var(--s-6); gap:var(--s-6); }
-.wordmark{ font-family:var(--font-display); font-size:var(--t-68); line-height:1; }
-.foot .mono{ color:var(--mute); font-size:11.5px; display:grid; gap:var(--s-2); text-align:right; }
-.foot .mono span{ display:flex; gap:var(--s-3); justify-content:flex-end; align-items:center; flex-wrap:wrap; }
+.foot img{ width:96px; height:auto; }
+.foot .legal{ color:var(--mute); font-size:11.5px; display:grid; gap:var(--s-2); text-align:right; }
+.foot .legal span{ display:flex; gap:var(--s-3); justify-content:flex-end; align-items:center; flex-wrap:wrap; }
 
-/* ── Responsive ───────────────────────────────────── */
-@media (max-width: 900px){
+/* ── Responsive ─────────────────────────────── */
+@media (max-width: 899px){
   .hero .wrap{ grid-template-columns:1fr; gap:var(--s-6); }
   .stage{ justify-self:start; max-width:440px; }
-  .split,.wait .wrap{ grid-template-columns:1fr; gap:var(--s-6); }
+  .problem .split,.split,.final .wrap{ grid-template-columns:1fr; gap:var(--s-6); }
   .steps{ grid-template-columns:1fr; gap:var(--s-5); }
-  .f-grid{ display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:1px; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
-  .f-grid::-webkit-scrollbar{ display:none; }
-  .f-panel{ flex:0 0 84%; scroll-snap-align:start; min-height:auto; }
+  .f-scene{ grid-template-columns:1fr; gap:var(--s-5); padding-block:var(--s-8); min-height:auto; }
+  .shot{ max-width:300px; justify-self:start; }
+  .coll-field{ grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:var(--s-3); padding-block:var(--s-4); align-items:start; align-content:start; }
+  .box--30 .slots{ grid-template-columns:repeat(6, var(--sw)); }
+  .box{ align-content:start; }
+  .box p{ font-size:var(--t-15); }
+  .slots{ --sw:clamp(12px, 3.4vw, 22px); gap:4px; }
+  .anim .coll{ height:200vh; }
 }
 @media (max-width: 640px){
   .trio{ grid-template-columns:1fr; }
   .trio > div{ padding:var(--s-5) 0; }
   .trio > div + div{ border-left:0; border-top:1px solid var(--line); padding-left:0; }
-  .packs-grid{ grid-template-columns:1fr; }
-  .spec th,.spec td{ padding:13px 0; }
   .spec{ font-size:11.5px; letter-spacing:.06em; }
+  .spec th,.spec td{ padding:13px 0; }
   .foot .wrap{ grid-template-columns:1fr; }
-  .foot .mono{ text-align:left; }
-  .foot .mono span{ justify-content:flex-start; }
+  .foot .legal{ text-align:left; }
+  .foot .legal span{ justify-content:flex-start; }
   .advisory{ grid-template-columns:1fr; }
+  .box{ padding:var(--s-4); }
+  .slots{ gap:4px; }
 }
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
@@ -285,17 +337,24 @@ p{ margin:0; max-width:var(--measure); text-wrap:pretty; }
 <body>
 
 <div class="progress" aria-hidden="true"></div>
+<header class="bar" id="bar">
+  <div class="in-bar">
+    <a href="#top" aria-label="psy, back to top"><img src="assets/brand/psy-wordmark.png" alt="psy" width="985" height="417"></a>
+    <a class="pill-link" href="#waitlist">Join the waitlist</a>
+  </div>
+</header>
 
-<!-- ══ HERO ══ -->
-<header class="band band--plum hero" id="top">
+<!-- ══ SCENE 01 · First impression ══ -->
+<section class="band hero" id="top" aria-labelledby="hero-h">
   <div class="wrap">
     <div class="hero-copy">
-      <p class="eyebrow">Pre-launch · India</p>
-      <h1><span>Daily Fibre.</span><span>A New <em>Form.</em></span></h1>
-      <p class="sub">PSY. is a psyllium fibre jelly in a single stick. Tear it, squeeze it, done. No glass, no spoon, no prep.</p>
+      <img class="wordmark" src="assets/brand/psy-wordmark.png" alt="psy" width="985" height="417">
+      <p class="eyebrow">Daily fibre jelly · Pre-launch · India</p>
+      <h1 id="hero-h"><span>Daily Fibre.</span><span>A New <em>Form.</em></span></h1>
+      <p class="sub">A psyllium fibre jelly in a single stick. Tear it, squeeze it, done. No glass, no spoon, no prep.</p>
       <div class="ctas">
         <a class="btn btn--solid" href="#waitlist">Join the waitlist <span class="arrow" aria-hidden="true">→</span></a>
-        <a class="btn" href="#format">See the format</a>
+        <a class="btn" href="#flavours">Meet the flavours</a>
       </div>
     </div>
     <div class="stage" aria-hidden="true">
@@ -303,42 +362,41 @@ p{ margin:0; max-width:var(--measure); text-wrap:pretty; }
       <div class="stage-tag mono"><span>Fig. 01</span><span>Format reveal</span></div>
     </div>
   </div>
-</header>
+</section>
 
 <main>
 
-<!-- ══ 1 · MARQUEE ══ -->
-<section class="band band--purple marquee-band" aria-label="PSY. in short">
-  <div class="wrap">
-    <div class="marquee">
-      <div class="mq-track">
-        <div class="mq-set">
-          <span>The glass was the problem</span><i></i>
-          <span>No bottle to rinse</span><i></i>
-          <span>No sludge</span><i></i>
-          <span>Five seconds flat</span><i></i>
-          <span>Fibre, finally in good taste</span><i></i>
-          <span>Spoonless</span><i></i>
-        </div>
-        <div class="mq-set" aria-hidden="true">
-          <span>The glass was the problem</span><i></i>
-          <span>No bottle to rinse</span><i></i>
-          <span>No sludge</span><i></i>
-          <span>Five seconds flat</span><i></i>
-          <span>Fibre, finally in good taste</span><i></i>
-          <span>Spoonless</span><i></i>
-        </div>
-      </div>
+<div class="marquee" aria-label="psy in short">
+  <div class="mq-track">
+    <div class="mq-set">
+      <span>The glass was the problem</span><i></i><span>No bottle to rinse</span><i></i><span>No sludge</span><i></i><span>Five seconds flat</span><i></i><span>Fibre, finally in good taste</span><i></i><span>Spoonless</span><i></i>
     </div>
+    <div class="mq-set" aria-hidden="true">
+      <span>The glass was the problem</span><i></i><span>No bottle to rinse</span><i></i><span>No sludge</span><i></i><span>Five seconds flat</span><i></i><span>Fibre, finally in good taste</span><i></i><span>Spoonless</span><i></i>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SCENE 02 · The world turns to jelly (signature transition) ══ -->
+<section class="pin flow" data-pin="flow" aria-label="Most people quit fibre at the glass, not the idea">
+  <div class="pin-stage">
+    <canvas id="flow" aria-hidden="true"></canvas>
+    <div class="flow-stack">
+      <p class="flow-line flow-a">Most people quit fibre at the glass,</p>
+      <p class="flow-line flow-b"><em>not the idea.</em></p>
+    </div>
+    <span class="flow-tag mono" aria-hidden="true">Fig. 02 · The glass, replaced</span>
   </div>
 </section>
 
-<!-- ══ 2 · PROBLEM ══ -->
-<section class="band band--plum" aria-labelledby="problem-h">
+<section class="band band--plum problem" aria-labelledby="problem-h">
   <div class="wrap">
     <p class="eyebrow r">Why nobody stays consistent</p>
     <div class="split">
-      <h2 class="statement r" id="problem-h" style="--d:1">Most people quit fibre at the glass, not the idea.</h2>
+      <aside class="r" style="--d:1">
+        <h2 class="sr" id="problem-h">The problem with fibre</h2>
+        <p class="big">Three steps <em>too many.</em></p>
+      </aside>
       <div class="stack">
         <p class="r" style="--d:2">Fibre usually comes as a tub and a scoop. Measure it, pour it into water, drink it before it thickens. Every one of those steps is a reason to skip a day.</p>
         <p class="r" style="--d:3">Then there is the texture. A glass that turns to gel halfway down is hard to look forward to, and harder to repeat tomorrow.</p>
@@ -348,17 +406,28 @@ p{ margin:0; max-width:var(--measure); text-wrap:pretty; }
   </div>
 </section>
 
-<!-- ══ 3 · FORMAT ══ -->
-<section class="band band--rise" id="format" aria-labelledby="format-h">
-  <div class="wrap">
-    <p class="eyebrow r">What PSY. is</p>
-    <h2 class="h2 r" id="format-h" style="--d:1">A jelly, <em>not a drink.</em></h2>
-    <div class="trio">
-      <div class="r" style="--d:2"><span class="mono">Portion</span><p>One stick, one serving. Nothing to measure.</p></div>
-      <div class="r" style="--d:3"><span class="mono">Portability</span><p>Pocket, bag, desk drawer. Nothing to prepare before you take it.</p></div>
-      <div class="r" style="--d:4"><span class="mono">Ritual</span><p>Five seconds, once a day. Short enough to actually keep.</p></div>
+<!-- ══ SCENE 03 · Typography as architecture ══ -->
+<section class="pin arch" data-pin="arch" id="format" aria-labelledby="format-h">
+  <div class="pin-stage">
+    <div class="word" aria-hidden="true">
+      <span>F</span><span>i</span><span>b</span><span>r</span><span>e</span>
+      <i class="reveal-stick"></i>
     </div>
-    <p class="fineprint r" style="--d:5">Benefits of format only. No efficacy claims pending validation.</p>
+    <div class="arch-cap">
+      <p class="eyebrow">What psy is</p>
+      <h2 id="format-h">A jelly, <em>not a drink.</em></h2>
+    </div>
+  </div>
+</section>
+
+<section class="band band--rise" aria-label="Format benefits">
+  <div class="wrap">
+    <div class="trio">
+      <div class="r" style="--d:1"><span class="mono">Portion</span><p>One stick, one serving. Nothing to measure.</p></div>
+      <div class="r" style="--d:2"><span class="mono">Portability</span><p>Pocket, bag, desk drawer. Nothing to prepare before you take it.</p></div>
+      <div class="r" style="--d:3"><span class="mono">Ritual</span><p>Five seconds, once a day. Short enough to actually keep.</p></div>
+    </div>
+    <p class="fineprint r" style="--d:4">Benefits of format only. No efficacy claims pending validation.</p>
   </div>
 </section>
 
@@ -370,11 +439,11 @@ p{ margin:0; max-width:var(--measure); text-wrap:pretty; }
         <p class="eyebrow r">Where it sits</p>
         <h2 class="h2 r" id="land-h" style="--d:1">The empty row <em>on the shelf.</em></h2>
       </div>
-      <p class="mute r" style="--d:2">Every psyllium product we found asks you to prepare it. Every no-prep fibre format uses something else. PSY. is built for the gap.</p>
+      <p class="mute r" style="--d:2">Every psyllium product we found asks you to prepare it. Every no-prep fibre format uses something else. psy is built for the gap.</p>
     </div>
     <figure class="r" style="--d:3;margin:0;display:grid;gap:var(--s-4)">
       <div class="chart-frame">
-<svg class="lscape" viewBox="0 0 1000 430" role="img" aria-label="Price per serving against preparation steps. PSY. sits in the no-prep row with gummies, gels and Japanese jelly sticks, and is the only psyllium product there. PSY. price is pending.">
+<svg class="lscape" viewBox="0 0 1000 430" role="img" aria-label="Price per serving against preparation steps. psy sits in the no-prep row with gummies, gels and Japanese jelly sticks, and is the only psyllium product there. psy price is pending.">
 <defs><pattern id="ls-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" class="ls-bg"/><line x1="0" y1="0" x2="0" y2="6" class="ls-hatch"/></pattern></defs>
 <line x1="250" y1="120" x2="920" y2="120" class="ls-grid"/>
 <text x="16" y="117" class="ls-row">No prep</text><text x="16" y="134" class="ls-sub">tear and take</text>
@@ -383,7 +452,7 @@ p{ margin:0; max-width:var(--measure); text-wrap:pretty; }
 <line x1="250" y1="320" x2="920" y2="320" class="ls-grid"/>
 <text x="16" y="317" class="ls-row">Measure + prepare</text><text x="16" y="334" class="ls-sub">scoop, water, glass</text>
 <rect x="250" y="86" width="670" height="68" fill="url(#ls-hatch)" class="ls-psyband" rx="2"/>
-<text x="920" y="78" text-anchor="end" class="ls-psy">PSY. · psyllium, no prep · price pending</text>
+<text x="920" y="78" text-anchor="end" class="ls-psy">psy · psyllium, no prep · price pending</text>
 <line x1="250" y1="372" x2="920" y2="372" class="ls-axis"/>
 <line x1="284.6" y1="372" x2="284.6" y2="377" class="ls-axis"/><text x="284.6" y="393" text-anchor="middle" class="ls-tick">₹5</text>
 <line x1="392.2" y1="372" x2="392.2" y2="377" class="ls-axis"/><text x="392.2" y="393" text-anchor="middle" class="ls-tick">₹10</text>
@@ -439,61 +508,100 @@ p{ margin:0; max-width:var(--measure); text-wrap:pretty; }
   </div>
 </section>
 
-<!-- ══ 4 · FLAVOURS ══ -->
-<section class="band band--plum flavours" aria-labelledby="flavours-h">
-  <div class="wrap">
-    <div class="f-head">
-      <div style="display:grid;gap:var(--s-4)">
-        <p class="eyebrow r">The line</p>
-        <h2 class="h2 r" id="flavours-h" style="--d:1">Three flavours, <em>in the lab.</em></h2>
-      </div>
-      <p class="mute r" style="--d:2;max-width:34ch">Names and tasting notes are being finalised with the first formulation. The line ships at three.</p>
+
+
+<!-- ══ SCENE 04 · Flavour laboratory ══ -->
+<section class="lab" id="flavours" aria-labelledby="flavours-h">
+  <div class="lab-head">
+    <div style="display:grid;gap:var(--s-4)">
+      <p class="eyebrow r">The line</p>
+      <h2 class="h2 r" id="flavours-h" style="--d:1">Three flavours. <em>Three personalities.</em></h2>
     </div>
-    <!-- FLAVOURS: one block. Replace name + note per panel when final; drop renders into assets/flavours/. -->
-    <div class="f-grid">
-      <article class="f-panel r" style="--d:1" data-flavour="flavour-01">
-        <div class="f-top mono"><span class="idx">01 / 03</span><span>Flavour</span></div>
-        <div class="shot" data-slot="flavour-01">
-          <!-- DROP ZONE: <img src="assets/flavours/flavour-01.webp" alt="PSY. fibre jelly stick, flavour 01" width="900" height="1200" loading="lazy"> -->
-          <span class="stick" aria-hidden="true"></span>
-        </div>
-        <div style="display:grid;gap:var(--s-3)">
-          <h3 class="f-name">Flavour one</h3>
-          <p class="f-note"><span>Name and notes</span><span class="pend">pending</span></p>
-        </div>
-      </article>
-      <article class="f-panel r" style="--d:2" data-flavour="flavour-02">
-        <div class="f-top mono"><span class="idx">02 / 03</span><span>Flavour</span></div>
-        <div class="shot" data-slot="flavour-02">
-          <!-- DROP ZONE: <img src="assets/flavours/flavour-02.webp" alt="PSY. fibre jelly stick, flavour 02" width="900" height="1200" loading="lazy"> -->
-          <span class="stick" aria-hidden="true"></span>
-        </div>
-        <div style="display:grid;gap:var(--s-3)">
-          <h3 class="f-name">Flavour two</h3>
-          <p class="f-note"><span>Name and notes</span><span class="pend">pending</span></p>
-        </div>
-      </article>
-      <article class="f-panel r" style="--d:3" data-flavour="flavour-03">
-        <div class="f-top mono"><span class="idx">03 / 03</span><span>Flavour</span></div>
-        <div class="shot" data-slot="flavour-03">
-          <!-- DROP ZONE: <img src="assets/flavours/flavour-03.webp" alt="PSY. fibre jelly stick, flavour 03" width="900" height="1200" loading="lazy"> -->
-          <span class="stick" aria-hidden="true"></span>
-        </div>
-        <div style="display:grid;gap:var(--s-3)">
-          <h3 class="f-name">Flavour three</h3>
-          <p class="f-note"><span>Name and notes</span><span class="pend">pending</span></p>
-        </div>
-      </article>
+    <p class="mute r" style="--d:2;max-width:36ch">Tasting directions are proposals. Final notes are written after the tasting panel, so they describe what is actually in the stick.</p>
+  </div>
+  <div class="pin" data-pin="lab">
+    <div class="pin-stage">
+      <!-- FLAVOURS: one block. Drop renders into assets/flavours/<slug>.webp (900×1200) and uncomment the img. -->
+      <div class="lab-track">
+        <article class="f-scene" data-flavour="mango-lime">
+          <div class="f-copy">
+            <div class="f-top mono"><span class="idx">01 / 03</span><span class="f-who">The bright tropical one</span></div>
+            <h3 class="f-name"><span>Mango</span><span>+ <em>Lime</em></span></h3>
+            <p class="f-note">Round, juicy mango up front. Lime cuts in sharp before it gets heavy, and the finish stays lively.</p>
+            <p class="f-meta"><span>Proposed tasting direction</span><span class="pend">pending panel</span></p>
+          </div>
+          <div class="shot" data-slot="flavour-mango-lime">
+            <!-- DROP ZONE: <img src="assets/flavours/mango-lime.webp" alt="psy Mango + Lime fibre jelly stick" width="900" height="1200" loading="lazy"> -->
+            <span class="stick" aria-hidden="true"></span>
+            <span class="shot-tag mono">Fig. 04a</span>
+          </div>
+        </article>
+        <article class="f-scene" data-flavour="raspberry-blood-orange">
+          <div class="f-copy">
+            <div class="f-top mono"><span class="idx">02 / 03</span><span class="f-who">The deep, tangy one</span></div>
+            <h3 class="f-name"><span>Raspberry</span><span>+ <em>Blood Orange</em></span></h3>
+            <p class="f-note">Bright berry tartness laid over bittersweet citrus. The most intense of the three, with the sharpest finish.</p>
+            <p class="f-meta"><span>Proposed tasting direction</span><span class="pend">pending panel</span></p>
+          </div>
+          <div class="shot" data-slot="flavour-raspberry-blood-orange">
+            <!-- DROP ZONE: <img src="assets/flavours/raspberry-blood-orange.webp" alt="psy Raspberry + Blood Orange fibre jelly stick" width="900" height="1200" loading="lazy"> -->
+            <span class="stick" aria-hidden="true"></span>
+            <span class="shot-tag mono">Fig. 04b</span>
+          </div>
+        </article>
+        <article class="f-scene" data-flavour="watermelon-mint">
+          <div class="f-copy">
+            <div class="f-top mono"><span class="idx">03 / 03</span><span class="f-who">The cool, light one</span></div>
+            <h3 class="f-name"><span>Watermelon</span><span>+ <em>Mint</em></span></h3>
+            <p class="f-note">Soft watermelon sweetness, then a clean breath of mint. Lighter and quieter, built for the afternoon.</p>
+            <p class="f-meta"><span>Proposed tasting direction</span><span class="pend">pending panel</span></p>
+          </div>
+          <div class="shot" data-slot="flavour-watermelon-mint">
+            <!-- DROP ZONE: <img src="assets/flavours/watermelon-mint.webp" alt="psy Watermelon + Mint fibre jelly stick" width="900" height="1200" loading="lazy"> -->
+            <span class="stick" aria-hidden="true"></span>
+            <span class="shot-tag mono">Fig. 04c</span>
+          </div>
+        </article>
+      </div>
+      <div class="lab-dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
     </div>
   </div>
 </section>
 
-<!-- ══ 5 · HOW TO USE ══ -->
+<!-- ══ SCENE 05 · From one stick to a collection (the twist) ══ -->
+<section class="pin coll" data-pin="coll" aria-labelledby="packs-h">
+  <div class="pin-stage">
+    <div class="coll-head">
+      <div style="display:grid;gap:var(--s-4)">
+        <p class="eyebrow r">Packs</p>
+        <h2 class="h2 r" id="packs-h" style="--d:1">One stick. <em>Then a habit.</em></h2>
+      </div>
+      <p class="fineprint r" style="--d:2">Pricing opens after costing and pilot batch.</p>
+    </div>
+    <div class="coll-field" id="coll-field">
+      <article class="box box--10">
+        <h3><img src="assets/brand/psy-wordmark.png" alt="psy" width="985" height="417" loading="lazy"><small>10</small></h3>
+        <p>Ten sticks. Start the habit.</p>
+        <div class="slots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="price mono"><span>Price</span><span>—</span></div>
+      </article>
+      <article class="box box--30">
+        <h3><img src="assets/brand/psy-wordmark.png" alt="psy" width="985" height="417" loading="lazy"><small>30</small></h3>
+        <p>Thirty sticks. Keep it.</p>
+        <div class="slots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="price mono"><span>Price</span><span>—</span></div>
+      </article>
+    </div>
+    <span></span>
+  </div>
+</section>
+
+<!-- ══ SCENE 06 · The science, without the noise ══ -->
 <section class="band band--rise" aria-labelledby="use-h">
   <div class="wrap">
     <p class="eyebrow r">How to take it</p>
-    <h2 class="sr" id="use-h">How to take PSY.</h2>
-    <ol class="steps" style="list-style:none;margin:0;padding:0">
+    <h2 class="sr" id="use-h">How to take psy</h2>
+    <ol class="steps">
       <li class="step r" style="--d:1"><span class="num">01</span><h3>Tear.</h3><p>Tear at the notch.</p></li>
       <li class="step r" style="--d:2"><span class="num">02</span><h3>Squeeze.</h3><p>Straight from the stick. No spoon, no prep.</p></li>
       <li class="step r" style="--d:3"><span class="num">03</span><h3>Hydrate.</h3><p>Follow with a full glass of water.</p></li>
@@ -505,7 +613,6 @@ p{ margin:0; max-width:var(--measure); text-wrap:pretty; }
   </div>
 </section>
 
-<!-- ══ 6 · TRANSPARENCY ══ -->
 <section class="band band--plum" aria-labelledby="spec-h">
   <div class="wrap">
     <div class="split" style="align-items:end">
@@ -515,9 +622,9 @@ p{ margin:0; max-width:var(--measure); text-wrap:pretty; }
       </div>
       <p class="mute r" style="--d:2">We publish the label before the product exists. Each line fills in when the lab confirms it, not before.</p>
     </div>
-    <div class="scanline r" style="overflow-x:auto">
+    <div class="r" style="overflow-x:auto">
       <table class="spec">
-        <caption class="sr">PSY. specification, all values pending</caption>
+        <caption class="sr">psy specification, all values pending</caption>
         <tbody>
           <tr class="r" style="--d:0"><th scope="row">Psyllium husk per serving</th><td><span class="dash">—</span><span class="pend">pending</span></td></tr>
           <tr class="r" style="--d:1"><th scope="row">Total dietary fibre</th><td><span class="dash">—</span><span class="pend">pending</span></td></tr>
@@ -536,32 +643,16 @@ p{ margin:0; max-width:var(--measure); text-wrap:pretty; }
   </div>
 </section>
 
-<!-- ══ 7 · PACKS ══ -->
-<section class="band band--purple" aria-labelledby="packs-h">
+<!-- ══ SCENE 07 · The final composition ══ -->
+<section class="band band--plum final" id="waitlist" aria-labelledby="wait-h">
   <div class="wrap">
-    <p class="eyebrow r">Packs</p>
-    <h2 class="sr" id="packs-h">Pack sizes</h2>
-    <div class="packs-grid">
-      <article class="pack r" style="--d:1">
-        <h3>PSY. <small>10</small></h3>
-        <p>Ten sticks. Start the habit.</p>
-        <div class="price mono"><span>Price</span><span>—</span></div>
-      </article>
-      <article class="pack r" style="--d:2">
-        <h3>PSY. <small>30</small></h3>
-        <p>Thirty sticks. Keep it.</p>
-        <div class="price mono"><span>Price</span><span>—</span></div>
-      </article>
+    <div style="display:grid;gap:var(--s-6)">
+      <img class="mark-big r" src="assets/brand/psy-wordmark.png" alt="psy" width="985" height="417" loading="lazy">
+      <h2 class="r" id="wait-h" style="--d:1">Be <em>early.</em></h2>
+      <!-- STILL LIFE: the 30-day pack still life (with the tumbler, unlabelled) drops in here once a claim-free render exists.
+           <img src="assets/og/still-life.webp" alt="" loading="lazy"> -->
     </div>
-    <p class="fineprint r" style="--d:3">Pricing opens after costing and pilot batch.</p>
-  </div>
-</section>
-
-<!-- ══ 8 · WAITLIST ══ -->
-<section class="band band--plum wait" id="waitlist" aria-labelledby="wait-h">
-  <div class="wrap">
-    <h2 class="r" id="wait-h">Be <em>early.</em></h2>
-    <form class="form r" style="--d:1" id="wl" novalidate>
+    <form class="form r" style="--d:2" id="wl" novalidate>
       <p class="lead">Join the waitlist. Early sign-ups taste the pilot batch first.</p>
       <div class="field">
         <label class="sr" for="wl-email">Email address</label>
@@ -579,17 +670,16 @@ p{ margin:0; max-width:var(--measure); text-wrap:pretty; }
 
 </main>
 
-<!-- ══ FOOTER ══ -->
 <footer class="band band--rise foot">
   <div class="wrap">
     <div style="display:grid;gap:var(--s-3)">
-      <span class="wordmark">PSY.</span>
+      <img src="assets/brand/psy-wordmark.png" alt="psy" width="985" height="417" loading="lazy">
       <span class="mono mute" style="font-size:11.5px">Daily Fibre, Reimagined.</span>
     </div>
-    <div class="mono">
+    <div class="legal mono">
       <span>FSSAI Lic. No. <span class="pend">pending</span></span>
       <span>Registered address <span class="pend">pending</span></span>
-      <span>© 2026 PSY. All rights reserved.</span>
+      <span>© 2026 psy. All rights reserved.</span>
     </div>
   </div>
 </footer>
@@ -599,10 +689,10 @@ p{ margin:0; max-width:var(--measure); text-wrap:pretty; }
   'use strict';
   const root = document.documentElement;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const motion = root.classList.contains('anim');
+  const small = matchMedia('(max-width: 699px)').matches;
   const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
   const lerp = (a, b, t) => a + (b - a) * t;
-
-  /* cubic-bezier(.16,1,.3,1) — the PSY. curve, solved on x by Newton iteration */
   const bezier = (x1, y1, x2, y2) => t => {
     let u = t;
     for (let i = 0; i < 6; i++) {
@@ -614,210 +704,241 @@ p{ margin:0; max-width:var(--measure); text-wrap:pretty; }
     return 3 * (1 - u) * (1 - u) * u * y1 + 3 * (1 - u) * u * u * y2 + u * u * u;
   };
   const ease = bezier(.16, 1, .3, 1);
+  const css = getComputedStyle(root);
+  const rgb = name => { const h = css.getPropertyValue(name).trim().replace('#', ''); return [0, 2, 4].map(i => parseInt(h.slice(i, i + 2), 16)); };
 
-  /* ── Reveal system: one observer for every .r ── */
+  /* ── Reveals: one observer for every .r ── */
   const reveals = document.querySelectorAll('.r');
-  if ('IntersectionObserver' in window && root.classList.contains('anim')) {
-    const io = new IntersectionObserver(entries => {
-      for (const e of entries) if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.15 });
+  if ('IntersectionObserver' in window && motion) {
+    const io = new IntersectionObserver(es => { for (const e of es) if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }, { rootMargin: '0px 0px -12% 0px', threshold: 0.15 });
     reveals.forEach(el => io.observe(el));
-  } else {
-    reveals.forEach(el => el.classList.add('in'));
-  }
+  } else reveals.forEach(el => el.classList.add('in'));
 
-  /* ── Scroll state shared by progress bar, marquee and hero ── */
-  let scrollY = window.scrollY, lastY = scrollY, lastT = performance.now(), velocity = 0;
-  const bar = document.querySelector('.progress');
-  const setProgress = () => {
-    const max = document.documentElement.scrollHeight - innerHeight;
-    bar.style.transform = `scaleX(${max > 0 ? clamp(scrollY / max) : 0})`;
+  /* ── Shared scroll state ── */
+  let sy = scrollY, lastY = sy, lastT = performance.now(), velocity = 0;
+  const bar = document.querySelector('.progress'), header = document.getElementById('bar');
+  const pins = [...document.querySelectorAll('[data-pin]')].map(el => ({ el, key: el.dataset.pin, p: 0, live: false }));
+  const pinProgress = pin => { const r = pin.el.getBoundingClientRect(); const span = r.height - innerHeight; return span > 0 ? clamp(-r.top / span) : 0; };
+  const handlers = {};
+  let ticking = false;
+  const onFrame = () => {
+    ticking = false;
+    const max = root.scrollHeight - innerHeight;
+    bar.style.transform = `scaleX(${max > 0 ? clamp(sy / max) : 0})`;
+    header.classList.toggle('on', sy > innerHeight * .7);
+    if (motion) for (const pin of pins) if (pin.live) { pin.p = pinProgress(pin); handlers[pin.key] && handlers[pin.key](pin.p); }
   };
   addEventListener('scroll', () => {
-    scrollY = window.scrollY;
-    const now = performance.now(), dt = Math.max(1, now - lastT);
-    velocity = Math.max(velocity, Math.abs(scrollY - lastY) / dt * 1000); /* px/s, peak-held, decays in the loop */
-    lastY = scrollY; lastT = now;
-    requestAnimationFrame(setProgress);
+    sy = scrollY; const now = performance.now(), dt = Math.max(1, now - lastT);
+    velocity = Math.max(velocity, Math.abs(sy - lastY) / dt * 1000); lastY = sy; lastT = now;
+    if (!ticking) { ticking = true; requestAnimationFrame(onFrame); }
   }, { passive: true });
-  setProgress();
+  addEventListener('resize', () => requestAnimationFrame(onFrame));
+  if ('IntersectionObserver' in window) {
+    const pio = new IntersectionObserver(es => { for (const e of es) { const pin = pins.find(p => p.el === e.target); pin.live = e.isIntersecting; } onFrame(); }, { rootMargin: '10% 0px' });
+    pins.forEach(p => pio.observe(p.el));
+  }
+  onFrame();
 
   /* ── Marquee: base drift + scroll-velocity boost ── */
   const track = document.querySelector('.mq-track');
-  if (track && !reduced) {
+  if (track && motion) {
     let x = 0, boost = 0, visible = false, raf = 0, prev = 0;
     const tick = now => {
-      const dt = Math.min(0.05, (now - prev) / 1000 || 0); prev = now;
-      velocity *= Math.pow(0.02, dt);                       /* settle when scrolling stops */
-      boost = lerp(boost, Math.min(velocity * 0.55, 1100), 0.12);
-      const half = track.scrollWidth / 2;
-      x -= (42 + boost) * dt;
-      if (half > 0 && x <= -half) x += half;
+      const dt = Math.min(.05, (now - prev) / 1000 || 0); prev = now;
+      velocity *= Math.pow(.02, dt);
+      boost = lerp(boost, Math.min(velocity * .55, 1100), .12);
+      const half = track.scrollWidth / 2; x -= (42 + boost) * dt; if (half > 0 && x <= -half) x += half;
       track.style.transform = `translate3d(${x.toFixed(2)}px,0,0)`;
       raf = visible ? requestAnimationFrame(tick) : 0;
     };
-    new IntersectionObserver(([e]) => {
-      visible = e.isIntersecting;
-      if (visible && !raf) { prev = performance.now(); raf = requestAnimationFrame(tick); }
-    }).observe(track);
+    new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible && !raf) { prev = performance.now(); raf = requestAnimationFrame(tick); } }).observe(track);
   }
 
-  /* ── Hero: Format Reveal ── */
-  const cv = document.getElementById('jelly');
-  const ctx = cv && cv.getContext && cv.getContext('2d');
-  if (ctx) {
-    const css = getComputedStyle(root);
-    const rgb = name => {
-      const h = css.getPropertyValue(name).trim().replace('#', '');
-      return [0, 2, 4].map(i => parseInt(h.slice(i, i + 2), 16));
-    };
+  /* ── SCENE 01: Format Reveal (grains → living jelly) ── */
+  (() => {
+    const cv = document.getElementById('jelly'); const ctx = cv && cv.getContext && cv.getContext('2d'); if (!ctx) return;
     const PAPER = rgb('--paper'), RIM = rgb('--rim'), VIOLET = rgb('--violet'), PURPLE = rgb('--purple');
     const rgba = (c, a) => `rgba(${c[0]},${c[1]},${c[2]},${a})`;
     const lerpC = (a, b, t) => a.map((v, i) => Math.round(lerp(v, b[i], t)));
-
-    const N = 1400, VERTS = 120, AMBIENT = 40, EXP = 4, DURATION = 3000;
+    const N = small ? 900 : 1400, VERTS = 120, AMBIENT = 40, EXP = 4, DURATION = 3000;
     const inside = (u, v) => Math.abs(u) ** EXP + Math.abs(v) ** EXP <= 1;
-
-    /* Everything is stored in normalised units, so a resize only rescales — the animation keeps its place. */
     const P = new Array(N);
     for (let i = 0; i < N; i++) {
       let u, v; do { u = Math.random() * 2 - 1; v = Math.random() * 2 - 1; } while (!inside(u, v));
-      P[i] = {
-        tu: u, tv: v,                                           /* target inside the lozenge */
-        sx: Math.random() * 1.6 - 0.8, sy: -0.55 - Math.random() * 0.9,   /* start above frame */
-        r: 0.12 + Math.random() * 0.34, a: Math.random() * Math.PI * 2,  /* swirl orbit */
-        w: (Math.random() < .5 ? -1 : 1) * (1.6 + Math.random() * 2.4),
-        d: Math.random() * 0.16, ph: Math.random() * 6.283
-      };
+      P[i] = { tu: u, tv: v, sx: Math.random() * 1.6 - .8, sy: -.55 - Math.random() * .9, r: .12 + Math.random() * .34, a: Math.random() * 6.283, w: (Math.random() < .5 ? -1 : 1) * (1.6 + Math.random() * 2.4), d: Math.random() * .16, ph: Math.random() * 6.283 };
     }
-    const G = Array.from({ length: AMBIENT }, () => ({ x: Math.random(), y: Math.random(), s: 0.004 + Math.random() * 0.01, ph: Math.random() * 6.283 }));
-    const shape = Array.from({ length: VERTS }, (_, i) => {
-      const t = i / VERTS * Math.PI * 2, c = Math.cos(t), s = Math.sin(t);
-      const ux = Math.sign(c) * Math.abs(c) ** (2 / EXP), uy = Math.sign(s) * Math.abs(s) ** (2 / EXP);
-      const len = Math.hypot(ux, uy) || 1;
-      return { t, ux, uy, nx: ux / len, ny: uy / len };
-    });
-
+    const G = Array.from({ length: AMBIENT }, () => ({ x: Math.random(), y: Math.random(), s: .004 + Math.random() * .01, ph: Math.random() * 6.283 }));
+    const shape = Array.from({ length: VERTS }, (_, i) => { const t = i / VERTS * 6.283, c = Math.cos(t), s = Math.sin(t); const ux = Math.sign(c) * Math.abs(c) ** (2 / EXP), uy = Math.sign(s) * Math.abs(s) ** (2 / EXP); const l = Math.hypot(ux, uy) || 1; return { t, ux, uy, nx: ux / l, ny: uy / l }; });
     let W = 0, H = 0, clock = reduced ? DURATION : 0, running = false, onScreen = true, prev = 0;
-
-    const resize = () => {
-      const r = cv.getBoundingClientRect();
-      const dpr = Math.min(2, window.devicePixelRatio || 1);
-      W = r.width; H = r.height;
-      cv.width = Math.max(1, Math.round(W * dpr)); cv.height = Math.max(1, Math.round(H * dpr));
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      if (!running) draw(prev || performance.now());
-    };
-
-    /* Swirl clock: slows to a hesitation around 45–55% of the timeline */
+    const resize = () => { const r = cv.getBoundingClientRect(); const dpr = Math.min(small ? 1.5 : 2, devicePixelRatio || 1); W = r.width; H = r.height; cv.width = Math.max(1, Math.round(W * dpr)); cv.height = Math.max(1, Math.round(H * dpr)); ctx.setTransform(dpr, 0, 0, dpr, 0, 0); if (!running) draw(prev || performance.now()); };
     const swirlT = p => p < .45 ? p : p < .55 ? .45 + (p - .45) * .2 : .47 + (p - .55);
-
     function draw(now) {
       if (!W || !H) return;
-      const p = clamp(clock / DURATION);
-      const t = reduced ? 0 : now / 1000;
-      const sc = reduced ? 0 : clamp(scrollY / 600);
-      const cx = W * .5, cy = H * .52;
-      const A = W * .21, B = H * .33;
-      ctx.clearRect(0, 0, W, H);
-      ctx.globalCompositeOperation = 'lighter';
-
-      /* Particle cloud */
+      const p = clamp(clock / DURATION), t = reduced ? 0 : now / 1000, sc = reduced ? 0 : clamp(sy / 600);
+      const cx = W * .5, cy = H * .52, A = W * .21, B = H * .33;
+      ctx.clearRect(0, 0, W, H); ctx.globalCompositeOperation = 'lighter';
       const cloudA = 1 - clamp((p - .8) / .2);
       if (cloudA > 0) {
-        const k2 = ease(clamp((p - .55) / .25));          /* the hard collapse */
-        const spread = lerp(1.18, 1, k2);                   /* spacing closes as they land */
-        const size = 1 + k2;
+        const k2 = ease(clamp((p - .55) / .25)), spread = lerp(1.18, 1, k2), size = 1 + k2, sw = swirlT(p);
         ctx.fillStyle = rgba(lerpC(PAPER, RIM, k2), .85 * cloudA * clamp(p * 5));
-        const sw = swirlT(p);
         for (let i = 0; i < N; i++) {
-          const q = P[i];
-          const k1 = ease(clamp((p - q.d) / .42));
-          const ang = q.a + q.w * sw;
+          const q = P[i], k1 = ease(clamp((p - q.d) / .42)), ang = q.a + q.w * sw;
           const wx = Math.cos(ang) * q.r * W, wy = Math.sin(ang) * q.r * W * .9;
           const jx = Math.sin(t * 2.3 + q.ph) * 3 * (1 - k2), jy = Math.cos(t * 1.7 + q.ph) * 3 * (1 - k2);
-          const x = lerp(lerp(q.sx * W, wx, k1) + jx, q.tu * A * spread, k2);
-          const y = lerp(lerp(q.sy * H, wy, k1) + jy, q.tv * B * spread, k2);
-          ctx.fillRect(cx + x - size / 2, cy + y - size / 2, size, size);
+          ctx.fillRect(cx + lerp(lerp(q.sx * W, wx, k1) + jx, q.tu * A * spread, k2) - size / 2, cy + lerp(lerp(q.sy * H, wy, k1) + jy, q.tv * B * spread, k2) - size / 2, size, size);
         }
       }
-
-      /* Ambient grains — always present, about 40 */
       ctx.fillStyle = rgba(RIM, .38);
-      for (const g of G) {
-        const gy = ((g.y - (reduced ? 0 : t * g.s)) % 1 + 1) % 1;
-        const gx = g.x + Math.sin(t * .6 + g.ph) * .015;
-        ctx.fillRect(gx * W, gy * H, 1.4, 1.4);
-      }
-
-      /* Jelly body */
+      for (const g of G) { const gy = ((g.y - (reduced ? 0 : t * g.s)) % 1 + 1) % 1; ctx.fillRect((g.x + Math.sin(t * .6 + g.ph) * .015) * W, gy * H, 1.4, 1.4); }
       const jA = ease(clamp((p - .8) / .2));
       if (jA > 0) {
         ctx.globalCompositeOperation = 'source-over';
-        const amp = reduced ? 0 : W * .015;
-        const sx = 1 + .06 * sc, sy = 1 - .14 * sc;
-        const lift = -Math.min(scrollY * .3, H * .12) * (reduced ? 0 : 1);
-        const rim = 1 + .6 * sc;
-        const pts = shape.map(v => {
-          const wob = amp * (.6 * Math.sin(v.t * 3 + t * 1.15) + .4 * Math.sin(v.t * 5 - t * 1.9));
-          return [cx + v.ux * A * sx + v.nx * wob, cy + lift + v.uy * B * sy + v.ny * wob];
-        });
-        ctx.beginPath();
-        const m0 = [(pts[VERTS - 1][0] + pts[0][0]) / 2, (pts[VERTS - 1][1] + pts[0][1]) / 2];
-        ctx.moveTo(m0[0], m0[1]);
-        for (let i = 0; i < VERTS; i++) {
-          const a = pts[i], b = pts[(i + 1) % VERTS];
-          ctx.quadraticCurveTo(a[0], a[1], (a[0] + b[0]) / 2, (a[1] + b[1]) / 2);
-        }
+        const amp = reduced ? 0 : W * .015, sx = 1 + .06 * sc, syc = 1 - .14 * sc, lift = reduced ? 0 : -Math.min(sy * .3, H * .12), rim = 1 + .6 * sc;
+        const pts = shape.map(v => { const wob = amp * (.6 * Math.sin(v.t * 3 + t * 1.15) + .4 * Math.sin(v.t * 5 - t * 1.9)); return [cx + v.ux * A * sx + v.nx * wob, cy + lift + v.uy * B * syc + v.ny * wob]; });
+        ctx.beginPath(); ctx.moveTo((pts[VERTS - 1][0] + pts[0][0]) / 2, (pts[VERTS - 1][1] + pts[0][1]) / 2);
+        for (let i = 0; i < VERTS; i++) { const a = pts[i], b = pts[(i + 1) % VERTS]; ctx.quadraticCurveTo(a[0], a[1], (a[0] + b[0]) / 2, (a[1] + b[1]) / 2); }
         ctx.closePath();
-
-        const top = cy + lift - B * sy, bot = cy + lift + B * sy;
+        const top = cy + lift - B * syc, bot = cy + lift + B * syc;
         const fill = ctx.createLinearGradient(0, top, 0, bot);
-        fill.addColorStop(0, rgba(RIM, .40 * jA));
-        fill.addColorStop(.45, rgba(VIOLET, .30 * jA));
-        fill.addColorStop(1, rgba(PURPLE, .88 * jA));
+        fill.addColorStop(0, rgba(RIM, .40 * jA)); fill.addColorStop(.45, rgba(VIOLET, .30 * jA)); fill.addColorStop(1, rgba(PURPLE, .88 * jA));
         ctx.fillStyle = fill; ctx.fill();
-
-        /* One soft caustic drifting across the body */
         ctx.save(); ctx.clip();
         const hx = cx + Math.sin(t * .35) * A * .5, hy = cy + lift - B * .35 + Math.cos(t * .27) * B * .22;
         const caustic = ctx.createRadialGradient(hx, hy, 0, hx, hy, A * .95);
-        caustic.addColorStop(0, rgba(PAPER, .26 * jA));
-        caustic.addColorStop(.5, rgba(RIM, .08 * jA));
-        caustic.addColorStop(1, rgba(RIM, 0));
-        ctx.globalCompositeOperation = 'lighter';
-        ctx.fillStyle = caustic; ctx.fillRect(cx - A * 2, top - 20, A * 4, bot - top + 40);
+        caustic.addColorStop(0, rgba(PAPER, .26 * jA)); caustic.addColorStop(.5, rgba(RIM, .08 * jA)); caustic.addColorStop(1, rgba(RIM, 0));
+        ctx.globalCompositeOperation = 'lighter'; ctx.fillStyle = caustic; ctx.fillRect(cx - A * 2, top - 20, A * 4, bot - top + 40);
         ctx.restore();
-
-        /* Rim light */
+        /* Rim light: three widening strokes instead of shadowBlur (shadowBlur halved frame rate on throttled phones) */
         ctx.globalCompositeOperation = 'lighter';
-        ctx.lineWidth = 1.5;
-        ctx.strokeStyle = rgba(RIM, Math.min(1, .7 * rim) * jA);
-        ctx.shadowColor = rgba(VIOLET, .9 * jA);
-        ctx.shadowBlur = 18 * rim;
-        ctx.stroke();
-        ctx.shadowBlur = 0;
+        ctx.strokeStyle = rgba(VIOLET, .10 * jA * rim); ctx.lineWidth = 14; ctx.stroke();
+        ctx.strokeStyle = rgba(VIOLET, .22 * jA * rim); ctx.lineWidth = 6; ctx.stroke();
+        ctx.strokeStyle = rgba(RIM, Math.min(1, .7 * rim) * jA); ctx.lineWidth = 1.5; ctx.stroke();
       }
       ctx.globalCompositeOperation = 'source-over';
     }
-
-    function loop(now) {
-      const dt = Math.min(50, now - prev || 16); prev = now;
-      if (clock < DURATION) clock += dt;
-      draw(now);
-      running = onScreen && !document.hidden;
-      if (running) requestAnimationFrame(loop);
-    }
+    function loop(now) { const dt = Math.min(50, now - prev || 16); prev = now; if (clock < DURATION) clock += dt; draw(now); running = onScreen && !document.hidden; if (running) requestAnimationFrame(loop); }
     const start = () => { if (reduced || running) return; running = true; prev = performance.now(); requestAnimationFrame(loop); };
-
     resize();
     if ('ResizeObserver' in window) new ResizeObserver(resize).observe(cv); else addEventListener('resize', resize);
-    if (!reduced) {
-      new IntersectionObserver(([e]) => { onScreen = e.isIntersecting; if (onScreen) start(); }).observe(cv);
-      document.addEventListener('visibilitychange', () => { if (!document.hidden) start(); });
-      start();
+    if (!reduced) { new IntersectionObserver(([e]) => { onScreen = e.isIntersecting; if (onScreen) start(); }).observe(cv); document.addEventListener('visibilitychange', () => { if (!document.hidden) start(); }); start(); }
+  })();
+
+  /* ── SCENE 02: jelly flood (WebGL height-field, scroll-driven) ── */
+  (() => {
+    if (!motion) return;
+    const cv = document.getElementById('flow'), stage = cv.parentElement;
+    const a = stage.querySelector('.flow-a'), b = stage.querySelector('.flow-b');
+    const gl = cv.getContext('webgl', { premultipliedAlpha: true, antialias: false, alpha: true });
+    const scale = small ? .5 : .75;
+    let P = 0, visible = false, raf = 0, uR, uT, uP, uC;
+    const text = p => {
+      const fa = 1 - clamp((p - .22) / .14), fb = clamp((p - .34) / .12) * (1 - clamp((p - .78) / .12));
+      a.style.opacity = fa; a.style.transform = `translateY(${-(1 - fa) * 40}px)`;
+      b.style.opacity = fb; b.style.transform = `translateY(${(1 - clamp((p - .34) / .12)) * 30}px) scale(${1 + .04 * fb})`;
+    };
+    if (!gl) { /* no WebGL: text choreography still runs over a flat jelly gradient */
+      stage.style.background = 'linear-gradient(180deg, var(--plum), var(--purple))';
+      handlers.flow = p => text(p); return;
     }
-  }
+    const vs = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
+    const fs = `precision mediump float;uniform vec2 R;uniform float T;uniform float P;uniform vec3 C1;uniform vec3 C2;uniform vec3 C3;
+      float h1(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+      float lrp(float a,float b,float t){return a+(b-a)*t;}vec3 lrp(vec3 a,vec3 b,float t){return a+(b-a)*t;}
+      float n2(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.-2.*f);return lrp(lrp(h1(i),h1(i+vec2(1.,0.)),u.x),lrp(h1(i+vec2(0.,1.)),h1(i+vec2(1.,1.)),u.x),u.y);}
+      float fb(vec2 p){float v=0.,a=.5;for(int i=0;i<${small ? 3 : 4};i++){v+=a*n2(p);p*=2.03;a*=.5;}return v;}
+      void main(){
+        vec2 uv=gl_FragCoord.xy/R; float asp=R.x/R.y; float x=uv.x*asp;
+        float rise=smoothstep(.02,.5,P)*1.32; float drain=smoothstep(.62,.98,P)*1.36;
+        float w=.045*sin(x*2.6+T*1.1)+.025*sin(x*6.3-T*1.6)+.07*(fb(vec2(x*1.3,T*.22))-.5);
+        float top=rise-.16+w; float bot=drain-.2+w*.7;
+        float dT=top-uv.y; float dB=uv.y-bot;
+        float ins=smoothstep(0.,.006,dT)*smoothstep(0.,.006,dB);
+        if(ins<=.001){gl_FragColor=vec4(0.);return;}
+        vec2 q=vec2(x,uv.y)*2.1+vec2(0.,T*.1); float e=.025;
+        float h=fb(q); float hx=fb(q+vec2(e,0.))-h; float hy=fb(q+vec2(0.,e))-h;
+        vec3 n=normalize(vec3(-hx/e*.45,-hy/e*.45,1.));
+        vec3 l=normalize(vec3(-.45,.65,.62));
+        float spec=pow(max(dot(reflect(-l,n),vec3(0.,0.,1.)),0.),48.);
+        float diff=.55+.45*max(dot(n,l),0.);
+        vec3 col=lrp(C1,C2,clamp(uv.y*.55+h*.5-.15,0.,1.))*diff;
+        float rim=exp(-dT*70.)+.6*exp(-dB*70.);
+        col+=spec*vec3(.96,.92,1.)*.55+rim*C3*.9+(1.-n.z)*C3*.35;
+        float a=ins*.97; gl_FragColor=vec4(col*a,a);
+      }`;
+    const sh = (t, s) => { const o = gl.createShader(t); gl.shaderSource(o, s); gl.compileShader(o); return gl.getShaderParameter(o, gl.COMPILE_STATUS) ? o : null; };
+    const v = sh(gl.VERTEX_SHADER, vs), f = sh(gl.FRAGMENT_SHADER, fs);
+    if (!v || !f) { handlers.flow = p => text(p); return; }
+    const prog = gl.createProgram(); gl.attachShader(prog, v); gl.attachShader(prog, f); gl.linkProgram(prog); gl.useProgram(prog);
+    const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(prog, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    uR = gl.getUniformLocation(prog, 'R'); uT = gl.getUniformLocation(prog, 'T'); uP = gl.getUniformLocation(prog, 'P');
+    const c = n => rgb(n).map(x => x / 255);
+    gl.uniform3fv(gl.getUniformLocation(prog, 'C1'), c('--purple')); gl.uniform3fv(gl.getUniformLocation(prog, 'C2'), c('--violet')); gl.uniform3fv(gl.getUniformLocation(prog, 'C3'), c('--rim'));
+    const size = () => { const r = cv.getBoundingClientRect(); cv.width = Math.max(1, Math.round(r.width * scale)); cv.height = Math.max(1, Math.round(r.height * scale)); gl.viewport(0, 0, cv.width, cv.height); };
+    size(); addEventListener('resize', size);
+    const render = now => {
+      gl.uniform2f(uR, cv.width, cv.height); gl.uniform1f(uT, now / 1000); gl.uniform1f(uP, P);
+      gl.clearColor(0, 0, 0, 0); gl.clear(gl.COLOR_BUFFER_BIT); gl.drawArrays(gl.TRIANGLES, 0, 3);
+      raf = visible && P > 0.005 && P < 0.995 ? requestAnimationFrame(render) : 0;
+    };
+    handlers.flow = p => { P = p; text(p); if (!raf) raf = requestAnimationFrame(render); };
+    new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible && !raf) raf = requestAnimationFrame(render); }).observe(cv);
+  })();
+
+  /* ── SCENE 03: FIBRE splits open around the stick ── */
+  (() => {
+    if (!motion) return;
+    const letters = [...document.querySelectorAll('.word span')], stick = document.querySelector('.reveal-stick'), cap = document.querySelector('.arch-cap');
+    const dirs = [[-1.25, -.18], [-.9, .22], [0, -1.15], [.9, .2], [1.25, -.16]];
+    handlers.arch = p => {
+      const k = ease(clamp((p - .12) / .55));
+      const w = innerWidth;
+      letters.forEach((el, i) => { const [dx, dy] = dirs[i]; el.style.transform = `translate(${dx * k * w * .22}px, ${dy * k * innerHeight * .32}px) rotate(${dx * k * 6}deg)`; el.style.opacity = 1 - k * .55; });
+      stick.style.transform = `scale(${.6 + k * .55}) rotate(${-8 + k * 4}deg)`; stick.style.opacity = clamp(k * 1.6);
+      cap.style.opacity = clamp((p - .55) / .2); cap.style.transform = `translateY(${(1 - clamp((p - .55) / .2)) * 24}px)`;
+    };
+    handlers.arch(0);
+  })();
+
+  /* ── SCENE 04: horizontal flavour journey (desktop only) ── */
+  (() => {
+    if (!motion) return;
+    const trackEl = document.querySelector('.lab-track'), dots = [...document.querySelectorAll('.lab-dots i')];
+    const wide = matchMedia('(min-width: 900px)');
+    handlers.lab = p => {
+      if (!wide.matches) { trackEl.style.transform = ''; return; }
+      const k = clamp((p - .04) / .92);
+      trackEl.style.transform = `translate3d(${-k * 200}vw,0,0)`;
+      const idx = Math.min(2, Math.round(k * 2)); dots.forEach((d, i) => d.classList.toggle('on', i === idx));
+    };
+  })();
+
+  /* ── SCENE 05: sticks fly in and assemble into the two packs (the twist) ── */
+  (() => {
+    if (!motion) return;
+    const field = document.getElementById('coll-field'), stageEl = field.closest('.pin-stage');
+    const slots = [...field.querySelectorAll('.slots i')];
+    const minis = slots.map((_, i) => { const m = document.createElement('i'); m.className = `mini f${(i % 3) + 1}`; stageEl.appendChild(m); return m; });
+    let targets = [], starts = [];
+    const layout = () => {
+      const sr = stageEl.getBoundingClientRect();
+      targets = slots.map(s => { const r = s.getBoundingClientRect(); return { x: r.left - sr.left, y: r.top - sr.top, w: r.width, h: r.height }; });
+      starts = targets.map((_, i) => ({ x: sr.width * (.5 + Math.sin(i * 12.9898) * .42), y: sr.height * (.5 + Math.cos(i * 78.233) * .4), r: (Math.sin(i * 3.7) * 90), s: 1.6 + Math.abs(Math.sin(i * 1.3)) * .9 }));
+      minis.forEach((m, i) => { m.style.width = targets[i].w + 'px'; m.style.height = targets[i].h + 'px'; });
+    };
+    layout(); addEventListener('resize', () => { layout(); handlers.coll(pins.find(p => p.key === 'coll').p); });
+    handlers.coll = p => {
+      minis.forEach((m, i) => {
+        const delay = (i % 10) * .025 + (i >= 10 ? .12 : 0);
+        const k = ease(clamp((p - .08 - delay) / .5));
+        const s = starts[i], t = targets[i];
+        m.style.transform = `translate(${lerp(s.x, t.x, k)}px, ${lerp(s.y, t.y, k)}px) rotate(${lerp(s.r, 0, k)}deg) scale(${lerp(s.s, 1, k)})`;
+        m.style.opacity = clamp(.25 + p * 3);
+      });
+    };
+    handlers.coll(0);
+  })();
 
   /* ── Waitlist: local only, no network call ── */
   const form = document.getElementById('wl');
@@ -825,15 +946,12 @@ p{ margin:0; max-width:var(--measure); text-wrap:pretty; }
     const input = form.querySelector('input'), err = document.getElementById('wl-err');
     form.addEventListener('submit', e => {
       e.preventDefault();
-      if (!input.value.trim() || !input.checkValidity()) {
-        err.textContent = 'Enter an email address like name@domain.com.';
-        input.setAttribute('aria-invalid', 'true'); input.focus(); return;
-      }
-      err.textContent = ''; input.removeAttribute('aria-invalid');
-      form.dataset.state = 'done';
+      if (!input.value.trim() || !input.checkValidity()) { err.textContent = 'Enter an email address like name@domain.com.'; input.setAttribute('aria-invalid', 'true'); input.focus(); return; }
+      err.textContent = ''; input.removeAttribute('aria-invalid'); form.dataset.state = 'done';
     });
     input.addEventListener('input', () => { if (err.textContent) err.textContent = ''; });
   }
+  onFrame();
 })();
 </script>
 </body>
