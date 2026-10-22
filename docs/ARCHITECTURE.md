@@ -56,13 +56,13 @@ Easing throughout is `cubic-bezier(.16,1,.3,1)`, solved in JS by Newton iteratio
 
 ## 3 · Asset flow: pack renders
 
-Renders are not ready yet. Each flavour panel holds a fixed `aspect-ratio: 3/4` drop zone, so the swap cannot shift layout.
+Renders are live (founder renders, claim lines retouched out). Each flavour panel holds a fixed `aspect-ratio: 3/4` drop zone, so the swap cannot shift layout.
 
 ```mermaid
 flowchart LR
-  render["Approved pack render<br/>(still → reviewed at full size)"] --> export["Export 900×1200 WebP<br/>name: flavour-0N.webp"]
+  render["Approved pack render<br/>(still → reviewed at full size)"] --> export["Retouch claim lines out<br/>cut out, 900×1200 WebP<br/>name: &lt;slug&gt;.webp"]
   export --> dir["assets/flavours/"]
-  dir --> slot["index.html<br/>.shot[data-slot=flavour-0N]<br/>uncomment the img tag"]
+  dir --> slot["index.html<br/>.shot[data-slot=flavour-&lt;slug&gt;]<br/>img, object-fit: contain"]
   slot --> css{".shot:has(img)"}
   css -- true --> hide["CSS stick stand-in hidden<br/>img fills box · object-fit: cover"]
   css -- false --> stand["CSS stick stand-in shown<br/>hue = --flavour-N"]

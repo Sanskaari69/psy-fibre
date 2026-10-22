@@ -182,6 +182,32 @@ html:not(.anim) .arch-cap{ position:static; padding-top:var(--s-6); }
 
 
 
+/* ══ SCENE 03b · Lights up on the line ═══════════ */
+.line{ background:var(--plum); position:relative; }
+.line-fig{ position:relative; margin:0; }
+.line-img{ display:block; width:100%; height:auto; }
+.line-veil, .line-sweep{ display:none; }
+.line-copy{ display:grid; gap:var(--s-4); padding:var(--s-6) var(--gutter-r) var(--band-y) var(--gutter-l); max-width:calc(var(--max) + 32px); margin-inline:auto; }
+.line-copy .h2 span{ display:block; }
+.line-cap{ color:var(--mute); font-size:11px; }
+@media (min-width: 900px){
+  .line-copy{ position:absolute; left:max(var(--gutter-l), calc((100vw - var(--max)) / 2)); top:50%; translate:0 -50%; padding:0; max-width:min(40vw, 520px); margin:0; z-index:2; }
+  .anim .line{ height:220vh; }
+  .anim .line .pin-stage{ --k:0; }
+  .anim .line-fig{ position:absolute; inset:0; overflow:hidden; }
+  .anim .line-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:72% 50%; transform-origin:72% 58%;
+    transform:scale(calc(1.28 - .28 * min(1, var(--k) * 1.6))); will-change:transform; }
+  .anim .line-veil{ display:block; position:absolute; inset:0; background:var(--plum); opacity:calc(.92 - .92 * min(1, var(--k) * 1.8)); pointer-events:none; }
+  .anim .line-sweep{ display:block; position:absolute; inset:-20% 0; pointer-events:none;
+    background:linear-gradient(100deg, transparent 40%, rgba(201,163,255,.16) 50%, transparent 60%);
+    transform:translateX(calc(-70% + 160% * min(1, var(--k) * 1.4))); opacity:calc(1 - min(1, max(0, var(--k) - .55) * 4)); }
+  .anim .line .ln, .anim .line .line-cap, .anim .line .eyebrow{ transition:none; }
+  .anim .line .eyebrow{ opacity:clamp(0, (var(--k) - .28) * 6, 1); transform:translateY(calc(18px - 18px * clamp(0, (var(--k) - .28) * 6, 1))); }
+  .anim .line .ln:nth-child(1){ opacity:clamp(0, (var(--k) - .36) * 6, 1); transform:translateY(calc(30px - 30px * clamp(0, (var(--k) - .36) * 6, 1))); }
+  .anim .line .ln:nth-child(2){ opacity:clamp(0, (var(--k) - .48) * 6, 1); transform:translateY(calc(30px - 30px * clamp(0, (var(--k) - .48) * 6, 1))); }
+  .anim .line .line-cap{ opacity:clamp(0, (var(--k) - .62) * 6, 1); }
+}
+
 /* ══ SCENE 04 · Flavour laboratory ═══════════════ */
 .lab{ background:var(--plum); }
 .lab-head{ max-width:calc(var(--max) + 32px); margin-inline:auto; padding:var(--band-y) var(--gutter-r) var(--s-6) var(--gutter-l); display:flex; justify-content:space-between; align-items:end; gap:var(--s-5); flex-wrap:wrap; }
@@ -190,9 +216,9 @@ html:not(.anim) .arch-cap{ position:static; padding-top:var(--s-6); }
 .f-scene{ background:radial-gradient(55% 65% at 76% 55%, rgba(155,77,255,.16), transparent 70%), var(--plum); }
 .f-scene::before{ content:""; position:absolute; right:12%; top:50%; width:min(46vw, 560px); aspect-ratio:1; translate:0 -50%; border-radius:50%; background:radial-gradient(circle at 40% 40%, var(--a), transparent 62%); opacity:.18; filter:blur(30px); pointer-events:none; }
 .f-scene::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:1px; background:linear-gradient(90deg, var(--a), var(--b)); opacity:.6; }
-.f-scene[data-flavour="mango-lime"]{ --a:var(--mango); --b:var(--lime); }
-.f-scene[data-flavour="raspberry-blood-orange"]{ --a:var(--raspberry); --b:var(--blood-orange); }
-.f-scene[data-flavour="watermelon-mint"]{ --a:var(--watermelon); --b:var(--mint); }
+.f-scene[data-flavour="mango-lime"]{ --a:var(--mango); --b:var(--lime); --glow:rgba(242,181,58,.32); }
+.f-scene[data-flavour="raspberry-blood-orange"]{ --a:var(--raspberry); --b:var(--blood-orange); --glow:rgba(232,67,110,.34); }
+.f-scene[data-flavour="watermelon-mint"]{ --a:var(--watermelon); --b:var(--mint); --glow:rgba(134,217,174,.30); }
 .f-copy{ position:relative; z-index:1; display:grid; gap:var(--s-5); max-width:560px; }
 .f-top{ display:flex; gap:var(--s-5); align-items:center; color:var(--mute); }
 .f-top .idx{ color:var(--a); }
@@ -203,7 +229,7 @@ html:not(.anim) .arch-cap{ position:static; padding-top:var(--s-6); }
 .f-note{ font-size:var(--t-22); line-height:1.45; color:var(--paper); max-width:30ch; }
 .f-meta{ display:flex; gap:var(--s-3); align-items:center; flex-wrap:wrap; color:var(--mute); font-size:var(--t-15); }
 .shot{ position:relative; z-index:1; aspect-ratio:3/4; width:100%; max-width:420px; max-height:72vh; justify-self:center; overflow:hidden; }
-.shot img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.shot img{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; rotate:-4deg; filter:drop-shadow(0 40px 60px var(--glow)); transition:rotate 900ms var(--ease-out), translate 900ms var(--ease-out); }
 .stick{ position:absolute; left:50%; top:50%; width:34%; height:82%; translate:-50% -50%; rotate:-5deg; border-radius:4px;
   background:
     repeating-linear-gradient(0deg, rgba(246,243,250,.2) 0 1px, transparent 1px 3px) top/100% 8% no-repeat,
@@ -215,6 +241,7 @@ html:not(.anim) .arch-cap{ position:static; padding-top:var(--s-6); }
 .stick::before{ content:""; position:absolute; left:14%; right:42%; top:30%; height:12%; background:url("assets/brand/psy-wordmark.png") center/contain no-repeat; opacity:.95; }
 .stick::after{ content:""; position:absolute; inset:0; border-radius:inherit; background:linear-gradient(105deg, transparent 35%, rgba(246,243,250,.26) 48%, transparent 60%) -150% 0/250% 100% no-repeat; animation:sheen 6s var(--ease-io) infinite; }
 .f-scene:hover .stick{ rotate:-1deg; translate:-50% -52%; }
+.f-scene:hover .shot img{ rotate:-1deg; translate:0 -2%; }
 .shot:has(img) .stick{ display:none; }
 @keyframes sheen{ 0%,55%{ background-position:-150% 0; } 100%{ background-position:150% 0; } }
 .shot-tag{ position:absolute; left:0; bottom:0; color:var(--mute); font-size:11px; z-index:2; }
@@ -315,6 +342,8 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
   .box p{ font-size:var(--t-15); }
   .slots{ --sw:clamp(12px, 3.4vw, 22px); gap:4px; }
   .anim .coll{ height:200vh; }
+  .anim .line .pin-stage{ position:relative; height:auto; overflow:visible; }
+  .line-img{ aspect-ratio:5/4; object-fit:cover; object-position:80% 60%; }
 }
 @media (max-width: 640px){
   .trio{ grid-template-columns:1fr; }
@@ -510,18 +539,37 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
 
 
 
+<!-- ══ SCENE 03b · Lights up on the line ══ -->
+<section class="pin line" data-pin="line" aria-labelledby="line-h">
+  <div class="pin-stage">
+    <figure class="line-fig">
+      <picture>
+        <source srcset="assets/scenes/lineup.webp" type="image/webp">
+        <img class="line-img" src="assets/scenes/lineup.jpg" alt="Three psy daily fibre jelly sticks standing on a wet dark surface: Mango + Lime, Raspberry + Blood Orange and Watermelon + Mint, each beside its fruit" width="1672" height="941" loading="lazy" decoding="async">
+      </picture>
+      <div class="line-veil" aria-hidden="true"></div>
+      <div class="line-sweep" aria-hidden="true"></div>
+    </figure>
+    <div class="line-copy">
+      <p class="eyebrow r">Fig. 03b · The line</p>
+      <h2 class="h2" id="line-h"><span class="ln r" style="--d:1">Now,</span><span class="ln r" style="--d:2"><em>the stick.</em></span></h2>
+      <p class="line-cap mono r" style="--d:3">Pack renders. Final artwork follows formulation lock.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ══ SCENE 04 · Flavour laboratory ══ -->
 <section class="lab" id="flavours" aria-labelledby="flavours-h">
   <div class="lab-head">
     <div style="display:grid;gap:var(--s-4)">
-      <p class="eyebrow r">The line</p>
+      <p class="eyebrow r">Flavour laboratory</p>
       <h2 class="h2 r" id="flavours-h" style="--d:1">Three flavours. <em>Three personalities.</em></h2>
     </div>
     <p class="mute r" style="--d:2;max-width:36ch">Tasting directions are proposals. Final notes are written after the tasting panel, so they describe what is actually in the stick.</p>
   </div>
   <div class="pin" data-pin="lab">
     <div class="pin-stage">
-      <!-- FLAVOURS: one block. Drop renders into assets/flavours/<slug>.webp (900×1200) and uncomment the img. -->
+      <!-- FLAVOURS: one block. Renders live in assets/flavours/<slug>.webp (900×1200, transparent). Claim lines retouched out; replace when final artwork exists. -->
       <div class="lab-track">
         <article class="f-scene" data-flavour="mango-lime">
           <div class="f-copy">
@@ -531,7 +579,7 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
             <p class="f-meta"><span>Proposed tasting direction</span><span class="pend">pending panel</span></p>
           </div>
           <div class="shot" data-slot="flavour-mango-lime">
-            <!-- DROP ZONE: <img src="assets/flavours/mango-lime.webp" alt="psy Mango + Lime fibre jelly stick" width="900" height="1200" loading="lazy"> -->
+            <img src="assets/flavours/mango-lime.webp" alt="psy Mango + Lime daily fibre jelly stick, pack render" width="900" height="1200" loading="lazy" decoding="async">
             <span class="stick" aria-hidden="true"></span>
             <span class="shot-tag mono">Fig. 04a</span>
           </div>
@@ -544,7 +592,7 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
             <p class="f-meta"><span>Proposed tasting direction</span><span class="pend">pending panel</span></p>
           </div>
           <div class="shot" data-slot="flavour-raspberry-blood-orange">
-            <!-- DROP ZONE: <img src="assets/flavours/raspberry-blood-orange.webp" alt="psy Raspberry + Blood Orange fibre jelly stick" width="900" height="1200" loading="lazy"> -->
+            <img src="assets/flavours/raspberry-blood-orange.webp" alt="psy Raspberry + Blood Orange daily fibre jelly stick, pack render" width="900" height="1200" loading="lazy" decoding="async">
             <span class="stick" aria-hidden="true"></span>
             <span class="shot-tag mono">Fig. 04b</span>
           </div>
@@ -557,7 +605,7 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
             <p class="f-meta"><span>Proposed tasting direction</span><span class="pend">pending panel</span></p>
           </div>
           <div class="shot" data-slot="flavour-watermelon-mint">
-            <!-- DROP ZONE: <img src="assets/flavours/watermelon-mint.webp" alt="psy Watermelon + Mint fibre jelly stick" width="900" height="1200" loading="lazy"> -->
+            <img src="assets/flavours/watermelon-mint.webp" alt="psy Watermelon + Mint daily fibre jelly stick, pack render" width="900" height="1200" loading="lazy" decoding="async">
             <span class="stick" aria-hidden="true"></span>
             <span class="shot-tag mono">Fig. 04c</span>
           </div>
@@ -912,6 +960,15 @@ html:not(.anim) .slots i{ border-style:solid; background:linear-gradient(90deg, 
       trackEl.style.transform = `translate3d(${-k * 200}vw,0,0)`;
       const idx = Math.min(2, Math.round(k * 2)); dots.forEach((d, i) => d.classList.toggle('on', i === idx));
     };
+  })();
+
+  /* ── SCENE 03b: lights up on the line (zoom out + veil lifts + one light sweep) ── */
+  (() => {
+    if (!motion) return;
+    const st = document.querySelector('.line .pin-stage'); if (!st) return;
+    const wide = matchMedia('(min-width: 900px)');
+    handlers.line = p => { st.style.setProperty('--k', wide.matches ? p.toFixed(4) : 1); };
+    handlers.line(0);
   })();
 
   /* ── SCENE 05: sticks fly in and assemble into the two packs (the twist) ── */

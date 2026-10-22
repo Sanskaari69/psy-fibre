@@ -4,7 +4,7 @@
 
 **Daily Fibre. A New Form.**
 
-A ready-to-eat psyllium fibre jelly in a single stick: Mango + Lime, Raspberry + Blood Orange, Watermelon + Mint. This is the pre-launch site for India, told in seven scenes. Grains pour into a living jelly, the page floods with gel, the word FIBRE splits open around the stick, and thirty sticks fly into their packs.
+A ready-to-eat psyllium fibre jelly in a single stick: Mango + Lime, Raspberry + Blood Orange, Watermelon + Mint. This is the pre-launch site for India, told in seven scenes. Grains pour into a living jelly, the page floods with gel, the word FIBRE splits open around the stick, the lights come up on the three packs, and thirty sticks fly into their packs.
 
 [**Live site →**](https://sanskaari69.github.io/psy-fibre/) &nbsp;·&nbsp; [Design system](design/DESIGN_SYSTEM.md) &nbsp;·&nbsp; [Motion](design/motion.md) &nbsp;·&nbsp; [Architecture](docs/ARCHITECTURE.md) &nbsp;·&nbsp; [Claims rulebook](docs/COMPLIANCE.md)
 
@@ -23,7 +23,7 @@ flowchart LR
   classDef plum fill:#100B1D,stroke:#C9A3FF,color:#F6F3FA
   classDef rise fill:#19102B,stroke:#C9A3FF,color:#F6F3FA
   classDef purple fill:#281238,stroke:#9B4DFF,color:#F6F3FA
-  H["01 Hero<br/>wordmark + canvas reveal"]:::plum --> M["Marquee<br/>scroll velocity"]:::purple --> F["02 Jelly flood<br/>WebGL · pinned 260vh"]:::plum --> P["Problem<br/>.r reveal"]:::plum --> A["03 FIBRE splits<br/>pinned 230vh"]:::rise --> C["Landscape chart"]:::plum --> L["04 Flavour lab<br/>horizontal pin ≥900px"]:::plum --> K["05 Packs assemble<br/>pinned 240vh · the twist"]:::purple --> S["06 How to + spec sheet"]:::rise --> W["07 Final composition<br/>waitlist"]:::plum
+  H["01 Hero<br/>wordmark + canvas reveal"]:::plum --> M["Marquee<br/>scroll velocity"]:::purple --> F["02 Jelly flood<br/>WebGL · pinned 260vh"]:::plum --> P["Problem<br/>.r reveal"]:::plum --> A["03 FIBRE splits<br/>pinned 230vh"]:::rise --> C["Landscape chart"]:::plum --> LU["03b Lights up on the line<br/>pinned 220vh ≥900px"]:::plum --> L["04 Flavour lab<br/>horizontal pin ≥900px"]:::plum --> K["05 Packs assemble<br/>pinned 240vh · the twist"]:::purple --> S["06 How to + spec sheet"]:::rise --> W["07 Final composition<br/>waitlist"]:::plum
 ```
 
 ### Animation pipeline: Format Reveal
@@ -41,7 +41,7 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  RN["Approved render"] --> WP["flavour-0N.webp<br/>900×1200"] --> D["assets/flavours/"] --> SL[".shot[data-slot]<br/>fixed 3/4 box"] --> NS["zero layout shift<br/>CSS stand-in hides"]
+  RN["Founder render"] --> RT["retouch claim lines<br/>cut out"] --> WP["&lt;slug&gt;.webp<br/>900×1200"] --> D["assets/flavours/"] --> SL[".shot[data-slot]<br/>fixed 3/4 box"] --> NS["zero layout shift<br/>CSS stand-in hides"]
   WP --> OG["assets/og/psy-og.png"] --> MT["og:image"]
 ```
 
@@ -92,7 +92,8 @@ psy-fibre/
 │   ├── CONTENT.md        every string on the site, for copy review
 │   └── COMPLIANCE.md     what may and may not be said
 ├── assets/
-│   ├── flavours/         pack renders drop here
+│   ├── flavours/         per-flavour stick renders (transparent)
+│   ├── scenes/           full-bleed scene images
 │   ├── og/               share cards, scroll demo
 │   └── favicon/
 └── .github/workflows/deploy.yml
@@ -124,8 +125,8 @@ Every value below renders as `—` with a `pending` pill until it is confirmed i
 | FSSAI category | Spec sheet | Regulatory review (Gate 5) |
 | Manufactured by | Spec sheet | Manufacturer selection (Gate 2) |
 | Flavour tasting notes (×3) | Flavour laboratory | Sensory panel (Gate 3) |
-| Flavour pack renders (×3) | `assets/flavours/*.webp` | Claim-free renders from the founder |
-| 30-day still life | Final scene | Claim-free render |
+| Flavour pack renders (×3) | `assets/flavours/*.webp`, `assets/scenes/lineup.webp` | Live as retouched renders; swap for final artwork after formulation lock |
+| 30-day still life | Final scene | A render without a straw, the "6 G FIBRE" print or garbled labels |
 | psy 10 and psy 30 price | Packs | Costing and pilot batch |
 | FSSAI licence number | Footer | Licence issued (Gate 5) |
 | Registered address | Footer | Company registration |

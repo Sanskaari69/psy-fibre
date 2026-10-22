@@ -1,6 +1,6 @@
 # Content
 
-> **v2 (22 Oct 2026):** seven scenes. Hero (real `psy` wordmark) → marquee → jelly flood ("Most people quit fibre at the glass," / "*not the idea.*") → problem ("Three steps *too many.*") → FIBRE splits open ("A jelly, *not a drink.*") → format trio → landscape chart → flavour laboratory → packs assemble ("One stick. *Then a habit.*") → how to take it + spec sheet → final composition ("Be *early.*"). The wordmark is the supplied artwork in `assets/brand/psy-wordmark.png`; never retype it.
+> **v2 (22 Oct 2026):** seven scenes. Hero (real `psy` wordmark) → marquee → jelly flood ("Most people quit fibre at the glass," / "*not the idea.*") → problem ("Three steps *too many.*") → FIBRE splits open ("A jelly, *not a drink.*") → format trio → landscape chart → lights up on the line ("Now, *the stick.*") → flavour laboratory → packs assemble ("One stick. *Then a habit.*") → how to take it + spec sheet → final composition ("Be *early.*"). The wordmark is the supplied artwork in `assets/brand/psy-wordmark.png`; never retype it.
 
 Every string on the site, in page order, for copy review without reading HTML. Change a string here, then change it in `index.html`. `[pending]` = rendered as a violet pill.
 
@@ -61,9 +61,15 @@ Footer line: *Daily Fibre, Reimagined.*
 
 > Capsules omitted: no Indian capsule price was found in research. The Japan-vs-India category-size chart is **not** built: Japan has a citable figure (¥106.9 bn, FY Apr 2024–Mar 2025), but India has no citable size for an RTC fibre format to compare against (IMARC's ₹465 cr is isabgol overall).
 
+## 3b · Lights up on the line
+
+- Eyebrow: `FIG. 03B · THE LINE` · H2: **Now, *the stick.***
+- Caption: `PACK RENDERS. FINAL ARTWORK FOLLOWS FORMULATION LOCK.`
+- Image: `assets/scenes/lineup.webp` (founder render, "6 G FIBRE" and "15 g" retouched out).
+
 ## 4 · Flavour laboratory
 
-- Eyebrow: `THE LINE` · H2: **Three flavours. *Three personalities.***
+- Eyebrow: `FLAVOUR LABORATORY` · H2: **Three flavours. *Three personalities.***
 - Side: Tasting directions are proposals. Final notes are written after the tasting panel, so they describe what is actually in the stick.
 - `01 / 03 · THE BRIGHT TROPICAL ONE` **Mango + *Lime***: Round, juicy mango up front. Lime cuts in sharp before it gets heavy, and the finish stays lively.
 - `02 / 03 · THE DEEP, TANGY ONE` **Raspberry + *Blood Orange***: Bright berry tartness laid over bittersweet citrus. The most intense of the three, with the sharpest finish.
@@ -71,6 +77,8 @@ Footer line: *Daily Fibre, Reimagined.*
 - Each: "Proposed tasting direction" + `[pending panel]`.
 
 > Names confirmed from the founder's packaging board. Renders drop into `assets/flavours/<slug>.webp`. The supplied board renders print "6 g fibre", "supports digestive health" and "sachets"; they need claim-free versions before use.
+>
+> **22 Oct 2026:** the founder's single-stick renders are now live, with the "6 G FIBRE" and "15 g" lines removed by inpainting (both values are unconfirmed). The tumbler desk shot is held back: the straw reads as a drink cup (guardrail 1), and its small text is garbled ("MANOR", "WATERMELON MIME") and still prints "6 G FIBRE".
 
 ## 5 · How to take it
 
