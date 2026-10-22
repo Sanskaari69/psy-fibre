@@ -1,0 +1,62 @@
+/* PSY. design tokens — the single source of colour, type, space and motion truth.
+   index.html and every future PSY. surface import this file. Nothing hardcodes a value. */
+
+:root{
+  color-scheme: dark;
+
+  /* ── Colour ───────────────────────────────────────────── */
+  --plum:#100B1D;        /* page ground */
+  --plum-rise:#19102B;   /* raised bands */
+  --purple:#281238;      /* deep accent ground */
+  --violet:#9B4DFF;      /* electric violet — rim light and accents ONLY */
+  --rim:#C9A3FF;         /* hairline highlights */
+  --paper:#F6F3FA;       /* type */
+  --mute:#9A8FAE;        /* secondary type — violet-biased grey, never neutral grey */
+  --line:rgba(201,163,255,.10);
+  --line-strong:rgba(201,163,255,.22);
+
+  /* Flavour accents — derived from the violet family, used only inside flavour panels */
+  --flavour-1:#7A5CFF;   /* indigo-violet */
+  --flavour-2:#C77DFF;   /* orchid */
+  --flavour-3:#E25CFF;   /* magenta-violet */
+
+  /* ── Type families ────────────────────────────────────── */
+  --font-display:"Bodoni Moda", "Didot", "Bodoni 72", "Times New Roman", serif;
+  --font-body:"Hanken Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* ── Type scale: 13 / 15 / 17 / 22 / 30 / 44 / 68 / 104, fluid ── */
+  --t-13:.8125rem;
+  --t-15:.9375rem;
+  --t-17:clamp(1rem, .96rem + .2vw, 1.0625rem);
+  --t-22:clamp(1.1875rem, 1.1rem + .4vw, 1.375rem);
+  --t-30:clamp(1.75rem, 1.55rem + .9vw, 1.875rem);   /* display floor: 28px */
+  --t-44:clamp(2rem, 1.6rem + 1.8vw, 2.75rem);
+  --t-68:clamp(2.375rem, 1.5rem + 3.9vw, 4.25rem);
+  --t-104:clamp(2.875rem, 1.3rem + 7vw, 6.5rem);
+
+  --lead-display:1;
+  --lead-body:1.6;
+  --track-mono:.14em;
+  --measure:65ch;
+
+  /* ── Space ────────────────────────────────────────────── */
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:24px;
+  --s-6:32px; --s-7:48px; --s-8:72px; --s-9:112px; --s-10:160px;
+  --band-y:clamp(72px, 6vw + 40px, 144px);
+  --max:1120px;
+  --gutter-l:max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r:max(16px, env(safe-area-inset-right, 0px));
+
+  /* ── Surface ──────────────────────────────────────────── */
+  --radius-panel:2px;
+  --radius-pill:999px;
+
+  /* ── Motion ───────────────────────────────────────────── */
+  --ease-out:cubic-bezier(.16,1,.3,1);   /* the PSY. curve: everything arrives on this */
+  --ease-io:cubic-bezier(.65,0,.35,1);   /* symmetric — sheens, loops */
+  --dur-reveal:560ms;
+  --dur-hover:220ms;
+  --dur-press:120ms;
+  --stagger:60ms;
+}
